@@ -1,0 +1,15 @@
+{!! Form::open(['route' => ['$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.destroy', $$PRIMARY_KEY_NAME$], 'method' => 'delete']) !!}
+<div class='btn-group'>
+    <a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.show', $$PRIMARY_KEY_NAME$) }}" class='mb-2 mr-2 btn-icon btn btn-primary'>
+        <i class="lnr-crop btn-icon-wrapper"></i>View
+    </a>
+    <a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.edit', $$PRIMARY_KEY_NAME$) }}" class='mb-2 mr-2 btn-icon btn btn-secondary'>
+        <i class="lnr-location btn-icon-wrapper"> </i> Edit
+    </a>
+    {!! Form::button('<i class="pe-7s-trash btn-icon-wrapper"></i>', [
+        'type' => 'submit',
+        'class' => 'mb-2 mr-2 btn-icon btn btn-danger',
+        'onclick' => "return confirm('Are you sure?')"
+    ]) !!}
+</div>
+{!! Form::close() !!}

@@ -1,0 +1,9 @@
+<!-- $FIELD_NAME_TITLE$ Field -->
+<div class="form-group col-sm-6 {{ $errors->has('$FIELD_NAME$') ? 'has-error' : ''}}">
+    {!! Form::label('$FIELD_NAME$', '$FIELD_NAME_TITLE$:',['class' => 'col-sm-4 control-label']) !!}
+
+    <div class="col-sm-12">
+                     {!! Form::email('$FIELD_NAME$', null, ['class' => 'form-control'$SIZE$]) !!}
+                    {!! $errors->first('$FIELD_NAME$', '<p class="help-block">:message</p>') !!}
+                </div>
+</div>
