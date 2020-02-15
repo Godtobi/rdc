@@ -14,6 +14,7 @@
 
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
+Route::get('/logout', 'Auth\LoginController@logout');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -24,11 +25,5 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
 Route::resource('drivers', 'DriversController');
-
-Route::resource('vehicleTypes', 'VehicleTypeController');
-
-Route::resource('vehicleTypes', 'VehicleTypeController');
-
-Route::resource('vehicleTypes', 'VehicleTypeController');
 
 Route::resource('vehicleTypes', 'VehicleTypeController');

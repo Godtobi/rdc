@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\DriversDataTable;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +22,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(DriversDataTable $driversDataTable)
     {
-        return view('home');
+        return $driversDataTable->render('home');
     }
 }
