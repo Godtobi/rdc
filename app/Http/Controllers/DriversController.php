@@ -60,7 +60,13 @@ class DriversController extends AppBaseController
     public function store(CreateDriversRequest $request)
     {
         $input = $request->all();
-        $input['driver_id'] = GenerateRandomString(10, 'ALPHA');
+
+        $localGovt = $input['lga'];
+        $vehicle = $input['vehicle_type_id'];
+        $resLGA = Lga::find($localGovt);
+        $resVehicle = VehicleType::find($vehicle);
+        $driverID = "C-Y-D-".$resLGA->lgaId."-".$resVehicle->vehicleId."-".GenerateRandomString(4, 'ALPHA');
+        $input['driver_id'] = $driverID;
 
 
         if (isset($input['passport'])) {

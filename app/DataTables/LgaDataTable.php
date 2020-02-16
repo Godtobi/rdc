@@ -66,7 +66,6 @@ class LgaDataTable extends DataTable
     {
         return [
             'name',
-            'state_id',
             'lgaId'
         ];
     }
