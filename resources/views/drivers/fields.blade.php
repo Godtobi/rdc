@@ -28,6 +28,27 @@
 </div>
 
 
+
+<div class="form-group col-sm-6  {{ $errors->has('state_id') ? 'has-error' : ''}}">
+    {!! Form::label('state_id', 'State Of Origin', ['class' => 'col-sm-8 control-label']) !!}
+    <div class="col-sm-10">
+        {!! Form::select('state_id', $state, null, ['class' => 'form-control', 'placeholder' => 'Pick a State']) !!}
+        {!! $errors->first('state_id', '<p class="help-block">:message</p>') !!}
+    </div>
+
+</div>
+
+
+<div class="form-group col-sm-6  {{ $errors->has('marital_status') ? 'has-error' : ''}}">
+    {!! Form::label('marital_status', 'Marital Status', ['class' => 'col-sm-8 control-label']) !!}
+    <div class="col-sm-10">
+        {!! Form::select('marital_status', $marital, null, ['class' => 'form-control', 'placeholder' => 'Pick a Status']) !!}
+        {!! $errors->first('marital_status', '<p class="help-block">:message</p>') !!}
+    </div>
+
+</div>
+
+
 <!-- Address Field -->
 <div class="form-group col-sm-6 {{ $errors->has('address') ? 'has-error' : ''}}">
     {!! Form::label('address', 'Address:',['class' => 'col-sm-8 control-label']) !!}
@@ -114,7 +135,7 @@
 
 <!-- Passport Field -->
 <div class="form-group col-sm-6 {{ $errors->has('passport') ? 'has-error' : ''}}">
-    {!! Form::label('passport', 'Passport:',['class' => 'col-sm-8 control-label']) !!}
+    {!! Form::label('passport', 'Picture:',['class' => 'col-sm-8 control-label']) !!}
     <div class="col-sm-12">
         {!! Form::file('passport', null, ['class' => 'form-control']) !!}
         {!! $errors->first('passport', '<p class="help-block">:message</p>') !!}

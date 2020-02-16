@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateDriversRequest;
 use App\Http\Requests\UpdateDriversRequest;
 use App\Models\Lga;
+use App\Models\State;
 use App\Models\VehicleType;
 use App\Repositories\DriversRepository;
 use Flash;
@@ -44,7 +45,9 @@ class DriversController extends AppBaseController
     {
         $lga = Lga::all()->pluck('name', 'id');
         $vehicleType = VehicleType::all()->pluck('name', 'id');
-        return view('drivers.create')->with(compact('lga','vehicleType'));
+        $state = State::where('country_id', '160')->pluck('name', 'id');
+        $marital = config('constants.marital');
+        return view('drivers.create')->with(compact('lga', 'vehicleType', 'marital', 'state'));
     }
 
     /**
@@ -117,7 +120,7 @@ class DriversController extends AppBaseController
     /**
      * Update the specified Drivers in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateDriversRequest $request
      *
      * @return Response

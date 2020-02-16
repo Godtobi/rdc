@@ -18,19 +18,19 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="create_user.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Create Users
                         </a>
                     </li>
                     <li>
-                        <a href="manage_user.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Manage Users
                         </a>
                     </li>
                     <li>
-                        <a href="user_reports.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>User analytics
                         </a>
@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="agent_reports.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Agents Analytics
                         </a>
@@ -94,7 +94,7 @@
                     </li>
 
                     <li>
-                        <a href="driver_reports.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Driver Analytics
                         </a>
@@ -121,7 +121,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="collector_reports.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Collector Analytics
                         </a>
@@ -148,7 +148,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="apps-faq-section.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Collector Analytics
                         </a>
@@ -194,19 +194,19 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="components-tabs.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Generate Receipts
                         </a>
                     </li>
                     <li>
-                        <a href="components-accordions.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Verify Receipts
                         </a>
                     </li>
                     <li>
-                        <a href="components-notifications.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Receipt reports
                         </a>
@@ -221,13 +221,13 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="tables-data-tables.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>View recorded Remittances
                         </a>
                     </li>
                     <li>
-                        <a href="tables-regular.html">
+                        <a href="#">
                             <i class="metismenu-icon">
                             </i>Remittance Analytics
                         </a>
@@ -236,25 +236,25 @@
             </li>
             <li class="app-sidebar__heading">Reports & Analytics</li>
             <li>
-                <a href="widgets-chart-boxes.html">
+                <a href="#">
                     <i class="metismenu-icon pe-7s-graph">
                     </i>User Reports
                 </a>
             </li>
             <li>
-                <a href="widgets-chart-boxes-2.html">
+                <a href="#">
                     <i class="metismenu-icon pe-7s-way">
                     </i>Agent & Driver reports
                 </a>
             </li>
             <li>
-                <a href="widgets-chart-boxes-3.html">
+                <a href="#">
                     <i class="metismenu-icon pe-7s-ball">
                     </i>Collections & Enforcers
                 </a>
             </li>
             <li>
-                <a href="widgets-profile-boxes.html">
+                <a href="#">
                     <i class="metismenu-icon pe-7s-id">
                     </i>Financials
                 </a>
