@@ -19,10 +19,10 @@ class CollectorDataTable extends DataTable
         $dataTable = new EloquentDataTable($query);
         $dataTable
             ->addColumn('email', function ($item) {
-                return $item->biodata->email;
+                return @$item->biodata->email;
             })
             ->addColumn('collector_id', function ($item) {
-                return $item->biodata->unique_code;
+                return @$item->biodata->unique_code;
             });
         return $dataTable->addColumn('action', 'collectors.datatables_actions');
     }

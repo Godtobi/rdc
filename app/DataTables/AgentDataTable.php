@@ -21,10 +21,10 @@ class AgentDataTable extends DataTable
 
         $dataTable
             ->addColumn('email', function ($item) {
-                return $item->biodata->email;
+                return @$item->biodata->email;
             })
             ->addColumn('agent_id', function ($item) {
-                return $item->biodata->unique_code;
+                return @$item->biodata->unique_code;
             })
         ;
         return $dataTable->addColumn('action', 'agents.datatables_actions');
