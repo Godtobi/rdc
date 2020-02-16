@@ -79,9 +79,7 @@
                                             for="exampleCheck" class="form-check-label">Keep me logged in</label></div>
 
                                     <div class="divider"></div>
-                                    <h6 class="mb-0">No account? <a href="javascript:void(0);" class="text-primary">Sign
-                                            up
-                                            now</a></h6>
+
                                 </div>
 
 
@@ -95,7 +93,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="text-center text-white opacity-8 mt-3">Copyright © ArchitectUI 2019</div>
+                    <div class="text-center text-white opacity-8 mt-3">Copyright © cdr 2020</div>
                 </div>
             </div>
         </div>

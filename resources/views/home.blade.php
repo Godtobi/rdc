@@ -79,7 +79,7 @@
                                     <i class="metismenu-icon pe-7s-car text-info"></i></div>
                                 <div class="widget-numbers text-danger"><span>280k</span></div>
                                 <div class="widget-subheading fsize-1 pt-2 opacity-10 text-info font-weight-bold">
-                                    Total Drivers
+                                    Total Users
                                 </div>
                                 <div class="widget-description opacity-8">
 

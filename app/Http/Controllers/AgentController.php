@@ -111,15 +111,20 @@ class AgentController extends AppBaseController
      */
     public function edit($id)
     {
-        $agent = $this->agentRepository->find($id);
+        $lga = Lga::all()->pluck('name', 'id');
+        $data = Agent::where('id', $id)->with('biodata')->first();
+        // $agent = $agent->biodata;
 
-        if (empty($agent)) {
+
+        //$agent = $this->agentRepository->find($id);
+
+        if (empty($data)) {
             Flash::error('Agent not found');
 
             return redirect(route('agents.index'));
         }
 
-        return view('agents.edit')->with('agent', $agent);
+        return view('agents.edit')->with(compact('data', 'lga'));
     }
 
     /**
@@ -132,7 +137,7 @@ class AgentController extends AppBaseController
      */
     public function update($id, UpdateAgentRequest $request)
     {
-        $agent = $this->agentRepository->find($id);
+        $agent = Agent::where('id', $id)->with('biodata')->first();
 
         if (empty($agent)) {
             Flash::error('Agent not found');
@@ -141,6 +146,11 @@ class AgentController extends AppBaseController
         }
 
         $agent = $this->agentRepository->update($request->all(), $id);
+        try {
+            $biodata = $this->biodataRepository->update($request->all(), $agent->biodata->id);
+        } catch (\Exception $exception) {
+
+        }
 
         Flash::success('Agent updated successfully.');
 

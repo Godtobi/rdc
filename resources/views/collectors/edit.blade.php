@@ -23,7 +23,7 @@
                         <h5 class="card-title">Collector</h5>
 
 
-                        {!! Form::model($collector, ['route' => ['collectors.update', $collector->id, 'class'=>"col-md-10 mx-auto", 'id'=>"signupForm"], 'method' => 'patch']) !!}
+                        {!! Form::model($data, ['route' => ['collectors.update', $data->id, 'class'=>"col-md-10 mx-auto", 'id'=>"signupForm"], 'method' => 'patch']) !!}
 
                                                 @include('collectors.fields')
 

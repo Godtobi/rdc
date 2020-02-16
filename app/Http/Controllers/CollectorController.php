@@ -6,6 +6,7 @@ use App\DataTables\CollectorDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateCollectorRequest;
 use App\Http\Requests\UpdateCollectorRequest;
+use App\Models\Collector;
 use App\Models\Lga;
 use App\Repositories\BiodataRepository;
 use App\Repositories\CollectorRepository;
@@ -89,7 +90,7 @@ class CollectorController extends AppBaseController
      */
     public function show($id)
     {
-        $collector = $this->collectorRepository->find($id);
+        $collector = Collector::where('id', $id)->with('biodata')->first();
 
         if (empty($collector)) {
             Flash::error('Collector not found');
@@ -109,15 +110,20 @@ class CollectorController extends AppBaseController
      */
     public function edit($id)
     {
-        $collector = $this->collectorRepository->find($id);
+        //$collector = $this->collectorRepository->find($id);
 
-        if (empty($collector)) {
+
+        $lga = Lga::all()->pluck('name', 'id');
+        $data = Collector::where('id', $id)->with('biodata')->first();
+
+
+        if (empty($data)) {
             Flash::error('Collector not found');
 
             return redirect(route('collectors.index'));
         }
 
-        return view('collectors.edit')->with('collector', $collector);
+        return view('collectors.edit')->with(compact('data', 'lga'));
     }
 
     /**
@@ -130,8 +136,8 @@ class CollectorController extends AppBaseController
      */
     public function update($id, UpdateCollectorRequest $request)
     {
-        $collector = $this->collectorRepository->find($id);
 
+        $collector = Collector::where('id', $id)->with('biodata')->first();
         if (empty($collector)) {
             Flash::error('Collector not found');
 
@@ -139,6 +145,11 @@ class CollectorController extends AppBaseController
         }
 
         $collector = $this->collectorRepository->update($request->all(), $id);
+        try {
+            $biodata = $this->biodataRepository->update($request->all(), $collector->biodata->id);
+        } catch (\Exception $exception) {
+
+        }
 
         Flash::success('Collector updated successfully.');
 

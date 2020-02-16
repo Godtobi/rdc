@@ -65,7 +65,7 @@ class DriversController extends AppBaseController
         $vehicle = $input['vehicle_type_id'];
         $resLGA = Lga::find($localGovt);
         $resVehicle = VehicleType::find($vehicle);
-        $driverID = "C-Y-D-".$resLGA->lgaId."-".$resVehicle->vehicleId."-".GenerateRandomString(4, 'ALPHA');
+        $driverID = "C-Y-D-" . $resLGA->lgaId . "-" . $resVehicle->vehicleId . "-" . GenerateRandomString(4, 'ALPHA');
         $input['driver_id'] = "";
 
 
@@ -112,6 +112,10 @@ class DriversController extends AppBaseController
      */
     public function edit($id)
     {
+        $lga = Lga::all()->pluck('name', 'id');
+        $vehicleType = VehicleType::all()->pluck('name', 'id');
+        $state = State::where('country_id', '160')->pluck('name', 'id');
+        $marital = config('constants.marital');
         $drivers = $this->driversRepository->find($id);
 
         if (empty($drivers)) {
@@ -120,7 +124,7 @@ class DriversController extends AppBaseController
             return redirect(route('drivers.index'));
         }
 
-        return view('drivers.edit')->with('drivers', $drivers);
+        return view('drivers.edit')->with(compact('drivers', 'lga', 'vehicleType', 'state', 'marital'));
     }
 
     /**
