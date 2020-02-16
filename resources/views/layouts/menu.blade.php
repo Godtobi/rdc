@@ -18,3 +18,7 @@
     <a href="{{ route('enforcers.index') }}"><i class="fa fa-edit"></i><span>Enforcers</span></a>
 </li>
 
+<li class="{{ Request::is('lgas*') ? 'active' : '' }}">
+    <a href="{{ route('lgas.index') }}"><i class="fa fa-edit"></i><span>Lgas</span></a>
+</li>
+

@@ -155,6 +155,12 @@
                     </li>
                 </ul>
             </li>
+            <li class="{{ Request::is('lgas/index') ? 'mm-active' : '' }}">
+                <a href="{{ route('lgas.index') }}">
+                    <i class="metismenu-icon pe-7s-id">
+                    </i>Local Govt
+                </a>
+            </li>
             <li class="app-sidebar__heading">Financials</li>
             <li>
                 <a href="#">

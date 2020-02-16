@@ -30,13 +30,13 @@
 
 {{--<!-- User Id Field -->--}}
 {{--<div class="form-group col-sm-6 {{ $errors->has('user_id') ? 'has-error' : ''}}">--}}
-    {{--{!! Form::label('user_id', 'User Id:',['class' => 'col-sm-4 control-label']) !!}--}}
+{{--{!! Form::label('user_id', 'User Id:',['class' => 'col-sm-4 control-label']) !!}--}}
 
-    {{--<div class="col-sm-12">--}}
-        {{--{!! Form::number('user_id', null, ['class' => 'form-control']) !!}--}}
+{{--<div class="col-sm-12">--}}
+{{--{!! Form::number('user_id', null, ['class' => 'form-control']) !!}--}}
 
-        {{--{!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}--}}
-    {{--</div>--}}
+{{--{!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}--}}
+{{--</div>--}}
 {{--</div>--}}
 
 
@@ -46,5 +46,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('agents.index') }}" class="mb-2 mr-2 btn-icon btn btn-danger">Cancel</a>
+    <a href="{{ route('agents.index') }}" class="btn btn-danger">Cancel</a>
 </div>

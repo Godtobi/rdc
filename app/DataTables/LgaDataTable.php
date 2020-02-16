@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\VehicleType;
+use App\Models\Lga;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class VehicleTypeDataTable extends DataTable
+class LgaDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,16 +18,16 @@ class VehicleTypeDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'vehicle_types.datatables_actions');
+        return $dataTable->addColumn('action', 'lgas.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\VehicleType $model
+     * @param \App\Models\Lga $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(VehicleType $model)
+    public function query(Lga $model)
     {
         return $model->newQuery();
     }
@@ -66,8 +66,8 @@ class VehicleTypeDataTable extends DataTable
     {
         return [
             'name',
-            'vehicleId',
-            'description'
+            'state_id',
+            'lgaId'
         ];
     }
 
@@ -78,6 +78,6 @@ class VehicleTypeDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'vehicle_typesdatatable_' . time();
+        return 'lgasdatatable_' . time();
     }
 }

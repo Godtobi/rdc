@@ -6,33 +6,29 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Drivers
+ * Class Lga
  * @package App\Models
- * @version February 13, 2020, 9:21 pm UTC
+ * @version February 16, 2020, 5:29 pm UTC
  *
- * @property string first_name
- * @property string middle_name
- * @property string last_name
- * @property string address
- * @property string phone
- * @property string plate_no
- * @property integer vehicle_type_id
- * @property string mother_maiden_name
- * @property string vehicle_owner_name
- * @property string vehicle_owner_phone
- * @property integer lga
- * @property string passport
- * @property string driver_id
+ * @property string name
+ * @property integer state_id
+ * @property string lgaId
  */
 class Lga extends Model
 {
+    //use SoftDeletes;
+
 
 
     public $table = 'lga';
+    public $timestamps = false;
+
 
 
     public $fillable = [
         'name',
+        'state_id',
+        'lgaId'
     ];
 
     /**
@@ -43,7 +39,18 @@ class Lga extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
+        'state_id' => 'integer',
+        'lgaId' => 'string'
     ];
 
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        
+    ];
 
+    
 }

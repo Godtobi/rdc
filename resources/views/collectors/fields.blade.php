@@ -46,5 +46,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('collectors.index') }}" class="mb-2 mr-2 btn-icon btn btn-danger">Cancel</a>
+    <a href="{{ route('collectors.index') }}" class="btn btn-danger">Cancel</a>
 </div>

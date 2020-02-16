@@ -34,3 +34,5 @@ Route::resource('agents', 'AgentController');
 Route::resource('collectors', 'CollectorController');
 
 Route::resource('enforcers', 'EnforcerController');
+
+Route::resource('lgas', 'LgaController');

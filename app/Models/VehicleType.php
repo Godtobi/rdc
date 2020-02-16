@@ -29,6 +29,7 @@ class VehicleType extends Model
 
     public $fillable = [
         'name',
+        'vehicleId',
         'description'
     ];
 
@@ -40,6 +41,7 @@ class VehicleType extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
+        'vehicleId' => 'string',
         'description' => 'string'
     ];
 
@@ -50,7 +52,7 @@ class VehicleType extends Model
      */
     public static $rules = [
         'name' => 'required',
-        'description' => 'required'
+        'vehicleId' => 'required',
     ];
 
     
