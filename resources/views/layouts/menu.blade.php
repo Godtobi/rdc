@@ -22,3 +22,7 @@
     <a href="{{ route('lgas.index') }}"><i class="fa fa-edit"></i><span>Lgas</span></a>
 </li>
 
+<li class="{{ Request::is('biodatas*') ? 'active' : '' }}">
+    <a href="{{ route('biodatas.index') }}"><i class="fa fa-edit"></i><span>Biodatas</span></a>
+</li>
+

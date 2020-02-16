@@ -17,7 +17,13 @@ class CollectorDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
-
+        $dataTable
+            ->addColumn('email', function ($item) {
+                return $item->biodata->email;
+            })
+            ->addColumn('collector_id', function ($item) {
+                return $item->biodata->unique_code;
+            });
         return $dataTable->addColumn('action', 'collectors.datatables_actions');
     }
 
@@ -29,7 +35,7 @@ class CollectorDataTable extends DataTable
      */
     public function query(Collector $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with('biodata');
     }
 
     /**
@@ -44,10 +50,10 @@ class CollectorDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -68,7 +74,8 @@ class CollectorDataTable extends DataTable
             'first_name',
             'last_name',
             'phone',
-            //'user_id'
+            'email',
+            'collector_id'
         ];
     }
 

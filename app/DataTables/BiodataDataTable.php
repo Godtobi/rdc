@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\Drivers;
+use App\Models\Biodata;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class DriversDataTable extends DataTable
+class BiodataDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,16 +18,16 @@ class DriversDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'drivers.datatables_actions');
+        return $dataTable->addColumn('action', 'biodatas.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Drivers $model
+     * @param \App\Models\Biodata $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Drivers $model)
+    public function query(Biodata $model)
     {
         return $model->newQuery();
     }
@@ -65,14 +65,43 @@ class DriversDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'first_name',
-            'last_name',
-            'phone',
-            'plate_no',
-            'vehicle_owner_name',
-            'vehicle_owner_phone',
-            'lga',
-            //'driver_id'
+            'data_id',
+            'model',
+            'unique_code',
+            'tally_number',
+            'email',
+            'account_number',
+            'medical_condition',
+            'guarantor_name',
+            'contact',
+            'guarantor_address',
+            'emergency_contact_name_1',
+            'phone_no_1',
+            'emergency_contact_name_2',
+            'phone_no_2',
+            'next_of_kin',
+            'next_of_kin_address',
+            'next_of_kin_phone',
+            'pfa',
+            'rsa_number',
+            'job_title',
+            'driver_lic_issuance_date',
+            'driver_lic_expiry_date',
+            'driver_lic_date',
+            'dob',
+            'sex',
+            'bank',
+            'spouse_name',
+            'spouse_address',
+            'spouse_phone',
+            'employment_date',
+            'lga_id',
+            'bank_code',
+            'bank_pfa_code',
+            'driver_license_number',
+            'pre_employment_test_result_date',
+            'pre_employment_test_date',
+            'salary'
         ];
     }
 
@@ -83,6 +112,6 @@ class DriversDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'driversdatatable_' . time();
+        return 'biodatasdatatable_' . time();
     }
 }

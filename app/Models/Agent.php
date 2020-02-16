@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\AgentCreated;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -19,14 +20,17 @@ class Agent extends Model
 {
     use SoftDeletes;
 
+    protected $dispatchesEvents = [
+        'created' => AgentCreated::class,
+    ];
+
     public $table = 'agents';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
 
     protected $dates = ['deleted_at'];
-
 
 
     public $fillable = [
@@ -55,8 +59,13 @@ class Agent extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+    public function biodata()
+    {
+        return $this->hasOne('App\Models\Biodata', 'data_id')->where('model', 'Agent');
+    }
+
+
 }

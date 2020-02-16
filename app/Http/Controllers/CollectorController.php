@@ -6,6 +6,8 @@ use App\DataTables\CollectorDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateCollectorRequest;
 use App\Http\Requests\UpdateCollectorRequest;
+use App\Models\Lga;
+use App\Repositories\BiodataRepository;
 use App\Repositories\CollectorRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -16,9 +18,14 @@ class CollectorController extends AppBaseController
     /** @var  CollectorRepository */
     private $collectorRepository;
 
-    public function __construct(CollectorRepository $collectorRepo)
+    /** @var  BiodataRepository */
+    private $biodataRepository;
+
+
+    public function __construct(CollectorRepository $collectorRepo, BiodataRepository $biodataRepo)
     {
         $this->collectorRepository = $collectorRepo;
+        $this->biodataRepository = $biodataRepo;
     }
 
     /**
@@ -39,7 +46,8 @@ class CollectorController extends AppBaseController
      */
     public function create()
     {
-        return view('collectors.create');
+        $lga = Lga::all()->pluck('name', 'id');
+        return view('collectors.create')->with(compact('lga'));
     }
 
     /**
@@ -54,6 +62,18 @@ class CollectorController extends AppBaseController
         $input = $request->all();
 
         $collector = $this->collectorRepository->create($input);
+
+        $localGovt = $input['lga_id'];
+        $resLGA = Lga::find($localGovt);
+
+        $id = sprintf("%'04d", $collector->id);
+        $driverID = "CYC" . $resLGA->lgaId . $id;
+        $input['unique_code'] = $driverID;
+        $input['data_id'] = $collector->id;
+        $input['model'] = "Collector";
+
+        $biodata = $this->biodataRepository->create($input);
+
 
         Flash::success('Collector saved successfully.');
 
@@ -77,7 +97,7 @@ class CollectorController extends AppBaseController
             return redirect(route('collectors.index'));
         }
 
-        return view('collectors.show')->with('collector', $collector);
+        return view('collectors.show')->with('data', $collector);
     }
 
     /**
@@ -103,7 +123,7 @@ class CollectorController extends AppBaseController
     /**
      * Update the specified Collector in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateCollectorRequest $request
      *
      * @return Response

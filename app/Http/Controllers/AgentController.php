@@ -6,7 +6,10 @@ use App\DataTables\AgentDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateAgentRequest;
 use App\Http\Requests\UpdateAgentRequest;
+use App\Models\Agent;
+use App\Models\Lga;
 use App\Repositories\AgentRepository;
+use App\Repositories\BiodataRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -16,9 +19,13 @@ class AgentController extends AppBaseController
     /** @var  AgentRepository */
     private $agentRepository;
 
-    public function __construct(AgentRepository $agentRepo)
+    /** @var  BiodataRepository */
+    private $biodataRepository;
+
+    public function __construct(AgentRepository $agentRepo, BiodataRepository $biodataRepo)
     {
         $this->agentRepository = $agentRepo;
+        $this->biodataRepository = $biodataRepo;
     }
 
     /**
@@ -39,7 +46,8 @@ class AgentController extends AppBaseController
      */
     public function create()
     {
-        return view('agents.create');
+        $lga = Lga::all()->pluck('name', 'id');
+        return view('agents.create')->with(compact('lga'));
     }
 
     /**
@@ -53,7 +61,20 @@ class AgentController extends AppBaseController
     {
         $input = $request->all();
 
+
+        //dd($input);
+
         $agent = $this->agentRepository->create($input);
+        $localGovt = $input['lga_id'];
+        $resLGA = Lga::find($localGovt);
+
+        $id = sprintf("%'04d", $agent->id);
+        $driverID = "CYA" . $resLGA->lgaId . $id;
+        $input['unique_code'] = $driverID;
+        $input['data_id'] = $agent->id;
+        $input['model'] = "Agent";
+
+        $biodata = $this->biodataRepository->create($input);
 
         Flash::success('Agent saved successfully.');
 
@@ -69,7 +90,8 @@ class AgentController extends AppBaseController
      */
     public function show($id)
     {
-        $agent = $this->agentRepository->find($id);
+        //$agent = $this->agentRepository->find($id);
+        $agent = Agent::where('id', $id)->with('biodata')->first();
 
         if (empty($agent)) {
             Flash::error('Agent not found');
@@ -77,7 +99,7 @@ class AgentController extends AppBaseController
             return redirect(route('agents.index'));
         }
 
-        return view('agents.show')->with('agent', $agent);
+        return view('agents.show')->with('data', $agent);
     }
 
     /**
@@ -103,7 +125,7 @@ class AgentController extends AppBaseController
     /**
      * Update the specified Agent in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateAgentRequest $request
      *
      * @return Response

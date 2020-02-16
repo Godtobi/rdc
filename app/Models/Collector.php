@@ -58,5 +58,10 @@ class Collector extends Model
         
     ];
 
+    public function biodata()
+    {
+        return $this->hasOne('App\Models\Biodata', 'data_id')->where('model', 'Collector');
+    }
+
     
 }

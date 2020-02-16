@@ -66,7 +66,7 @@ class DriversController extends AppBaseController
         $resLGA = Lga::find($localGovt);
         $resVehicle = VehicleType::find($vehicle);
         $driverID = "C-Y-D-".$resLGA->lgaId."-".$resVehicle->vehicleId."-".GenerateRandomString(4, 'ALPHA');
-        $input['driver_id'] = $driverID;
+        $input['driver_id'] = "";
 
 
         if (isset($input['passport'])) {

@@ -27,7 +27,7 @@
     </div>
 </div>
 
-
+@include('biodatas.fields')
 {{--<!-- User Id Field -->--}}
 {{--<div class="form-group col-sm-6 {{ $errors->has('user_id') ? 'has-error' : ''}}">--}}
 {{--{!! Form::label('user_id', 'User Id:',['class' => 'col-sm-4 control-label']) !!}--}}

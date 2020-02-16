@@ -26,7 +26,7 @@
         {!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-
+@include('biodatas.fields')
 
 {{--<!-- User Id Field -->--}}
 {{--<div class="form-group col-sm-6 {{ $errors->has('user_id') ? 'has-error' : ''}}">--}}

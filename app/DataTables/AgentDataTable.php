@@ -18,6 +18,15 @@ class AgentDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
+
+        $dataTable
+            ->addColumn('email', function ($item) {
+                return $item->biodata->email;
+            })
+            ->addColumn('agent_id', function ($item) {
+                return $item->biodata->unique_code;
+            })
+        ;
         return $dataTable->addColumn('action', 'agents.datatables_actions');
     }
 
@@ -29,7 +38,7 @@ class AgentDataTable extends DataTable
      */
     public function query(Agent $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with('biodata');
     }
 
     /**
@@ -44,10 +53,10 @@ class AgentDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -68,7 +77,8 @@ class AgentDataTable extends DataTable
             'first_name',
             'last_name',
             'phone',
-           // 'user_id'
+            'email',
+            'agent_id'
         ];
     }
 
