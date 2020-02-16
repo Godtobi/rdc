@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a66b3da0-7120-4976-a46c-09fcba155464" name="Default Changelist" comment="fix">
+    <list default="true" id="a66b3da0-7120-4976-a46c-09fcba155464" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DriversController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DriversController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lgas/fields.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lgas/fields.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +19,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DriversController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="537">
               <caret line="67" column="108" selection-start-line="67" selection-start-column="108" selection-end-line="67" selection-end-column="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/DataTables/LgaDataTable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/lgas/datatables_actions.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/lgas/fields.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -88,7 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/html/architectui-html-pro 2/forms-validation.html" />
         <option value="$PROJECT_DIR$/html/architectui-html-pro 2/assets/scripts/main.87c0748b313a1dda75f5.js" />
         <option value="$PROJECT_DIR$/config/infyom/laravel_generator.php" />
         <option value="$PROJECT_DIR$/resources/views/drivers/edit.blade.php" />
@@ -135,10 +161,11 @@
         <option value="$PROJECT_DIR$/resources/views/vehicle_types/fields.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_02_16_172337_add_id_to_vehicle_type.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/snippets/sidebar.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/lgas/datatables_actions.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/lgas/fields.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Lga.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DriversController.php" />
+        <option value="$PROJECT_DIR$/app/DataTables/LgaDataTable.php" />
+        <option value="$PROJECT_DIR$/resources/views/lgas/datatables_actions.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/lgas/fields.blade.php" />
       </list>
     </option>
   </component>
@@ -298,6 +325,12 @@
               <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
               <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="DataTables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
+              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -392,7 +425,7 @@
       <option name="presentableId" value="Default" />
       <updated>1581586034804</updated>
       <workItem from="1581586036501" duration="23734000" />
-      <workItem from="1581801116876" duration="9241000" />
+      <workItem from="1581801116876" duration="11048000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <created>1581679838369</created>
@@ -450,11 +483,25 @@
       <option name="project" value="LOCAL" />
       <updated>1581877824019</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix">
+      <created>1581878459960</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1581878459960</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix">
+      <created>1581879955521</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1581879955521</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32975000" />
+    <option name="totallyTimeSpent" value="34782000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="963" extended-state="0" />
@@ -493,13 +540,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/vehicle_types/datatables_actions.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="53" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/vehicle_types/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -774,20 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/lgas/datatables_actions.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/lgas/fields.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="74" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Lga.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
@@ -820,6 +846,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="537">
           <caret line="67" column="108" selection-start-line="67" selection-start-column="108" selection-end-line="67" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/DataTables/LgaDataTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/lgas/datatables_actions.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/lgas/fields.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
         </state>
       </provider>
     </entry>
