@@ -27,3 +27,10 @@ Route::get('/home', 'HomeController@index')->middleware('verified');
 Route::resource('drivers', 'DriversController');
 
 Route::resource('vehicleTypes', 'VehicleTypeController');
+
+
+Route::resource('agents', 'AgentController');
+
+Route::resource('collectors', 'CollectorController');
+
+Route::resource('enforcers', 'EnforcerController');

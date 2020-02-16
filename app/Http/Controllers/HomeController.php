@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\DriversDataTable;
+use App\Models\Agent;
+use App\Models\Collector;
+use App\Models\Drivers;
+use App\Models\Enforcer;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +28,12 @@ class HomeController extends Controller
      */
     public function index(DriversDataTable $driversDataTable)
     {
-        return $driversDataTable->render('home');
+
+
+        $drivers = Drivers::all()->count();
+        $agents = Agent::all()->count();
+        $collectors = Collector::all()->count();
+        $enforcers = Enforcer::all()->count();
+        return $driversDataTable->render('home', compact('drivers', 'agents', 'collectors', 'enforcers'));
     }
 }

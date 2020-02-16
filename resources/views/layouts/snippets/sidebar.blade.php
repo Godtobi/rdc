@@ -44,14 +44,14 @@
                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                 </a>
                 <ul>
-                    <li>
-                        <a href="create_agent.html">
+                    <li class="{{ Request::is('agents/create') ? 'mm-active' : '' }}">
+                        <a href="{{ route('agents.create') }}">
                             <i class="metismenu-icon"></i>
                             Create field Agent
                         </a>
                     </li>
-                    <li>
-                        <a href="manage_agent.html">
+                    <li class="{{ Request::is('agents') ? 'mm-active' : '' }}">
+                        <a href="{{ route('agents.index') }}">
                             <i class="metismenu-icon">
                             </i>Manage field Agents
                         </a>
@@ -108,14 +108,14 @@
                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                 </a>
                 <ul>
-                    <li>
-                        <a href="create_collector.html">
+                    <li class="{{ Request::is('collectors/create') ? 'mm-active' : '' }}">
+                        <a href="{{ route('collectors.create') }}">
                             <i class="metismenu-icon">
                             </i>Create Collectors
                         </a>
                     </li>
-                    <li>
-                        <a href="manage_collector.html">
+                    <li class="{{ Request::is('collectors') ? 'mm-active' : '' }}">
+                        <a href="{{ route('collectors.index') }}">
                             <i class="metismenu-icon">
                             </i>Manage Collectors
                         </a>
@@ -135,16 +135,16 @@
                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                 </a>
                 <ul>
-                    <li>
-                        <a href="create_collector.html">
+                    <li class="{{ Request::is('enforcers/create') ? 'mm-active' : '' }}">
+                        <a href="{{ route('enforcers.create') }}">
                             <i class="metismenu-icon">
-                            </i>Create Collectors
+                            </i>Create Enforcers
                         </a>
                     </li>
-                    <li>
-                        <a href="manage_collector.html">
+                    <li class="{{ Request::is('enforcers') ? 'mm-active' : '' }}">
+                        <a href="{{ route('enforcers.index') }}">
                             <i class="metismenu-icon">
-                            </i>Manage Collectors
+                            </i>Manage Enforcers
                         </a>
                     </li>
                     <li>

@@ -198,11 +198,10 @@
                                                 <div class="widget-content-outer">
                                                     <div class="widget-content-wrapper">
                                                         <div class="widget-content-left">
-                                                            <div class="widget-heading">Total Orders</div>
-                                                            <div class="widget-subheading">Last year expenses</div>
+                                                            <div class="widget-heading">Total Drivers</div>
                                                         </div>
                                                         <div class="widget-content-right">
-                                                            <div class="widget-numbers text-primary">1896</div>
+                                                            <div class="widget-numbers text-primary">{{$drivers}}</div>
                                                         </div>
                                                     </div>
                                                     <div class="widget-progress-wrapper">
@@ -212,10 +211,7 @@
                                                                  aria-valuenow="43" aria-valuemin="0"
                                                                  aria-valuemax="100" style="width: 43%;"></div>
                                                         </div>
-                                                        <div class="progress-sub-label">
-                                                            <div class="sub-label-left">YoY Growth</div>
-                                                            <div class="sub-label-right">100%</div>
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -231,11 +227,11 @@
                                                 <div class="widget-content-outer">
                                                     <div class="widget-content-wrapper">
                                                         <div class="widget-content-left">
-                                                            <div class="widget-heading">Followers</div>
-                                                            <div class="widget-subheading">People interested</div>
+                                                            <div class="widget-heading">Total Agents</div>
+
                                                         </div>
                                                         <div class="widget-content-right">
-                                                            <div class="widget-numbers text-success">45,5%</div>
+                                                            <div class="widget-numbers text-success">{{$agents}}</div>
                                                         </div>
                                                     </div>
                                                     <div class="widget-progress-wrapper">
@@ -245,10 +241,7 @@
                                                                  aria-valuenow="43" aria-valuemin="0"
                                                                  aria-valuemax="100" style="width: 43%;"></div>
                                                         </div>
-                                                        <div class="progress-sub-label">
-                                                            <div class="sub-label-left">YoY Growth</div>
-                                                            <div class="sub-label-right">100%</div>
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -264,13 +257,12 @@
                                                 <div class="widget-content-outer">
                                                     <div class="widget-content-wrapper">
                                                         <div class="widget-content-left">
-                                                            <div class="widget-heading">Clients</div>
-                                                            <div class="widget-subheading">Total Profit</div>
+                                                            <div class="widget-heading">Total Collectors</div>
+
                                                         </div>
                                                         <div class="widget-content-right">
                                                             <div class="widget-numbers text-danger">
-                                                                <small>$</small>
-                                                                527
+                                                                {{$collectors}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -281,10 +273,6 @@
                                                                  aria-valuenow="43" aria-valuemin="0"
                                                                  aria-valuemax="100" style="width: 43%;"></div>
                                                         </div>
-                                                        <div class="progress-sub-label">
-                                                            <div class="sub-label-left">YoY Growth</div>
-                                                            <div class="sub-label-right">100%</div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -300,12 +288,11 @@
                                                 <div class="widget-content-outer">
                                                     <div class="widget-content-wrapper">
                                                         <div class="widget-content-left">
-                                                            <div class="widget-heading">Products Sold</div>
-                                                            <div class="widget-subheading">Total revenue streams
-                                                            </div>
+                                                            <div class="widget-heading">Total Enforcers</div>
+
                                                         </div>
                                                         <div class="widget-content-right">
-                                                            <div class="widget-numbers text-focus">682</div>
+                                                            <div class="widget-numbers text-focus">{{$enforcers}}</div>
                                                         </div>
                                                     </div>
                                                     <div class="widget-progress-wrapper">
@@ -315,10 +302,7 @@
                                                                  aria-valuenow="43" aria-valuemin="0"
                                                                  aria-valuemax="100" style="width: 43%;"></div>
                                                         </div>
-                                                        <div class="progress-sub-label">
-                                                            <div class="sub-label-left">YoY Growth</div>
-                                                            <div class="sub-label-right">100%</div>
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>

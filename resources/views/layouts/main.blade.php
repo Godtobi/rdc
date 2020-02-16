@@ -70,7 +70,7 @@
                                 <div class="btn-group">
                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                        class="p-0 btn">
-                                        <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                        <img width="42" class="rounded-circle" src="{{asset('assets/images/profile-photo.png')}}" alt="">
                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                     </a>
                                     <div tabindex="-1" role="menu" aria-hidden="true"
@@ -84,7 +84,7 @@
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left mr-3">
                                                                 <img width="42" class="rounded-circle"
-                                                                     src="assets/images/avatars/1.jpg"
+                                                                     src="{{asset('assets/images/profile-photo.png')}}"
                                                                      alt="">
                                                             </div>
                                                             <div class="widget-content-left">
@@ -437,7 +437,7 @@
                                     </div>
                                     <div class="widget-content-left mr-3">
                                         <div class="widget-content-left"><img width="42" class="rounded"
-                                                                              src="assets/images/avatars/1.jpg" alt=""/>
+                                                                              src="{{asset('assets/images/profile-photo.png')}}" alt=""/>
                                         </div>
                                     </div>
                                     <div class="widget-content-left">
