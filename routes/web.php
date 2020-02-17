@@ -38,3 +38,5 @@ Route::resource('enforcers', 'EnforcerController');
 Route::resource('lgas', 'LgaController');
 
 Route::resource('biodatas', 'BiodataController');
+
+Route::resource('userDetails', 'UserDetailsController');

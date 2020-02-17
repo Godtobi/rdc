@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+
 <meta http-equiv="content-type" content="text/html;charset=UTF-8"/><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
@@ -22,78 +23,105 @@
 <body>
 <div class="app-container app-theme-white body-tabs-shadow">
     <div class="app-container">
-        <div class="h-100 bg-plum-plate bg-animation">
-            <div class="d-flex h-100 justify-content-center align-items-center">
-                <div class="mx-auto app-login-box col-md-8">
-                    <div class="app-logo-inverse mx-auto mb-3"></div>
-                    <div class="modal-dialog w-100 mx-auto">
-                        <form method="POST" action="{{ route('login') }}">
-                            <div class="modal-content">
+        <div class="h-100">
+            <div class="h-100 no-gutters row">
+                <div class="d-none d-lg-block col-lg-4">
+                    <div class="slider-light">
+                        <div class="slick-slider">
+                            <div>
+                                <div
+                                    class="position-relative h-100 d-flex justify-content-center align-items-center bg-plum-plate"
+                                    tabindex="-1">
+                                    <div class="slide-img-bg"
+                                         style="background-image: url({{asset('assets/images/login.jpeg')}});"></div>
 
-
-                                <div class="modal-body">
-                                    <div class="h5 modal-title text-center">
-                                        <h4 class="mt-2">
-                                            <div>Welcome back,</div>
-                                            <span>Please sign in to your account below.</span>
-                                        </h4>
-                                    </div>
-
-                                    @csrf
-                                    <div class="form-row">
-                                        <div class="col-md-12">
-                                            <div class="position-relative form-group">
-
-                                                <input id="email" placeholder="Email here..." type="email"
-                                                       class="form-control @error('email') is-invalid @enderror"
-                                                       name="email" value="{{ old('email') }}" required
-                                                       autocomplete="email" autofocus>
-
-                                                @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="position-relative form-group"><input id="password"
-                                                                                             placeholder="Password here..."
-                                                                                             type="password"
-                                                                                             class="form-control @error('password') is-invalid @enderror"
-                                                                                             name="password" required
-                                                                                             autocomplete="current-password">
-
-
-                                                @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="position-relative form-check"><input name="check" id="exampleCheck"
-                                                                                     type="checkbox"
-                                                                                     class="form-check-input"><label
-                                            for="exampleCheck" class="form-check-label">Keep me logged in</label></div>
-
-                                    <div class="divider"></div>
-
-                                </div>
-
-
-                                <div class="modal-footer clearfix">
-                                    <div class="float-left"><a href="javascript:void(0);" class="btn-lg btn btn-link">Recover
-                                            Password</a></div>
-                                    <div class="float-right">
-                                        <button type="submit" class="btn btn-primary btn-lg">Login to Dashboard</button>
-                                    </div>
                                 </div>
                             </div>
-                        </form>
+                            <div>
+                                <div
+                                    class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark"
+                                    tabindex="-1">
+                                    <div class="slide-img-bg"
+                                         style="background-image: url({{asset('assets/images/originals/citynights.jpg')}});"></div>
+
+                                </div>
+                            </div>
+                            <div>
+                                <div
+                                    class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning"
+                                    tabindex="-1">
+                                    <div class="slide-img-bg"
+                                         style="background-image: url({{asset('assets/images/originals/citydark.jpg')}});"></div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-center text-white opacity-8 mt-3">Copyright © cdr 2020</div>
+                </div>
+                <div class="h-100 d-flex bg-white justify-content-center align-items-center col-md-12 col-lg-8">
+                    <div class="mx-auto app-login-box col-sm-12 col-md-10 col-lg-9">
+                        <div class="app-logo"></div>
+                        <h4 class="mb-0">
+                            <span class="d-block">Welcome back,</span>
+                            <span>Please sign in to your account.</span></h4>
+
+                        <div class="divider row"></div>
+                        <div>
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label for="exampleEmail" class="">Email</label>
+
+                                            <input id="email" placeholder="Email here..." type="email"
+                                                   class="form-control @error('email') is-invalid @enderror"
+                                                   name="email" value="{{ old('email') }}" required
+                                                   autocomplete="email" autofocus>
+
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group"><label for="examplePassword" class="">Password</label>
+
+                                            <input id="password"
+                                                   placeholder="Password here..."
+                                                   type="password"
+                                                   class="form-control @error('password') is-invalid @enderror"
+                                                   name="password" required
+                                                   autocomplete="current-password">
+
+
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="position-relative form-check"><input name="check" id="exampleCheck"
+                                                                                 type="checkbox"
+                                                                                 class="form-check-input"><label
+                                        for="exampleCheck" class="form-check-label">Keep me logged in</label></div>
+                                <div class="divider row"></div>
+                                <div class="d-flex align-items-center">
+                                    <div class="ml-auto"><a href="javascript:void(0);" class="btn-lg btn btn-link">Recover
+                                            Password</a>
+                                        <button class="btn btn-primary btn-lg">Login to Dashboard</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -60,7 +60,18 @@ class EnforcerController extends AppBaseController
     {
         $input = $request->all();
 
+
+
+
         $enforcer = $this->enforcerRepository->create($input);
+
+        $localGovt = $input['lga_id'];
+        $resLGA = Lga::find($localGovt);
+        $id = sprintf("%'04d", $enforcer->id);
+        $driverID = "CYE" . $resLGA->lgaId . $id;
+        $input['unique_code'] = $driverID;
+
+        $enforcer = $this->enforcerRepository->update($input, $enforcer->id);
 
         Flash::success('Enforcer saved successfully.');
 

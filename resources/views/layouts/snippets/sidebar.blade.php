@@ -17,14 +17,14 @@
                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                 </a>
                 <ul>
-                    <li>
-                        <a href="#">
+                    <li class="{{ Request::is('userDetails/create') ? 'mm-active' : '' }}">
+                        <a href="{{ route('userDetails.create') }}">
                             <i class="metismenu-icon">
                             </i>Create Users
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li class="{{ Request::is('userDetails') ? 'mm-active' : '' }}">
+                        <a href="{{ route('userDetails.index') }}">
                             <i class="metismenu-icon">
                             </i>Manage Users
                         </a>

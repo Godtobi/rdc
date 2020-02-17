@@ -26,3 +26,7 @@
     <a href="{{ route('biodatas.index') }}"><i class="fa fa-edit"></i><span>Biodatas</span></a>
 </li>
 
+<li class="{{ Request::is('userDetails*') ? 'active' : '' }}">
+    <a href="{{ route('userDetails.index') }}"><i class="fa fa-edit"></i><span>User Details</span></a>
+</li>
+
