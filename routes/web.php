@@ -12,31 +12,35 @@
 */
 
 
-
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::get('/logout', 'Auth\LoginController@logout');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->middleware('verified');
 
-Route::resource('drivers', 'DriversController');
+Route::group(['middleware' => ['web', 'auth:web']], function () {
 
-Route::resource('vehicleTypes', 'VehicleTypeController');
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/home', 'HomeController@index')->middleware('verified');
+
+    Route::resource('drivers', 'DriversController');
+
+    Route::resource('vehicleTypes', 'VehicleTypeController');
 
 
-Route::resource('agents', 'AgentController');
+    Route::resource('agents', 'AgentController');
 
-Route::resource('collectors', 'CollectorController');
+    Route::resource('collectors', 'CollectorController');
 
-Route::resource('enforcers', 'EnforcerController');
+    Route::resource('enforcers', 'EnforcerController');
 
-Route::resource('lgas', 'LgaController');
+    Route::resource('lgas', 'LgaController');
 
-Route::resource('biodatas', 'BiodataController');
+    Route::resource('biodatas', 'BiodataController');
 
-Route::resource('userDetails', 'UserDetailsController');
+    Route::resource('userDetails', 'UserDetailsController');
+});
+
