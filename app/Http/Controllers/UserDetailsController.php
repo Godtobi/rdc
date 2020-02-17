@@ -7,7 +7,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateUserDetailsRequest;
 use App\Http\Requests\UpdateUserDetailsRequest;
 use App\Repositories\UserDetailsRepository;
-use App\User;
+use App\Models\User;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Support\Facades\DB;

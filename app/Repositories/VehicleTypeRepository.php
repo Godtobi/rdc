@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class VehicleTypeRepository
  * @package App\Repositories
- * @version February 13, 2020, 10:47 pm UTC
+ * @version February 17, 2020, 10:22 pm UTC
 */
 
 class VehicleTypeRepository extends BaseRepository
@@ -18,7 +18,8 @@ class VehicleTypeRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'name',
-        'description'
+        'description',
+        'vehicleId'
     ];
 
     /**

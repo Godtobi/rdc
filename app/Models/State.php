@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Illuminate\Database\Eloquent\Builder;
 /**
  * Class Drivers
  * @package App\Models
@@ -45,6 +45,22 @@ class State extends Model
         'id' => 'integer',
         'name' => 'string',
     ];
+
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('nigeria', function (Builder $builder) {
+            $builder->where('country_id', '160');
+        });
+
+    }
+
 
 
 }

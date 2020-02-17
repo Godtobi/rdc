@@ -2,24 +2,23 @@
 
 namespace App\Repositories;
 
-use App\Models\Lga;
+use App\Models\State;
 use App\Repositories\BaseRepository;
 
 /**
- * Class LgaRepository
+ * Class StateRepository
  * @package App\Repositories
- * @version February 17, 2020, 10:30 pm UTC
+ * @version February 17, 2020, 10:33 pm UTC
 */
 
-class LgaRepository extends BaseRepository
+class StateRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
         'name',
-        'state_id',
-        'lgaId'
+        'country_id'
     ];
 
     /**
@@ -37,6 +36,6 @@ class LgaRepository extends BaseRepository
      **/
     public function model()
     {
-        return Lga::class;
+        return State::class;
     }
 }

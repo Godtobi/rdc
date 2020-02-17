@@ -49,8 +49,8 @@ class Lga extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }

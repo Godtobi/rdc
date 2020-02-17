@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +15,9 @@
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::get('/logout', 'Auth\LoginController@logout');
-Auth::routes();
 
 
 Auth::routes(['verify' => true]);
-
-
 Route::group(['middleware' => ['web', 'auth:web']], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
