@@ -40,11 +40,11 @@ class CreateUserDetailsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('user_details');
-//        Schema::table('enforcer', function (Blueprint $table) {
-//            $table->dropColumn('unique_code');
-//        });
-//        Schema::table('roles', function (Blueprint $table) {
-//            $table->dropColumn('title');
-//        });
+        Schema::table('enforcer', function (Blueprint $table) {
+            $table->dropColumn('unique_code');
+        });
+        Schema::table('roles', function (Blueprint $table) {
+            $table->dropColumn('title');
+        });
     }
 }
