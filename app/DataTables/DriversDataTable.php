@@ -18,6 +18,12 @@ class DriversDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
+
+
+            $dataTable->addColumn('lga', function ($item) {
+                return @$item->local_govt->name;
+            });
+
         return $dataTable->addColumn('action', 'drivers.datatables_actions');
     }
 
@@ -44,10 +50,10 @@ class DriversDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],

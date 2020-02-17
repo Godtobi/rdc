@@ -102,5 +102,10 @@ class Drivers extends Model
         'passport' => 'required'
     ];
 
+
+    public function local_govt()
+    {
+        return $this->belongsTo('App\Models\Lga', 'lga');
+    }
     
 }
