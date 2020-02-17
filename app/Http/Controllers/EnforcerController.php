@@ -6,6 +6,9 @@ use App\DataTables\EnforcerDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateEnforcerRequest;
 use App\Http\Requests\UpdateEnforcerRequest;
+use App\Models\Enforcer;
+use App\Models\Lga;
+use App\Models\State;
 use App\Repositories\EnforcerRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -39,7 +42,11 @@ class EnforcerController extends AppBaseController
      */
     public function create()
     {
-        return view('enforcers.create');
+
+        $lga = Lga::all()->pluck('name', 'id');
+        $state = State::where('country_id', '160')->pluck('name', 'id');
+        $marital = config('constants.marital');
+        return view('enforcers.create')->with(compact('lga', 'state', 'marital'));
     }
 
     /**
@@ -90,20 +97,22 @@ class EnforcerController extends AppBaseController
     public function edit($id)
     {
         $enforcer = $this->enforcerRepository->find($id);
-
+        $lga = Lga::all()->pluck('name', 'id');
+        $state = State::where('country_id', '160')->pluck('name', 'id');
+        $marital = config('constants.marital');
         if (empty($enforcer)) {
             Flash::error('Enforcer not found');
 
             return redirect(route('enforcers.index'));
         }
 
-        return view('enforcers.edit')->with('enforcer', $enforcer);
+        return view('enforcers.edit')->with(compact('enforcer', 'lga', 'state', 'marital'));
     }
 
     /**
      * Update the specified Enforcer in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateEnforcerRequest $request
      *
      * @return Response

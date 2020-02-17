@@ -1,12 +1,12 @@
-<!-- Tally Number Field -->
-<div class="form-group col-sm-6 {{ $errors->has('tally_number') ? 'has-error' : ''}}">
-    {!! Form::label('tally_number', 'Tally Number:',['class' => 'col-sm-12 control-label']) !!}
+{{--<!-- Tally Number Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('tally_number') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('tally_number', 'Tally Number:',['class' => 'col-sm-12 control-label']) !!}--}}
 
-    <div class="col-sm-12">
-        {!! Form::number('tally_number', @$data->biodata->tally_number, ['class' => 'form-control']) !!}
-        {!! $errors->first('tally_number', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::number('tally_number', @$data->biodata->tally_number, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('tally_number', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
 <!-- Email Field -->
@@ -30,16 +30,16 @@
 </div>
 
 
-<!-- Medical Condition Field -->
-<div class="form-group col-sm-6 {{ $errors->has('medical_condition') ? 'has-error' : ''}}">
-    {!! Form::label('medical_condition', 'Medical Condition:',['class' => 'col-sm-12 control-label']) !!}
+{{--<!-- Medical Condition Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('medical_condition') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('medical_condition', 'Medical Condition:',['class' => 'col-sm-12 control-label']) !!}--}}
 
-    <div class="col-sm-12">
-        {!! Form::textarea('medical_condition', @$data->biodata->medical_condition, ['class' => 'form-control']) !!}
-        {!! $errors->first('medical_condition', '<p class="help-block">:message</p>') !!}
-    </div>
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::textarea('medical_condition', @$data->biodata->medical_condition, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('medical_condition', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
 
-</div>
+{{--</div>--}}
 
 
 <!-- Guarantor Name Field -->
@@ -72,44 +72,44 @@
 </div>
 
 
-<!-- Emergency Contact Name 1 Field -->
-<div class="form-group col-sm-6 {{ $errors->has('emergency_contact_name_1') ? 'has-error' : ''}}">
-    {!! Form::label('emergency_contact_name_1', 'Emergency Contact Name 1:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::text('emergency_contact_name_1', @$data->biodata->emergency_contact_name_1, ['class' => 'form-control']) !!}
-        {!! $errors->first('emergency_contact_name_1', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- Emergency Contact Name 1 Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('emergency_contact_name_1') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('emergency_contact_name_1', 'Emergency Contact Name 1:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::text('emergency_contact_name_1', @$data->biodata->emergency_contact_name_1, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('emergency_contact_name_1', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
-<!-- Phone No 1 Field -->
-<div class="form-group col-sm-6 {{ $errors->has('phone_no_1') ? 'has-error' : ''}}">
-    {!! Form::label('phone_no_1', 'Phone No 1:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::text('phone_no_1', @$data->biodata->phone_no_1, ['class' => 'form-control']) !!}
-        {!! $errors->first('phone_no_1', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- Phone No 1 Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('phone_no_1') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('phone_no_1', 'Phone No 1:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::text('phone_no_1', @$data->biodata->phone_no_1, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('phone_no_1', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
-<!-- Emergency Contact Name 2 Field -->
-<div class="form-group col-sm-6 {{ $errors->has('emergency_contact_name_2') ? 'has-error' : ''}}">
-    {!! Form::label('emergency_contact_name_2', 'Emergency Contact Name 2:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::text('emergency_contact_name_2', @$data->biodata->emergency_contact_name_2, ['class' => 'form-control']) !!}
-        {!! $errors->first('emergency_contact_name_2', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- Emergency Contact Name 2 Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('emergency_contact_name_2') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('emergency_contact_name_2', 'Emergency Contact Name 2:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::text('emergency_contact_name_2', @$data->biodata->emergency_contact_name_2, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('emergency_contact_name_2', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
-<!-- Phone No 2 Field -->
-<div class="form-group col-sm-6 {{ $errors->has('phone_no_2') ? 'has-error' : ''}}">
-    {!! Form::label('phone_no_2', 'Phone No 2:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::text('phone_no_2', @$data->biodata->phone_no_2, ['class' => 'form-control']) !!}
-        {!! $errors->first('phone_no_2', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- Phone No 2 Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('phone_no_2') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('phone_no_2', 'Phone No 2:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::text('phone_no_2', @$data->biodata->phone_no_2, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('phone_no_2', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
 <!-- Next Of Kin Field -->
@@ -122,24 +122,24 @@
 </div>
 
 
-<!-- Next Of Kin Address Field -->
-<div class="form-group col-sm-6 {{ $errors->has('next_of_kin_address') ? 'has-error' : ''}}">
-    {!! Form::label('next_of_kin_address', 'Next Of Kin Address:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::text('next_of_kin_address',  @$data->biodata->next_of_kin_address, ['class' => 'form-control']) !!}
-        {!! $errors->first('next_of_kin_address', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- Next Of Kin Address Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('next_of_kin_address') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('next_of_kin_address', 'Next Of Kin Address:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::text('next_of_kin_address',  @$data->biodata->next_of_kin_address, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('next_of_kin_address', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
-<!-- Next Of Kin Phone Field -->
-<div class="form-group col-sm-6 {{ $errors->has('next_of_kin_phone') ? 'has-error' : ''}}">
-    {!! Form::label('next_of_kin_phone', 'Next Of Kin Phone:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::text('next_of_kin_phone', @$data->biodata->next_of_kin_phone, ['class' => 'form-control']) !!}
-        {!! $errors->first('next_of_kin_phone', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- Next Of Kin Phone Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('next_of_kin_phone') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('next_of_kin_phone', 'Next Of Kin Phone:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::text('next_of_kin_phone', @$data->biodata->next_of_kin_phone, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('next_of_kin_phone', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
 <!-- Pfa Field -->
@@ -162,14 +162,14 @@
 </div>
 
 
-<!-- Job Title Field -->
-<div class="form-group col-sm-6 {{ $errors->has('job_title') ? 'has-error' : ''}}">
-    {!! Form::label('job_title', 'Job Title:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::text('job_title', @$data->biodata->job_title, ['class' => 'form-control']) !!}
-        {!! $errors->first('job_title', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- Job Title Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('job_title') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('job_title', 'Job Title:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::text('job_title', @$data->biodata->job_title, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('job_title', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
 <!-- Driver Lic Issuance Date Field -->
@@ -317,24 +317,24 @@
 </div>
 
 
-<!-- Pre Employment Test Result Date Field -->
-<div class="form-group col-sm-6 {{ $errors->has('pre_employment_test_result_date') ? 'has-error' : ''}}">
-    {!! Form::label('pre_employment_test_result_date', 'Pre Employment Test Result Date:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::date('pre_employment_test_result_date', @$data->biodata->pre_employment_test_result_date, ['class' => 'form-control']) !!}
-        {!! $errors->first('pre_employment_test_result_date', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- Pre Employment Test Result Date Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('pre_employment_test_result_date') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('pre_employment_test_result_date', 'Pre Employment Test Result Date:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::date('pre_employment_test_result_date', @$data->biodata->pre_employment_test_result_date, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('pre_employment_test_result_date', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
-<!-- Pre Employment Test Date Field -->
-<div class="form-group col-sm-6 {{ $errors->has('pre_employment_test_date') ? 'has-error' : ''}}">
-    {!! Form::label('pre_employment_test_date', 'Pre Employment Test Date:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::date('pre_employment_test_date', @$data->biodata->pre_employment_test_date, ['class' => 'form-control']) !!}
-        {!! $errors->first('pre_employment_test_date', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- Pre Employment Test Date Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('pre_employment_test_date') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('pre_employment_test_date', 'Pre Employment Test Date:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::date('pre_employment_test_date', @$data->biodata->pre_employment_test_date, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('pre_employment_test_date', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 
 <!-- Salary Field -->

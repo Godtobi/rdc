@@ -22,3 +22,33 @@
     <p>{{ $enforcer->user_id }}</p>
 </div>
 
+<!-- Email Field -->
+<div class="form-group">
+    {!! Form::label('email', 'Email:') !!}
+    <p>{{ $enforcer->email }}</p>
+</div>
+
+<!-- Address Field -->
+<div class="form-group">
+    {!! Form::label('address', 'Address:') !!}
+    <p>{{ $enforcer->address }}</p>
+</div>
+
+<!-- State Id Field -->
+<div class="form-group">
+    {!! Form::label('state_id', 'State Id:') !!}
+    <p>{{ $enforcer->state_id }}</p>
+</div>
+
+<!-- Marital Status Field -->
+<div class="form-group">
+    {!! Form::label('marital_status', 'Marital Status:') !!}
+    <p>{{ $enforcer->marital_status }}</p>
+</div>
+
+<!-- Lga Field -->
+<div class="form-group">
+    {!! Form::label('lga', 'Lga:') !!}
+    <p>{{ $enforcer->lga }}</p>
+</div>
+

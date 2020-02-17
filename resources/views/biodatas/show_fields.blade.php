@@ -5,11 +5,11 @@
     <p>{{ $data->biodata->unique_code }}</p>
 </div>
 
-<!-- Tally Number Field -->
-<div class="form-group">
-    {!! Form::label('tally_number', 'Tally Number:') !!}
-    <p>{{ $data->biodata->tally_number }}</p>
-</div>
+{{--<!-- Tally Number Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('tally_number', 'Tally Number:') !!}--}}
+    {{--<p>{{ $data->biodata->tally_number }}</p>--}}
+{{--</div>--}}
 
 <!-- Email Field -->
 <div class="form-group">
@@ -23,11 +23,11 @@
     <p>{{ $data->biodata->account_number }}</p>
 </div>
 
-<!-- Medical Condition Field -->
-<div class="form-group">
-    {!! Form::label('medical_condition', 'Medical Condition:') !!}
-    <p>{{ $data->biodata->medical_condition }}</p>
-</div>
+{{--<!-- Medical Condition Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('medical_condition', 'Medical Condition:') !!}--}}
+    {{--<p>{{ $data->biodata->medical_condition }}</p>--}}
+{{--</div>--}}
 
 <!-- Guarantor Name Field -->
 <div class="form-group">
@@ -47,29 +47,29 @@
     <p>{{ $data->biodata->guarantor_address }}</p>
 </div>
 
-<!-- Emergency Contact Name 1 Field -->
-<div class="form-group">
-    {!! Form::label('emergency_contact_name_1', 'Emergency Contact Name 1:') !!}
-    <p>{{ $data->biodata->emergency_contact_name_1 }}</p>
-</div>
+{{--<!-- Emergency Contact Name 1 Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('emergency_contact_name_1', 'Emergency Contact Name 1:') !!}--}}
+    {{--<p>{{ $data->biodata->emergency_contact_name_1 }}</p>--}}
+{{--</div>--}}
 
-<!-- Phone No 1 Field -->
-<div class="form-group">
-    {!! Form::label('phone_no_1', 'Phone No 1:') !!}
-    <p>{{ $data->biodata->phone_no_1 }}</p>
-</div>
+{{--<!-- Phone No 1 Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('phone_no_1', 'Phone No 1:') !!}--}}
+    {{--<p>{{ $data->biodata->phone_no_1 }}</p>--}}
+{{--</div>--}}
 
-<!-- Emergency Contact Name 2 Field -->
-<div class="form-group">
-    {!! Form::label('emergency_contact_name_2', 'Emergency Contact Name 2:') !!}
-    <p>{{ $data->biodata->emergency_contact_name_2 }}</p>
-</div>
+{{--<!-- Emergency Contact Name 2 Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('emergency_contact_name_2', 'Emergency Contact Name 2:') !!}--}}
+    {{--<p>{{ $data->biodata->emergency_contact_name_2 }}</p>--}}
+{{--</div>--}}
 
-<!-- Phone No 2 Field -->
-<div class="form-group">
-    {!! Form::label('phone_no_2', 'Phone No 2:') !!}
-    <p>{{ $data->biodata->phone_no_2 }}</p>
-</div>
+{{--<!-- Phone No 2 Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('phone_no_2', 'Phone No 2:') !!}--}}
+    {{--<p>{{ $data->biodata->phone_no_2 }}</p>--}}
+{{--</div>--}}
 
 <!-- Next Of Kin Field -->
 <div class="form-group">
@@ -77,17 +77,17 @@
     <p>{{ $data->biodata->next_of_kin }}</p>
 </div>
 
-<!-- Next Of Kin Address Field -->
-<div class="form-group">
-    {!! Form::label('next_of_kin_address', 'Next Of Kin Address:') !!}
-    <p>{{ $data->biodata->next_of_kin_address }}</p>
-</div>
+{{--<!-- Next Of Kin Address Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('next_of_kin_address', 'Next Of Kin Address:') !!}--}}
+    {{--<p>{{ $data->biodata->next_of_kin_address }}</p>--}}
+{{--</div>--}}
 
-<!-- Next Of Kin Phone Field -->
-<div class="form-group">
-    {!! Form::label('next_of_kin_phone', 'Next Of Kin Phone:') !!}
-    <p>{{ $data->biodata->next_of_kin_phone }}</p>
-</div>
+{{--<!-- Next Of Kin Phone Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('next_of_kin_phone', 'Next Of Kin Phone:') !!}--}}
+    {{--<p>{{ $data->biodata->next_of_kin_phone }}</p>--}}
+{{--</div>--}}
 
 <!-- Pfa Field -->
 <div class="form-group">
@@ -101,11 +101,11 @@
     <p>{{ $data->biodata->rsa_number }}</p>
 </div>
 
-<!-- Job Title Field -->
-<div class="form-group">
-    {!! Form::label('job_title', 'Job Title:') !!}
-    <p>{{ $data->biodata->job_title }}</p>
-</div>
+{{--<!-- Job Title Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('job_title', 'Job Title:') !!}--}}
+    {{--<p>{{ $data->biodata->job_title }}</p>--}}
+{{--</div>--}}
 
 <!-- Driver Lic Issuance Date Field -->
 <div class="form-group">
@@ -191,17 +191,17 @@
     <p>{{ $data->biodata->driver_license_number }}</p>
 </div>
 
-<!-- Pre Employment Test Result Date Field -->
-<div class="form-group">
-    {!! Form::label('pre_employment_test_result_date', 'Pre Employment Test Result Date:') !!}
-    <p>{{ $data->biodata->pre_employment_test_result_date }}</p>
-</div>
+{{--<!-- Pre Employment Test Result Date Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('pre_employment_test_result_date', 'Pre Employment Test Result Date:') !!}--}}
+    {{--<p>{{ $data->biodata->pre_employment_test_result_date }}</p>--}}
+{{--</div>--}}
 
-<!-- Pre Employment Test Date Field -->
-<div class="form-group">
-    {!! Form::label('pre_employment_test_date', 'Pre Employment Test Date:') !!}
-    <p>{{ $data->biodata->pre_employment_test_date }}</p>
-</div>
+{{--<!-- Pre Employment Test Date Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('pre_employment_test_date', 'Pre Employment Test Date:') !!}--}}
+    {{--<p>{{ $data->biodata->pre_employment_test_date }}</p>--}}
+{{--</div>--}}
 
 <!-- Salary Field -->
 <div class="form-group">

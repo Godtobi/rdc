@@ -18,6 +18,13 @@ class EnforcerDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
+        $dataTable
+            ->addColumn('state_id', function ($item) {
+                return @$item->state->name;
+            })
+            ->addColumn('lga_id', function ($item) {
+                return @$item->local_govt->name;
+            });
         return $dataTable->addColumn('action', 'enforcers.datatables_actions');
     }
 
@@ -29,7 +36,7 @@ class EnforcerDataTable extends DataTable
      */
     public function query(Enforcer $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with(['state', 'local_govt']);
     }
 
     /**
@@ -44,10 +51,10 @@ class EnforcerDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -68,7 +75,11 @@ class EnforcerDataTable extends DataTable
             'first_name',
             'last_name',
             'phone',
-          //  'user_id'
+            'email',
+            'address',
+            'state_id',
+            'marital_status',
+            ['title' => 'Local Govt', 'data' => 'lga_id'],
         ];
     }
 

@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class EnforcerRepository
  * @package App\Repositories
- * @version February 16, 2020, 2:26 pm UTC
+ * @version February 17, 2020, 10:37 am UTC
 */
 
 class EnforcerRepository extends BaseRepository
@@ -20,7 +20,12 @@ class EnforcerRepository extends BaseRepository
         'first_name',
         'last_name',
         'phone',
-        'user_id'
+        'user_id',
+        'email',
+        'address',
+        'state_id',
+        'marital_status',
+        'lga'
     ];
 
     /**
