@@ -30,7 +30,16 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::resource('vehicle_types', 'VehicleTypeAPIController');
     Route::resource('lgas', 'LgaAPIController');
     Route::resource('states', 'StateAPIController');
+    Route::resource('payments', 'PaymentAPIController');
+    Route::resource('remit_payments', 'RemitPaymentsAPIController');
+    Route::resource('agents', 'AgentAPIController');
+
+    Route::resource('collectors', 'CollectorAPIController');
 });
+
+
+
+
 
 
 

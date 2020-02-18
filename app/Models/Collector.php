@@ -20,7 +20,7 @@ class Collector extends Model
     use SoftDeletes;
 
     public $table = 'collectors';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -55,7 +55,7 @@ class Collector extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     public function biodata()
@@ -63,5 +63,5 @@ class Collector extends Model
         return $this->hasOne('App\Models\Biodata', 'data_id')->where('model', 'Collector');
     }
 
-    
+
 }

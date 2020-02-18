@@ -2,25 +2,25 @@
 
 namespace App\Repositories;
 
-use App\Models\Agent;
+use App\Models\RemitPayments;
 use App\Repositories\BaseRepository;
 
 /**
- * Class AgentRepository
+ * Class RemitPaymentsRepository
  * @package App\Repositories
- * @version February 18, 2020, 10:54 pm UTC
+ * @version February 18, 2020, 10:20 pm UTC
 */
 
-class AgentRepository extends BaseRepository
+class RemitPaymentsRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'first_name',
-        'last_name',
-        'phone',
-        'user_id'
+        'agent_id',
+        'collector_id',
+        'date',
+        'amount'
     ];
 
     /**
@@ -38,6 +38,6 @@ class AgentRepository extends BaseRepository
      **/
     public function model()
     {
-        return Agent::class;
+        return RemitPayments::class;
     }
 }

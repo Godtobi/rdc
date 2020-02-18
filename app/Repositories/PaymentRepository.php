@@ -2,25 +2,25 @@
 
 namespace App\Repositories;
 
-use App\Models\Agent;
+use App\Models\Payment;
 use App\Repositories\BaseRepository;
 
 /**
- * Class AgentRepository
+ * Class PaymentRepository
  * @package App\Repositories
- * @version February 18, 2020, 10:54 pm UTC
+ * @version February 18, 2020, 10:19 pm UTC
 */
 
-class AgentRepository extends BaseRepository
+class PaymentRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'first_name',
-        'last_name',
-        'phone',
-        'user_id'
+        'vehicle_plate_number',
+        'driver_code',
+        'vehicle_type_id',
+        'amount'
     ];
 
     /**
@@ -38,6 +38,6 @@ class AgentRepository extends BaseRepository
      **/
     public function model()
     {
-        return Agent::class;
+        return Payment::class;
     }
 }
