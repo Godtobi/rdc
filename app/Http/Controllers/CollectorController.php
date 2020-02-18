@@ -8,10 +8,13 @@ use App\Http\Requests\CreateCollectorRequest;
 use App\Http\Requests\UpdateCollectorRequest;
 use App\Models\Collector;
 use App\Models\Lga;
+use App\Models\User;
 use App\Repositories\BiodataRepository;
 use App\Repositories\CollectorRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Response;
 
 class CollectorController extends AppBaseController
@@ -62,21 +65,42 @@ class CollectorController extends AppBaseController
     {
         $input = $request->all();
 
-        $collector = $this->collectorRepository->create($input);
 
-        $localGovt = $input['lga_id'];
-        $resLGA = Lga::find($localGovt);
+        try {
+            DB::beginTransaction();
+            $user = User::create([
+                'name' => $input['first_name'] . " " . $input['last_name'],
+                'email' => $input['email'],
+                'password' => Hash::make($input['password']),
+            ]);
 
-        $id = sprintf("%'04d", $collector->id);
-        $driverID = "CYC" . $resLGA->lgaId . $id;
-        $input['unique_code'] = $driverID;
-        $input['data_id'] = $collector->id;
-        $input['model'] = "Collector";
-
-        $biodata = $this->biodataRepository->create($input);
+            $user->assignRole('collector');
+            $input['user_id'] = $user->id;
 
 
-        Flash::success('Collector saved successfully.');
+            $collector = $this->collectorRepository->create($input);
+
+            $localGovt = $input['lga_id'];
+            $resLGA = Lga::find($localGovt);
+
+            $id = sprintf("%'04d", $collector->id);
+            $driverID = "CYC" . $resLGA->lgaId . $id;
+            $input['unique_code'] = $driverID;
+            $input['data_id'] = $collector->id;
+            $input['model'] = "Collector";
+
+            $biodata = $this->biodataRepository->create($input);
+
+
+            DB::commit();
+            Flash::success('Collector saved successfully.');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Flash::error($exception->getMessage());
+        }
+
+
+
 
         return redirect(route('collectors.index'));
     }

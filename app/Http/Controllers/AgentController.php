@@ -8,10 +8,13 @@ use App\Http\Requests\CreateAgentRequest;
 use App\Http\Requests\UpdateAgentRequest;
 use App\Models\Agent;
 use App\Models\Lga;
+use App\Models\User;
 use App\Repositories\AgentRepository;
 use App\Repositories\BiodataRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Response;
 
 class AgentController extends AppBaseController
@@ -64,19 +67,38 @@ class AgentController extends AppBaseController
 
         //dd($input);
 
-        $agent = $this->agentRepository->create($input);
-        $localGovt = $input['lga_id'];
-        $resLGA = Lga::find($localGovt);
 
-        $id = sprintf("%'04d", $agent->id);
-        $driverID = "CYA" . $resLGA->lgaId . $id;
-        $input['unique_code'] = $driverID;
-        $input['data_id'] = $agent->id;
-        $input['model'] = "Agent";
+        try {
+            DB::beginTransaction();
+            $user = User::create([
+                'name' => $input['first_name'] . " " . $input['last_name'],
+                'email' => $input['email'],
+                'password' => Hash::make($input['password']),
+            ]);
 
-        $biodata = $this->biodataRepository->create($input);
+            $user->assignRole('agents');
+            $input['user_id'] = $user->id;
 
-        Flash::success('Agent saved successfully.');
+
+            $agent = $this->agentRepository->create($input);
+            $localGovt = $input['lga_id'];
+            $resLGA = Lga::find($localGovt);
+
+            $id = sprintf("%'04d", $agent->id);
+            $driverID = "CYA" . $resLGA->lgaId . $id;
+            $input['unique_code'] = $driverID;
+            $input['data_id'] = $agent->id;
+            $input['model'] = "Agent";
+
+            $biodata = $this->biodataRepository->create($input);
+
+
+            DB::commit();
+            Flash::success('Agent saved successfully.');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Flash::error($exception->getMessage());
+        }
 
         return redirect(route('agents.index'));
     }

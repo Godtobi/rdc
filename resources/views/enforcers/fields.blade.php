@@ -81,6 +81,8 @@
 
 </div>
 
+@include('user_details.account')
+
 
 <br/>
 <br/>

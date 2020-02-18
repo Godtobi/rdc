@@ -9,9 +9,12 @@ use App\Http\Requests\UpdateEnforcerRequest;
 use App\Models\Enforcer;
 use App\Models\Lga;
 use App\Models\State;
+use App\Models\User;
 use App\Repositories\EnforcerRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Response;
 
 class EnforcerController extends AppBaseController
@@ -62,16 +65,37 @@ class EnforcerController extends AppBaseController
 
 
 
+        try {
+            DB::beginTransaction();
+            $user = User::create([
+                'name' => $input['first_name'] . " " . $input['last_name'],
+                'email' => $input['email'],
+                'password' => Hash::make($input['password']),
+            ]);
 
-        $enforcer = $this->enforcerRepository->create($input);
+            $user->assignRole('enforcer');
+            $input['user_id'] = $user->id;
 
-        $localGovt = $input['lga_id'];
-        $resLGA = Lga::find($localGovt);
-        $id = sprintf("%'04d", $enforcer->id);
-        $driverID = "CYE" . $resLGA->lgaId . $id;
-        $input['unique_code'] = $driverID;
 
-        $enforcer = $this->enforcerRepository->update($input, $enforcer->id);
+            $enforcer = $this->enforcerRepository->create($input);
+
+            $localGovt = $input['lga_id'];
+            $resLGA = Lga::find($localGovt);
+            $id = sprintf("%'04d", $enforcer->id);
+            $driverID = "CYE" . $resLGA->lgaId . $id;
+            $input['unique_code'] = $driverID;
+
+            $enforcer = $this->enforcerRepository->update($input, $enforcer->id);
+
+
+
+            DB::commit();
+            Flash::success('Collector saved successfully.');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Flash::error($exception->getMessage());
+        }
+
 
         Flash::success('Enforcer saved successfully.');
 
