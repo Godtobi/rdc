@@ -13,6 +13,7 @@ $factory->define(VehicleType::class, function (Faker $faker) {
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s'),
         'deleted_at' => $faker->date('Y-m-d H:i:s'),
-        'vehicleId' => $faker->word
+        'vehicleId' => $faker->word,
+        'amount' => $faker->word
     ];
 });

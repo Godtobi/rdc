@@ -1,6 +1,6 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6 {{ $errors->has('name') ? 'has-error' : ''}}">
-    {!! Form::label('name', 'Name:',['class' => 'col-sm-4 control-label']) !!}
+    {!! Form::label('name', 'Name:',['class' => 'col-sm-12 control-label']) !!}
     <div class="col-sm-12">
         {!! Form::text('name', null, ['class' => 'form-control']) !!}
         {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
@@ -10,7 +10,7 @@
 
 <!-- Lgaid Field -->
 <div class="form-group col-sm-6 {{ $errors->has('lgaId') ? 'has-error' : ''}}">
-    {!! Form::label('lgaId', 'Lgaid:',['class' => 'col-sm-4 control-label']) !!}
+    {!! Form::label('lgaId', 'Lgaid:',['class' => 'col-sm-12 control-label']) !!}
     <div class="col-sm-12">
         {!! Form::text('lgaId', null, ['class' => 'form-control']) !!}
         {!! $errors->first('lgaId', '<p class="help-block">:message</p>') !!}

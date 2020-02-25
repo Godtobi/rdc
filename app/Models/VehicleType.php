@@ -8,17 +8,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class VehicleType
  * @package App\Models
- * @version February 13, 2020, 10:47 pm UTC
+ * @version February 25, 2020, 3:23 pm UTC
  *
  * @property string name
  * @property string description
+ * @property string vehicleId
+ * @property number amount
  */
 class VehicleType extends Model
 {
     use SoftDeletes;
 
     public $table = 'vehicle_type';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -29,8 +31,9 @@ class VehicleType extends Model
 
     public $fillable = [
         'name',
+        'description',
         'vehicleId',
-        'description'
+        'amount'
     ];
 
     /**
@@ -41,8 +44,9 @@ class VehicleType extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
+        'description' => 'string',
         'vehicleId' => 'string',
-        'description' => 'string'
+        'amount' => 'float'
     ];
 
     /**
@@ -52,8 +56,14 @@ class VehicleType extends Model
      */
     public static $rules = [
         'name' => 'required',
-        'vehicleId' => 'required',
+        'description' => 'required',
+        'amount' => 'required'
     ];
 
+    function getPartialAmountAttribute()
+    {
+        return ($this->attributes['amount'] * 90) / 100;
+    }
 
+    
 }

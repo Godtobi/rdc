@@ -30,3 +30,11 @@
     <a href="{{ route('userDetails.index') }}"><i class="fa fa-edit"></i><span>User Details</span></a>
 </li>
 
+<li class="{{ Request::is('payments*') ? 'active' : '' }}">
+    <a href="{{ route('payments.index') }}"><i class="fa fa-edit"></i><span>Payments</span></a>
+</li>
+
+<li class="{{ Request::is('remitPayments*') ? 'active' : '' }}">
+    <a href="{{ route('remitPayments.index') }}"><i class="fa fa-edit"></i><span>Remit Payments</span></a>
+</li>
+

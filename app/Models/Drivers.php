@@ -107,5 +107,10 @@ class Drivers extends Model
     {
         return $this->belongsTo('App\Models\Lga', 'lga');
     }
+
+    public function vehicle_type()
+    {
+        return $this->belongsTo('App\Models\VehicleType', 'vehicle_type_id');
+    }
     
 }

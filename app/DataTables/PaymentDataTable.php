@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\VehicleType;
+use App\Models\Payment;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class VehicleTypeDataTable extends DataTable
+class PaymentDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,16 +18,22 @@ class VehicleTypeDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'vehicle_types.datatables_actions');
+        $dataTable
+            ->editColumn('vehicle_type_id', function ($item) {
+                return @$item->vehicle_type->name;
+            })
+        ;
+
+        return $dataTable->addColumn('action', 'payments.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\VehicleType $model
+     * @param \App\Models\Payment $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(VehicleType $model)
+    public function query(Payment $model)
     {
         return $model->newQuery();
     }
@@ -65,9 +71,9 @@ class VehicleTypeDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'description',
-            'vehicleId',
+            'vehicle_plate_number',
+            'driver_code',
+            'vehicle_type_id',
             'amount'
         ];
     }
@@ -79,6 +85,6 @@ class VehicleTypeDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'vehicle_typesdatatable_' . time();
+        return 'paymentsdatatable_' . time();
     }
 }

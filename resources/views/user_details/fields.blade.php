@@ -1,6 +1,6 @@
 <!-- First Name Field -->
 <div class="form-group col-sm-6 {{ $errors->has('first_name') ? 'has-error' : ''}}">
-    {!! Form::label('first_name', 'First Name:',['class' => 'col-sm-4 control-label']) !!}
+    {!! Form::label('first_name', 'First Name:',['class' => 'col-sm-12 control-label']) !!}
     <div class="col-sm-12">
         {!! Form::text('first_name', null, ['required','class' => 'form-control']) !!}
         {!! $errors->first('first_name', '<p class="help-block">:message</p>') !!}
@@ -10,7 +10,7 @@
 
 <!-- Last Name Field -->
 <div class="form-group col-sm-6 {{ $errors->has('last_name') ? 'has-error' : ''}}">
-    {!! Form::label('last_name', 'Last Name:',['class' => 'col-sm-4 control-label']) !!}
+    {!! Form::label('last_name', 'Last Name:',['class' => 'col-sm-12 control-label']) !!}
     <div class="col-sm-12">
         {!! Form::text('last_name', null, ['required','class' => 'form-control']) !!}
         {!! $errors->first('last_name', '<p class="help-block">:message</p>') !!}
@@ -20,7 +20,7 @@
 
 <!-- Phone Field -->
 <div class="form-group col-sm-6 {{ $errors->has('phone') ? 'has-error' : ''}}">
-    {!! Form::label('phone', 'Phone:',['class' => 'col-sm-4 control-label']) !!}
+    {!! Form::label('phone', 'Phone:',['class' => 'col-sm-12 control-label']) !!}
     <div class="col-sm-12">
         {!! Form::text('phone', null, ['required','class' => 'form-control']) !!}
         {!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
@@ -40,7 +40,7 @@
 
 <!-- Picture Field -->
 <div class="form-group col-sm-6 {{ $errors->has('picture') ? 'has-error' : ''}}">
-    {!! Form::label('picture', 'Picture:',['class' => 'col-sm-4 control-label']) !!}
+    {!! Form::label('picture', 'Picture:',['class' => 'col-sm-12 control-label']) !!}
     <div class="col-sm-12">
         {!! Form::file('picture', null, ['class' => 'form-control']) !!}
         {!! $errors->first('picture', '<p class="help-block">:message</p>') !!}
@@ -50,7 +50,7 @@
 
 <!-- Phone Field -->
 <div class="form-group col-sm-6 {{ $errors->has('email') ? 'has-error' : ''}}">
-    {!! Form::label('email', 'E-Mail:',['class' => 'col-sm-4 control-label']) !!}
+    {!! Form::label('email', 'E-Mail:',['class' => 'col-sm-12 control-label']) !!}
     <div class="col-sm-12">
         {!! Form::email('email', null, ['required','class' => 'form-control']) !!}
         {!! $errors->first('email', '<p class="help-block">:message</p>') !!}

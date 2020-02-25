@@ -169,8 +169,8 @@
                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                 </a>
                 <ul>
-                    <li>
-                        <a href="#">
+                    <li class="{{ Request::is('payments') ? 'mm-active' : '' }}">
+                        <a href="{{ route('payments.index') }}">
                             <i class="metismenu-icon"></i>
                             View Transacations
                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
@@ -226,8 +226,8 @@
                     <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                 </a>
                 <ul>
-                    <li>
-                        <a href="#">
+                    <li class="{{ Request::is('remitPayments') ? 'mm-active' : '' }}">
+                        <a href="{{ route('remitPayments.index') }}">
                             <i class="metismenu-icon">
                             </i>View recorded Remittances
                         </a>

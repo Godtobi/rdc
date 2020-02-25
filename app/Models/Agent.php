@@ -40,6 +40,11 @@ class Agent extends Model
         'user_id'
     ];
 
+    function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'] . " " . $this->attributes['last_name'];
+    }
+
     /**
      * The attributes that should be casted to native types.
      *

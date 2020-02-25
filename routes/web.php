@@ -1,6 +1,8 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +24,7 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('/home', 'HomeController@index')->middleware('verified');
+    Route::get('/home2', 'HomeController@indexs');
 
     Route::resource('drivers', 'DriversController');
 
@@ -38,7 +40,15 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
     Route::resource('lgas', 'LgaController');
 
     Route::resource('biodatas', 'BiodataController');
-
+    Route::resource('payments', 'PaymentController');
     Route::resource('userDetails', 'UserDetailsController');
+
+    Route::resource('remitPayments', 'RemitPaymentsController');
 });
 
+
+
+
+
+
+Route::resource('vehicleTypes', 'VehicleTypeController');

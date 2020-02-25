@@ -49,6 +49,10 @@ class Collector extends Model
         'user_id' => 'integer'
     ];
 
+    function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'] . " " . $this->attributes['last_name'];
+    }
     /**
      * Validation rules
      *

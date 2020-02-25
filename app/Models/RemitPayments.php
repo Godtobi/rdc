@@ -20,7 +20,7 @@ class RemitPayments extends Model
     use SoftDeletes;
 
     public $table = 'remit_payments';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -61,5 +61,20 @@ class RemitPayments extends Model
         'amount' => 'required'
     ];
 
-    
+    function getPartialAmountAttribute()
+    {
+        return ($this->attributes['amount'] * 90) / 100;
+    }
+
+    public function agents()
+    {
+        return $this->belongsTo('App\Models\Agent', 'agent_id');
+    }
+
+    public function collectors()
+    {
+        return $this->belongsTo('App\Models\Collector', 'collector_id');
+    }
+
+
 }

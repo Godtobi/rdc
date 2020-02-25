@@ -28,7 +28,7 @@
                                     <div class="icon-wrapper-bg bg-warning"></div>
                                     <i class="metismenu-icon pe-7s-cash text-warning"></i></div>
                                 <div class="widget-numbers">
-                                    <span>3M</span>
+                                    <span>₦	{{$paymentToday}}</span>
                                 </div>
                                 <div
                                     class="widget-subheading fsize-1 pt-2 opacity-10 text-warning font-weight-bold">
@@ -37,7 +37,7 @@
                                 <div class="widget-description opacity-8">
                                                 <span class="text-danger pr-1">
                                                     <i class="fa fa-angle-up"></i>
-                                                    <span class="pl-1">54.1%</span>
+                                                    <span class="pl-1">{{$diffPayment}}%</span>
                                                 </span>
                                     up yesterday
                                 </div>
@@ -54,7 +54,7 @@
                                     <div class="icon-wrapper-bg bg-danger"></div>
                                     <i class="metismenu-icon pe-7s-credit text-danger"></i>
                                 </div>
-                                <div class="widget-numbers"><span>1M</span></div>
+                                <div class="widget-numbers"><span>₦{{$projectedRev}}</span></div>
                                 <div class="widget-subheading fsize-1 pt-2 opacity-10 text-danger font-weight-bold">
                                     Projected Revenue
                                 </div>
@@ -62,7 +62,7 @@
                                     Compared to deposits:
                                     <span class="text-info pl-1">
                                                     <i class="fa fa-angle-down"></i>
-                                                    <span class="pl-1">84.1%</span>
+                                                    <span class="pl-1">{{$diffProj}}%</span>
                                                 </span>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                 <div class="icon-wrapper rounded">
                                     <div class="icon-wrapper-bg bg-info"></div>
                                     <i class="metismenu-icon pe-7s-car text-info"></i></div>
-                                <div class="widget-numbers text-danger"><span>280k</span></div>
+                                <div class="widget-numbers text-danger"><span>{{$drivers}}</span></div>
                                 <div class="widget-subheading fsize-1 pt-2 opacity-10 text-info font-weight-bold">
                                     Total Users
                                 </div>
@@ -119,69 +119,69 @@
                             <div class="card-body">
                                 @include('drivers.table')
                                 {{--<table style="width: 100%;" id="example2"--}}
-                                       {{--class="table table-hover table-striped table-bordered">--}}
-                                    {{--<thead>--}}
-                                    {{--<tr>--}}
-                                        {{--<th>Name</th>--}}
-                                        {{--<th>Phone</th>--}}
-                                        {{--<th>LGA</th>--}}
-                                        {{--<th>Vehicle Type</th>--}}
-                                        {{--<th>Registration date</th>--}}
-                                        {{--<th>Total Contributions</th>--}}
-                                    {{--</tr>--}}
-                                    {{--</thead>--}}
-                                    {{--<tbody>--}}
-                                    {{--<tr>--}}
-                                        {{--<td>Tiger Nixon</td>--}}
-                                        {{--<td>08027171999</td>--}}
-                                        {{--<td>IBADAN N/W</td>--}}
-                                        {{--<td>Bus</td>--}}
-                                        {{--<td>2011/04/25</td>--}}
-                                        {{--<td>320,800</td>--}}
-                                    {{--</tr>--}}
-                                    {{--<tr>--}}
-                                        {{--<td>Tiger Nixon</td>--}}
-                                        {{--<td>08027171999</td>--}}
-                                        {{--<td>IBADAN N/W</td>--}}
-                                        {{--<td>Bus</td>--}}
-                                        {{--<td>2011/04/25</td>--}}
-                                        {{--<td>320,800</td>--}}
-                                    {{--</tr>--}}
-                                    {{--<tr>--}}
-                                        {{--<td>Tiger Nixon</td>--}}
-                                        {{--<td>08027171999</td>--}}
-                                        {{--<td>IBADAN N/W</td>--}}
-                                        {{--<td>Bus</td>--}}
-                                        {{--<td>2011/04/25</td>--}}
-                                        {{--<td>320,800</td>--}}
-                                    {{--</tr>--}}
-                                    {{--<tr>--}}
-                                        {{--<td>Tiger Nixon</td>--}}
-                                        {{--<td>08027171999</td>--}}
-                                        {{--<td>IBADAN N/W</td>--}}
-                                        {{--<td>Bus</td>--}}
-                                        {{--<td>2011/04/25</td>--}}
-                                        {{--<td>320,800</td>--}}
-                                    {{--</tr>--}}
-                                    {{--<tr>--}}
-                                        {{--<td>Tiger Nixon</td>--}}
-                                        {{--<td>08027171999</td>--}}
-                                        {{--<td>IBADAN N/W</td>--}}
-                                        {{--<td>Bus</td>--}}
-                                        {{--<td>2011/04/25</td>--}}
-                                        {{--<td>320,800</td>--}}
-                                    {{--</tr>--}}
-                                    {{--</tbody>--}}
-                                    {{--<tfoot>--}}
-                                    {{--<tr>--}}
-                                        {{--<th>Name</th>--}}
-                                        {{--<th>Position</th>--}}
-                                        {{--<th>Office</th>--}}
-                                        {{--<th>Age</th>--}}
-                                        {{--<th>Start date</th>--}}
-                                        {{--<th>Salary</th>--}}
-                                    {{--</tr>--}}
-                                    {{--</tfoot>--}}
+                                {{--class="table table-hover table-striped table-bordered">--}}
+                                {{--<thead>--}}
+                                {{--<tr>--}}
+                                {{--<th>Name</th>--}}
+                                {{--<th>Phone</th>--}}
+                                {{--<th>LGA</th>--}}
+                                {{--<th>Vehicle Type</th>--}}
+                                {{--<th>Registration date</th>--}}
+                                {{--<th>Total Contributions</th>--}}
+                                {{--</tr>--}}
+                                {{--</thead>--}}
+                                {{--<tbody>--}}
+                                {{--<tr>--}}
+                                {{--<td>Tiger Nixon</td>--}}
+                                {{--<td>08027171999</td>--}}
+                                {{--<td>IBADAN N/W</td>--}}
+                                {{--<td>Bus</td>--}}
+                                {{--<td>2011/04/25</td>--}}
+                                {{--<td>320,800</td>--}}
+                                {{--</tr>--}}
+                                {{--<tr>--}}
+                                {{--<td>Tiger Nixon</td>--}}
+                                {{--<td>08027171999</td>--}}
+                                {{--<td>IBADAN N/W</td>--}}
+                                {{--<td>Bus</td>--}}
+                                {{--<td>2011/04/25</td>--}}
+                                {{--<td>320,800</td>--}}
+                                {{--</tr>--}}
+                                {{--<tr>--}}
+                                {{--<td>Tiger Nixon</td>--}}
+                                {{--<td>08027171999</td>--}}
+                                {{--<td>IBADAN N/W</td>--}}
+                                {{--<td>Bus</td>--}}
+                                {{--<td>2011/04/25</td>--}}
+                                {{--<td>320,800</td>--}}
+                                {{--</tr>--}}
+                                {{--<tr>--}}
+                                {{--<td>Tiger Nixon</td>--}}
+                                {{--<td>08027171999</td>--}}
+                                {{--<td>IBADAN N/W</td>--}}
+                                {{--<td>Bus</td>--}}
+                                {{--<td>2011/04/25</td>--}}
+                                {{--<td>320,800</td>--}}
+                                {{--</tr>--}}
+                                {{--<tr>--}}
+                                {{--<td>Tiger Nixon</td>--}}
+                                {{--<td>08027171999</td>--}}
+                                {{--<td>IBADAN N/W</td>--}}
+                                {{--<td>Bus</td>--}}
+                                {{--<td>2011/04/25</td>--}}
+                                {{--<td>320,800</td>--}}
+                                {{--</tr>--}}
+                                {{--</tbody>--}}
+                                {{--<tfoot>--}}
+                                {{--<tr>--}}
+                                {{--<th>Name</th>--}}
+                                {{--<th>Position</th>--}}
+                                {{--<th>Office</th>--}}
+                                {{--<th>Age</th>--}}
+                                {{--<th>Start date</th>--}}
+                                {{--<th>Salary</th>--}}
+                                {{--</tr>--}}
+                                {{--</tfoot>--}}
                                 {{--</table>--}}
                             </div>
                         </div>
@@ -322,7 +322,6 @@
                         <div class="footer-dots">
 
                             <div class="dots-separator"></div>
-
 
 
                         </div>

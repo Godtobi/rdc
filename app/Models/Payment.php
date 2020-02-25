@@ -60,5 +60,15 @@ class Payment extends Model
         'amount' => 'required'
     ];
 
+    function getPartialAmountAttribute()
+    {
+        return ($this->attributes['amount'] * 90) / 100;
+    }
+
+    public function vehicle_type()
+    {
+        return $this->belongsTo('App\Models\VehicleType', 'vehicle_type_id');
+    }
+
 
 }
