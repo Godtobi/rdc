@@ -51,4 +51,4 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
 
 
 
-Route::resource('vehicleTypes', 'VehicleTypeController');
+

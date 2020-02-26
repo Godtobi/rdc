@@ -33,7 +33,7 @@
                                     class="position-relative h-100 d-flex justify-content-center align-items-center bg-plum-plate"
                                     tabindex="-1">
                                     <div class="slide-img-bg"
-                                         style="background-image: url({{asset('assets/images/login.jpeg')}});"></div>
+                                         style="background-image: url({{asset('assets/images/one.jpeg')}});"></div>
 
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                                     class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark"
                                     tabindex="-1">
                                     <div class="slide-img-bg"
-                                         style="background-image: url({{asset('assets/images/originals/citynights.jpg')}});"></div>
+                                         style="background-image: url({{asset('assets/images/two.jpeg')}});"></div>
 
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                     class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning"
                                     tabindex="-1">
                                     <div class="slide-img-bg"
-                                         style="background-image: url({{asset('assets/images/originals/citydark.jpg')}});"></div>
+                                         style="background-image: url({{asset('assets/images/three.jpeg')}});"></div>
 
                                 </div>
                             </div>
