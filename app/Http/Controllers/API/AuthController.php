@@ -34,7 +34,7 @@ class AuthController extends AppBaseController
 
         //dd($params);
 
-        if (Auth::attempt(['email' => $params['email'], 'password' => $params['password']])) {
+        if (Auth::attempt(['userID' => $params['user_id'], 'password' => $params['password']])) {
             $user = Auth::user();
 
             if (!empty($user->email_verified_at))

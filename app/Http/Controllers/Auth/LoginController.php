@@ -51,4 +51,7 @@ class LoginController extends Controller
 
         return $this->loggedOut(request()) ?: redirect('/');
     }
+
+
+
 }

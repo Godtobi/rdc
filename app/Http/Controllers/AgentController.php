@@ -70,6 +70,17 @@ class AgentController extends AppBaseController
 
         try {
             DB::beginTransaction();
+
+            $validator = validator($request->input(), [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'userID' => 'required|exists:users,userID',
+            ]);
+
+            if ($validator->fails()) {
+                return back()->withErrors($validator);
+            }
+
             $user = User::create([
                 'name' => $input['first_name'] . " " . $input['last_name'],
                 'email' => $input['email'],

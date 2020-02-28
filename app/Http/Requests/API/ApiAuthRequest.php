@@ -24,7 +24,7 @@ class ApiAuthRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
+            'user_id' => 'required',
             'password'  => 'required',
         ];
     }
