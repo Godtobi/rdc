@@ -1,11 +1,11 @@
-<!-- First Name Field -->
-<div class="form-group col-sm-6 {{ $errors->has('userID') ? 'has-error' : ''}}">
-    {!! Form::label('userID', 'User ID:',['class' => 'col-sm-12 control-label']) !!}
-    <div class="col-sm-12">
-        {!! Form::text('userID', null, ['required','class' => 'form-control']) !!}
-        {!! $errors->first('userID', '<p class="help-block">:message</p>') !!}
-    </div>
-</div>
+{{--<!-- First Name Field -->--}}
+{{--<div class="form-group col-sm-6 {{ $errors->has('userID') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('userID', 'User ID:',['class' => 'col-sm-12 control-label']) !!}--}}
+    {{--<div class="col-sm-12">--}}
+        {{--{!! Form::text('userID', null, ['required','class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('userID', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 <div class="form-group col-sm-6 {{ $errors->has('password') ? 'has-error' : ''}}">
     {!! Form::label('password', 'Password:',['class' => 'col-sm-12 control-label']) !!}

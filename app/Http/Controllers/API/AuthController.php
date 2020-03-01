@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\ApiAuthRequest;
+use App\Models\Biodata;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -34,7 +35,12 @@ class AuthController extends AppBaseController
 
         //dd($params);
 
-        if (Auth::attempt(['userID' => $params['user_id'], 'password' => $params['password']])) {
+        $biodata = Biodata::where('unique_code',$params['user_id'])->first();
+        if(empty($biodata)){
+            return $this->sendError('Invalid login information');
+        }
+        $email = $biodata->email;
+        if (Auth::attempt(['email' => $email, 'password' => $params['password']])) {
             $user = Auth::user();
 
             if (!empty($user->email_verified_at))

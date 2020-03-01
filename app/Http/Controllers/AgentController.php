@@ -74,7 +74,7 @@ class AgentController extends AppBaseController
             $validator = validator($request->input(), [
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'userID' => 'required|exists:users,userID',
+                //'userID' => 'required|exists:users,userID',
             ]);
 
             if ($validator->fails()) {
