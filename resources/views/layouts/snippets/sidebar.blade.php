@@ -29,12 +29,6 @@
                             </i>Manage Users
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon">
-                            </i>User analytics
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li>
@@ -56,12 +50,7 @@
                             </i>Manage field Agents
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon">
-                            </i>Agents Analytics
-                        </a>
-                    </li>
+
                 </ul>
             </li>
             <li>
@@ -93,12 +82,7 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon">
-                            </i>Driver Analytics
-                        </a>
-                    </li>
+
                 </ul>
             </li>
             <li>
@@ -120,12 +104,7 @@
                             </i>Manage Collectors
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon">
-                            </i>Collector Analytics
-                        </a>
-                    </li>
+
                 </ul>
             </li>
             <li>
@@ -147,12 +126,7 @@
                             </i>Manage Enforcers
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon">
-                            </i>Collector Analytics
-                        </a>
-                    </li>
+
                 </ul>
             </li>
             <li class="{{ Request::is('lgas/index') ? 'mm-active' : '' }}">
@@ -232,12 +206,7 @@
                             </i>View recorded Remittances
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon">
-                            </i>Remittance Analytics
-                        </a>
-                    </li>
+
                 </ul>
             </li>
             <li class="app-sidebar__heading">Reports & Analytics</li>

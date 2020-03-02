@@ -88,7 +88,7 @@
                                                                      alt="">
                                                             </div>
                                                             <div class="widget-content-left">
-                                                                <div class="widget-heading">Alina Mcloughlin
+                                                                <div class="widget-heading">{{auth()->user()->name}}
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-right mr-2">
