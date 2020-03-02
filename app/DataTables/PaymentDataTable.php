@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Payment;
+use Carbon\Carbon;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -22,7 +23,42 @@ class PaymentDataTable extends DataTable
             ->editColumn('vehicle_type_id', function ($item) {
                 return @$item->vehicle_type->name;
             })
-        ;
+            ->filterColumn('vehicle_type_id', function ($query, $keyword) {
+                $query->whereHas('vehicle_type', function ($query) use ($keyword) {
+                    $sql = "vehicle_type.name  like ?";
+                    $query->whereRaw($sql, ["%{$keyword}%"]);
+                });
+            })
+            ->editColumn('driver_name', function ($item) {
+                return @$item->driver->full_name;
+            })
+            ->filterColumn('driver_name', function ($query, $keyword) {
+                $query->whereHas('driver', function ($query) use ($keyword) {
+                    $sql = "drivers.first_name  like ? OR drivers.last_name  like ?";
+                    $query->whereRaw($sql, ["%{$keyword}%", "%{$keyword}%"]);
+                });
+            })
+            ->editColumn('local_govt', function ($item) {
+                return @$item->driver->local_govt->name;
+            })
+            ->filterColumn('local_govt', function ($query, $keyword) {
+                $query->whereHas('driver.local_govt', function ($query) use ($keyword) {
+                    $sql = "lga.name  like ?";
+                    $query->whereRaw($sql, ["%{$keyword}%"]);
+                });
+            })
+            ->editColumn('agent', function ($item) {
+                return @$item->user->name;
+            })
+            ->filterColumn('agent', function ($query, $keyword) {
+                $query->whereHas('user', function ($query) use ($keyword) {
+                    $sql = "users.name  like ?";
+                    $query->whereRaw($sql, ["%{$keyword}%"]);
+                });
+            })
+            ->editColumn('time', function ($__res) {
+                return $__res->created_at->format('h:i a');
+            });
 
         return $dataTable->addColumn('action', 'payments.datatables_actions');
     }
@@ -35,7 +71,7 @@ class PaymentDataTable extends DataTable
      */
     public function query(Payment $model)
     {
-        return $model->newQuery();
+        return $model->whereDate('created_at', Carbon::today())->newQuery();
     }
 
     /**
@@ -48,12 +84,12 @@ class PaymentDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false])
+            // ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -70,11 +106,15 @@ class PaymentDataTable extends DataTable
      */
     protected function getColumns()
     {
+
+
         return [
-            'vehicle_plate_number',
-            'driver_code',
-            'vehicle_type_id',
-            'amount'
+            ['title' => 'Driver Name', 'data' => 'driver_name', 'footer' => 'driver_name', 'orderable' => false],
+            ['title' => 'Local Govt', 'data' => 'local_govt', 'footer' => 'local_govt', 'orderable' => false],
+            ['title' => 'Agent', 'data' => 'agent', 'footer' => 'agent', 'orderable' => false],
+            ['title' => 'Vehicle Type', 'data' => 'vehicle_type_id', 'footer' => 'vehicle_type_id'],
+            ['title' => 'Time', 'data' => 'time', 'footer' => 'time', 'searchable' => false],
+            ['title' => 'Amount', 'data' => 'amount', 'footer' => 'amount'],
         ];
     }
 

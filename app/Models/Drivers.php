@@ -112,5 +112,10 @@ class Drivers extends Model
     {
         return $this->belongsTo('App\Models\VehicleType', 'vehicle_type_id');
     }
+
+    function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'] . " " . $this->attributes['last_name'];
+    }
     
 }

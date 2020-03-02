@@ -32,6 +32,7 @@ class Payment extends Model
         'vehicle_plate_number',
         'driver_code',
         'vehicle_type_id',
+        'user_id',
         'amount'
     ];
 
@@ -43,6 +44,7 @@ class Payment extends Model
     protected $casts = [
         'id' => 'integer',
         'vehicle_plate_number' => 'string',
+        'user_id' => 'integer',
         'driver_code' => 'string',
         'vehicle_type_id' => 'string',
         'amount' => 'float'
@@ -60,6 +62,18 @@ class Payment extends Model
         'amount' => 'required'
     ];
 
+
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($model) {
+            $model->user_id = auth()->user()->id;
+        });
+        self::saving(function ($model) {
+            $model->user_id = auth()->user()->id;
+        });
+    }
+
     function getPartialAmountAttribute()
     {
         return ($this->attributes['amount'] * 90) / 100;
@@ -68,6 +82,17 @@ class Payment extends Model
     public function vehicle_type()
     {
         return $this->belongsTo('App\Models\VehicleType', 'vehicle_type_id');
+    }
+
+
+    public function driver()
+    {
+        return $this->belongsTo('App\Models\Drivers', 'vehicle_plate_number', 'plate_no');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
 

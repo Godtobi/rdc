@@ -6,7 +6,9 @@ use App\DataTables\PaymentDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreatePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Models\Payment;
 use App\Repositories\PaymentRepository;
+use Carbon\Carbon;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -29,7 +31,9 @@ class PaymentController extends AppBaseController
      */
     public function index(PaymentDataTable $paymentDataTable)
     {
-        return $paymentDataTable->render('payments.index');
+        $now = Carbon::now();
+        $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('amount');
+        return $paymentDataTable->render('payments.index',compact('paymentToday'));
     }
 
     /**
