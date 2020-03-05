@@ -5,9 +5,12 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateDriverAPIRequest;
 use App\Http\Requests\API\UpdateDriverAPIRequest;
 use App\Models\Drivers;
+use App\Models\User;
 use App\Repositories\DriverRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Response;
 
@@ -76,17 +79,50 @@ class DriverAPIController extends AppBaseController
     public function store(CreateDriverAPIRequest $request)
     {
         $input = $request->all();
+        try {
+            DB::beginTransaction();
 
-        //dd($input);
+            $validator = validator($request->input(), [
+                'first_name' => 'required',
+                'last_name' => 'required',
+            ]);
 
-        if (isset($input['passport'])) {
-            $file = $input['passport'];
-            $fileName = time() . '-' . strtolower(str_replace(' ', '-', $file->getClientOriginalName()));
-            Storage::disk('local')->getDriver()->put($fileName, $file->path(), ['ServerSideEncryption' => 'AES256']);
-            $input['passport'] = $fileName;
+
+            if ($validator->fails()) {
+                return back()->withErrors($validator);
+            }
+
+            $user = User::create([
+                'name' => $input['first_name'] . " " . $input['last_name'],
+                'email' => "",
+                'password' => Hash::make($input['password']),
+            ]);
+
+            $user->assignRole('driver');
+            $input['user_id'] = $user->id;
+
+            //dd($input);
+
+            if (isset($input['passport'])) {
+                $file = $input['passport'];
+                $fileName = time() . '-' . strtolower(str_replace(' ', '-', $file->getClientOriginalName()));
+                Storage::disk('local')->getDriver()->put($fileName, $file->path(), ['ServerSideEncryption' => 'AES256']);
+                $input['passport'] = $fileName;
+            }
+            $input['driver_id'] = "";
+            $driver = $this->driverRepository->create($input);
+
+
+
+
+            DB::commit();
+            Flash::success('Collector saved successfully.');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Flash::error($exception->getMessage());
         }
-        $input['driver_id'] = "";
-        $driver = $this->driverRepository->create($input);
+
+
 
         return $this->sendResponse($driver->toArray(), 'Driver saved successfully');
     }

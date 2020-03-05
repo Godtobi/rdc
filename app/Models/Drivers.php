@@ -103,6 +103,7 @@ class Drivers extends Model
     ];
 
 
+
     public function local_govt()
     {
         return $this->belongsTo('App\Models\Lga', 'lga');

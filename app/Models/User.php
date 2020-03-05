@@ -29,7 +29,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','userID'
+        'password', 'remember_token', 'userID'
     ];
 
     /**
@@ -40,4 +40,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Establish relationship between Users and PersonalInfo models
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function biodata()
+    {
+        return $this->belongsTo('App\Models\Biodata', 'user_id');
+    }
+
 }

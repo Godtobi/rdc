@@ -47,6 +47,7 @@ class AuthController extends AppBaseController
                 throw ValidationException::withMessages(['password' => 'You have been not verified your account']);
 
             $data['user'] = $user;
+            $data['biodata'] = $user->biodata;
             $data['token'] = $user->createToken(config('app.name'))->accessToken;
             $message = "Successfully Logged in";
 

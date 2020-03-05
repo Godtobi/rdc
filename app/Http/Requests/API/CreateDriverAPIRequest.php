@@ -24,6 +24,22 @@ class CreateDriverAPIRequest extends APIRequest
      */
     public function rules()
     {
-        return Drivers::$rules;
+        return [
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'password' => 'required',
+            'last_name' => 'required',
+            'marital_status' => 'required',
+            'state_id' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'plate_no' => 'required',
+            'vehicle_type_id' => 'required',
+            'mother_maiden_name' => 'required',
+            'vehicle_owner_name' => 'required',
+            'vehicle_owner_phone' => 'required',
+            'lga' => 'required',
+            'passport' => 'required'
+        ];
     }
 }
