@@ -35,8 +35,8 @@ class AuthController extends AppBaseController
 
         //dd($params);
 
-        $biodata = Biodata::where('unique_code',$params['user_id'])->first();
-        if(empty($biodata)){
+        $biodata = Biodata::where('unique_code', $params['user_id'])->first();
+        if (empty($biodata)) {
             return $this->sendError('Invalid login information');
         }
         $email = $biodata->email;
@@ -46,8 +46,19 @@ class AuthController extends AppBaseController
             if (!empty($user->email_verified_at))
                 throw ValidationException::withMessages(['password' => 'You have been not verified your account']);
 
-            $data['user'] = $user;
+
             $data['biodata'] = $user->biodata;
+            if ($user->hasRole('agents')) {
+                $data['biodata'] = $user->agent;
+
+            }
+            if ($user->hasRole('collector')) {
+                $data['biodata'] = $user->collector;
+            }
+            if ($user->hasRole('enforcer')) {
+                $data['biodata'] = $user->enforcer;
+            }
+            $data['user'] = $user;
             $data['token'] = $user->createToken(config('app.name'))->accessToken;
             $message = "Successfully Logged in";
 
@@ -77,8 +88,7 @@ class AuthController extends AppBaseController
         ])->validate();
 
 
-
-       // dd('f');
+        // dd('f');
 
         $old_password = $request->input('old_password');
         $new_password = $request->input('password');
@@ -115,8 +125,6 @@ class AuthController extends AppBaseController
         $validator = Validator::make($request->all(), [
                 "confirm_password" => "required|same:new_password"]
         )->validate();
-
-
 
 
         $new_password = $request->input('new_password');

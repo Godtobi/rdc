@@ -72,5 +72,13 @@ class Agent extends Model
         return $this->hasOne('App\Models\Biodata', 'data_id')->where('model', 'Agent');
     }
 
+    public function user()
+    {
+        return $this->hasOne('App\Models\User', 'user_id');
+    }
+
+
+
+
 
 }

@@ -41,13 +41,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Establish relationship between Users and PersonalInfo models
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function biodata()
+
+
+    public function agent()
     {
-        return $this->belongsTo('App\Models\Biodata', 'user_id');
+        return $this->hasOne('App\Models\Agent', 'user_id');
+    }
+
+    public function collector()
+    {
+        return $this->hasOne('App\Models\Collector', 'user_id');
+    }
+
+    public function enforcer()
+    {
+        return $this->hasOne('App\Models\Enforcer', 'user_id');
     }
 
 }
