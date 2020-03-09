@@ -40,6 +40,7 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
     Route::resource('lgas', 'LgaController');
 
     Route::resource('biodatas', 'BiodataController');
+    Route::get('payments/report', 'PaymentController@report');
     Route::resource('payments', 'PaymentController');
     Route::resource('userDetails', 'UserDetailsController');
 

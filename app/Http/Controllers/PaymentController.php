@@ -36,6 +36,13 @@ class PaymentController extends AppBaseController
         return $paymentDataTable->render('payments.index',compact('paymentToday'));
     }
 
+
+
+    public function report()
+    {
+        return view('payments.report');
+    }
+
     /**
      * Show the form for creating a new Payment.
      *
