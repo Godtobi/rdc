@@ -33,6 +33,7 @@ class HomeController extends Controller
     {
 
 
+
         $now = Carbon::now();
         $yest = Carbon::yesterday();
         $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('amount');
@@ -66,7 +67,8 @@ class HomeController extends Controller
      */
     public function index(DriversDataTable $driversDataTable)
     {
-
+        $ag = Agent::find(24);
+        dd($ag->user);
 
         $now = Carbon::now();
         $yest = Carbon::yesterday();

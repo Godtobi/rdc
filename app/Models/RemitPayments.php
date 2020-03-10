@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\AgencyScope;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -74,6 +75,12 @@ class RemitPayments extends Model
     public function collectors()
     {
         return $this->belongsTo('App\Models\Collector', 'collector_id');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new AgencyScope());
     }
 
 

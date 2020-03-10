@@ -65,6 +65,17 @@ class UserDetailsController extends AppBaseController
 
         try {
             DB::beginTransaction();
+
+            $validator = validator($request->input(), [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'required|email|exists:users,email',
+
+            ]);
+
+            if ($validator->fails()) {
+                return back()->withErrors($validator);
+            }
             $user = User::create([
                 'name' => $input['first_name'] . " " . $input['last_name'],
                 'email' => $input['email'],

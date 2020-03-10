@@ -38,3 +38,7 @@
     <a href="{{ route('remitPayments.index') }}"><i class="fa fa-edit"></i><span>Remit Payments</span></a>
 </li>
 
+<li class="{{ Request::is('agencies*') ? 'active' : '' }}">
+    <a href="{{ route('agencies.index') }}"><i class="fa fa-edit"></i><span>Agencies</span></a>
+</li>
+

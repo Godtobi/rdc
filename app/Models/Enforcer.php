@@ -63,6 +63,12 @@ class Enforcer extends Model
         'lga' => 'integer'
     ];
 
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
+
     /**
      * Validation rules
      *

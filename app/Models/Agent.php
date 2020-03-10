@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Events\AgentCreated;
+use App\Scopes\AgencyScope;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -74,11 +75,21 @@ class Agent extends Model
 
     public function user()
     {
-        return $this->hasOne('App\Models\User', 'user_id');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
 
-
+    public static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new AgencyScope());
+        self::creating(function ($model) {
+            $model->agency_id = auth()->user()->agency->id;
+        });
+        self::saving(function ($model) {
+            $model->agency_id = auth()->user()->agency->id;
+        });
+    }
 
 
 }

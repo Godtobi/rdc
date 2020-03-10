@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Agent', 'user_id');
     }
 
+    public function agency()
+    {
+        return $this->hasOne('App\Models\Agency', 'user_id');
+    }
+
     public function collector()
     {
         return $this->hasOne('App\Models\Collector', 'user_id');

@@ -199,7 +199,7 @@ class EnforcerController extends AppBaseController
         }
 
         $this->enforcerRepository->delete($id);
-
+        $enforcer->user()->delete();
         Flash::success('Enforcer deleted successfully.');
 
         return redirect(route('enforcers.index'));

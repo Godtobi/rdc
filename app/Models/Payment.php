@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\AgencyScope;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -66,6 +67,7 @@ class Payment extends Model
     public static function boot()
     {
         parent::boot();
+        static::addGlobalScope(new AgencyScope());
         self::creating(function ($model) {
             $model->user_id = auth()->user()->id;
         });

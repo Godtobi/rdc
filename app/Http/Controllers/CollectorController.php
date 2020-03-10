@@ -210,6 +210,8 @@ class CollectorController extends AppBaseController
         }
 
         $this->collectorRepository->delete($id);
+        $collector->biodata()->delete();
+        $collector->user()->delete();
 
         Flash::success('Collector deleted successfully.');
 

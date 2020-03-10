@@ -44,7 +44,10 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
     Route::resource('userDetails', 'UserDetailsController');
 
     Route::resource('remitPayments', 'RemitPaymentsController');
+    Route::resource('agencies', 'AgencyController');
 });
+
+
 
 
 

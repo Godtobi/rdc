@@ -67,5 +67,10 @@ class Collector extends Model
         return $this->hasOne('App\Models\Biodata', 'data_id')->where('model', 'Collector');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
+
 
 }

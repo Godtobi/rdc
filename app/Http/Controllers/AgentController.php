@@ -208,7 +208,8 @@ class AgentController extends AppBaseController
         }
 
         $this->agentRepository->delete($id);
-
+        $agent->biodata()->delete();
+        $agent->user()->delete();
         Flash::success('Agent deleted successfully.');
 
         return redirect(route('agents.index'));
