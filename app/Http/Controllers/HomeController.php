@@ -67,8 +67,8 @@ class HomeController extends Controller
      */
     public function index(DriversDataTable $driversDataTable)
     {
-        $ag = Agent::find(24);
-        dd($ag->user);
+//        $ag = Agent::find(24);
+//        dd($ag->user);
 
         $now = Carbon::now();
         $yest = Carbon::yesterday();
