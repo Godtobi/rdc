@@ -27,7 +27,6 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
     Route::get('/home2', 'HomeController@indexs');
 
     Route::resource('drivers', 'DriversController');
-
     Route::resource('vehicleTypes', 'VehicleTypeController');
 
 
