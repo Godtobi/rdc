@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', "Create Agency")
+@section('title', "Create Admin Agent")
 @section('content')
     <div class="app-main__outer">
         <div class="app-main__inner">
@@ -11,7 +11,7 @@
                             </i>
                         </div>
                         <div>
-                            Agency
+                            Admin Agent
 
                         </div>
                     </div>
@@ -20,7 +20,7 @@
             <div class="main-card mb-3 card">
                 @include('adminlte-templates::common.errors')
                 <div class="card-body">
-                    <h5 class="card-title">Agency</h5>
+                    <h5 class="card-title">Admin Agent</h5>
 
                     {!! Form::open(['route' => 'agencies.store', 'class'=>"col-md-10 mx-auto", 'id'=>"signupForm"]) !!}
 

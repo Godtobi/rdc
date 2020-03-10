@@ -9,6 +9,7 @@ use App\Models\Biodata;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Hash;
@@ -28,13 +29,33 @@ class AuthController extends AppBaseController
     protected $successStatus = 200;
 
 
+    public function verify_user()
+    {
+        $input = \request()->input();
+        $validator = validator($input, [
+            'user_id' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError(implode(",", Arr::flatten($validator->errors()->toArray())));
+        }
+
+        $biodata = Biodata::where('unique_code', $input['user_id'])->first();
+        if (empty($biodata)) {
+            return $this->sendError('Invalid  information');
+        }
+        $user = User::where('email', $biodata->email)->first();
+
+        $message = "Details";
+        return $this->sendResponse($user, $message);
+
+    }
+
     public function login(ApiAuthRequest $request)
     {
 
         $params = $request->validated();
 
         //dd($params);
-
         $biodata = Biodata::where('unique_code', $params['user_id'])->first();
         if (empty($biodata)) {
             return $this->sendError('Invalid login information');
@@ -43,9 +64,18 @@ class AuthController extends AppBaseController
         if (Auth::attempt(['email' => $email, 'password' => $params['password']])) {
             $user = Auth::user();
 
-            if (!empty($user->email_verified_at))
-                throw ValidationException::withMessages(['password' => 'You have been not verified your account']);
+            if (!empty($user->email_verified_at)) {
+                return $this->sendError('You have been not verified your account');
+            }
 
+            if (empty($user->device_id)) {
+                $user->device_id = $params['device_id'];
+                $user->save();
+            } else {
+                if ($user->device_id !== $params['device_id']) {
+                    return $this->sendError('Another Device has logged in with this account');
+                }
+            }
 
             $data['biodata'] = $user->biodata;
             if ($user->hasRole('agents')) {

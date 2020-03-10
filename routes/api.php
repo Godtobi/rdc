@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('login', 'AuthController@login');
-
+Route::post('verify_user', 'AuthController@verify_user');
 
 Route::group(['middleware' => ['auth:api']], function () {
     Route::post('change_password', 'AuthController@changePassword');

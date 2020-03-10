@@ -25,6 +25,7 @@ class ApiAuthRequest extends FormRequest
     {
         return [
             'user_id' => 'required',
+            'device_id' => 'required',
             'password'  => 'required',
         ];
     }
