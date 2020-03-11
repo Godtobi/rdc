@@ -35,7 +35,10 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::resource('agents', 'AgentAPIController');
 
     Route::resource('collectors', 'CollectorAPIController');
+    Route::resource('park_managers', 'ParkManagerAPIController');
 });
+
+
 
 
 

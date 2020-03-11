@@ -42,3 +42,7 @@
     <a href="{{ route('agencies.index') }}"><i class="fa fa-edit"></i><span>Agencies</span></a>
 </li>
 
+<li class="{{ Request::is('parkManagers*') ? 'active' : '' }}">
+    <a href="{{ route('parkManagers.index') }}"><i class="fa fa-edit"></i><span>Park Managers</span></a>
+</li>
+

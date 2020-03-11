@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a66b3da0-7120-4976-a46c-09fcba155464" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/DataTables/AgencyAgentDataTable.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/AgencyDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/AgencyDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgencyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgencyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/agencies/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/agencies/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,52 +20,28 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/agencies/show.blade.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_11_220327_create_parkmanager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+            <state relative-caret-position="420">
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AgencyController.php">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="39" column="22" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="39" selection-end-column="22" />
-              <folding>
-                <element signature="e#40#80#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/DataTables/AgencyDataTable.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="37" column="81" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="81" />
+            <state relative-caret-position="540">
+              <caret line="37" column="34" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Models/Payment.php">
+        <entry file="file://$PROJECT_DIR$/app/Models/ParkManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-              <folding>
-                <element signature="e#30#57#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="656">
+              <caret line="84" column="23" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -80,7 +50,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>btn btn-danger</find>
       <find>do</find>
       <find>lga</find>
       <find>$agent</find>
@@ -110,6 +79,7 @@
       <find>uni</find>
       <find>agency_id</find>
       <find>depo</find>
+      <find>withoutgl</find>
     </findStrings>
     <replaceStrings>
       <replace>is-invalid</replace>
@@ -133,8 +103,8 @@
       <dir>$PROJECT_DIR$/database/migrations</dir>
       <dir>$PROJECT_DIR$/resources/views</dir>
       <dir>$PROJECT_DIR$/app/DataTables</dir>
-      <dir>$PROJECT_DIR$/app</dir>
       <dir>$PROJECT_DIR$/app/Models</dir>
+      <dir>$PROJECT_DIR$/app</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -143,7 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/DataTables/PaymentDataTable.php" />
         <option value="$PROJECT_DIR$/app/Models/Drivers.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_03_05_124253_remove_email_unique_from_users.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" />
@@ -171,7 +140,6 @@
         <option value="$PROJECT_DIR$/resources/views/agencies/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/agents/datatables_actions.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/AgentAPIController.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/DataTables/AgentDataTable.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/API/CreateDriverAPIRequest.php" />
@@ -179,8 +147,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserDetailsController.php" />
         <option value="$PROJECT_DIR$/app/Traits/FormatInput.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/DriverAPIController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/API/ApiAuthRequest.php" />
         <option value="$PROJECT_DIR$/app/Models/Agent.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/snippets/admin-sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
@@ -192,8 +158,12 @@
         <option value="$PROJECT_DIR$/resources/views/agencies/show.blade.php" />
         <option value="$PROJECT_DIR$/app/DataTables/AgencyAgentDataTable.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AgencyController.php" />
-        <option value="$PROJECT_DIR$/app/DataTables/AgencyDataTable.php" />
         <option value="$PROJECT_DIR$/app/Models/Payment.php" />
+        <option value="$PROJECT_DIR$/app/DataTables/AgencyDataTable.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/API/ApiAuthRequest.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_03_11_220327_create_parkmanager.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
       </list>
     </option>
   </component>
@@ -365,12 +335,6 @@
               <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
               <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="DataTables" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -386,38 +350,13 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+              <item name="API" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
               <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="agencies" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
@@ -496,7 +435,7 @@
       <workItem from="1582746284599" duration="20324000" />
       <workItem from="1583745692266" duration="39000" />
       <workItem from="1583795504423" duration="7545000" />
-      <workItem from="1583876922471" duration="10391000" />
+      <workItem from="1583876922471" duration="14596000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <created>1581679838369</created>
@@ -785,15 +724,28 @@
       <option name="project" value="LOCAL" />
       <updated>1583941473847</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fix">
+      <created>1583953142637</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1583953142637</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fix">
+      <created>1583955748179</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1583955748179</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109269000" />
+    <option name="totallyTimeSpent" value="113474000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="963" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49712974" visible="true" weight="0.2741148" />
       <window_info id="Structure" order="1" sideWeight="0.50287026" side_tool="true" weight="0.25274727" />
@@ -853,20 +805,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/Collector.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Drivers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-101">
-          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Enforcer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="431">
@@ -947,13 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
           <caret line="514" column="20" selection-start-line="514" selection-start-column="20" selection-end-line="514" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -1048,20 +979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="85" selection-start-line="85" selection-end-line="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/API/ApiAuthRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="57" column="22" lean-forward="true" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1201,10 +1118,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Payment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+          <folding>
+            <element signature="e#30#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AgencyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="39" column="22" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="39" selection-end-column="22" />
+        <state relative-caret-position="265">
+          <caret line="44" column="47" lean-forward="true" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
           <folding>
             <element signature="e#40#80#0#PHP" expanded="true" />
           </folding>
@@ -1213,18 +1140,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/DataTables/AgencyDataTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+        <state relative-caret-position="210">
+          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Payment.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/API/ApiAuthRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-          <folding>
-            <element signature="e#30#57#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="405">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="67" column="76" selection-start-line="67" selection-start-column="76" selection-end-line="67" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_11_220327_create_parkmanager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="37" column="34" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/ParkManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="84" column="23" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="23" />
         </state>
       </provider>
     </entry>

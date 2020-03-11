@@ -29,6 +29,13 @@
                             </i>Manage Users
                         </a>
                     </li>
+
+                    <li class="{{ Request::is('parkManagers') ? 'mm-active' : '' }}">
+                        <a href="{{ route('parkManagers.index') }}">
+                            <i class="metismenu-icon">
+                            </i>Manage Park Managers
+                        </a>
+                    </li>
                 </ul>
             </li>
             @if (request()->url() == url('home2'))
