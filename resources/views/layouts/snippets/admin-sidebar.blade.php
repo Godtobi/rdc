@@ -31,28 +31,32 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#">
-                    <i class="metismenu-icon pe-7s-users"></i>
-                    Admin Agent
-                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                </a>
-                <ul>
-                    <li class="{{ Request::is('agencies/create') ? 'mm-active' : '' }}">
-                        <a href="{{ route('agencies.create') }}">
-                            <i class="metismenu-icon"></i>
-                            Create Admin Agent
-                        </a>
-                    </li>
-                    <li class="{{ Request::is('agencies') ? 'mm-active' : '' }}">
-                        <a href="{{ route('agencies.index') }}">
-                            <i class="metismenu-icon">
-                            </i>Manage Admin Agent
-                        </a>
-                    </li>
+            @if (request()->url() == url('home2'))
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-users"></i>
+                        Admin Agent
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li class="{{ Request::is('agencies/create') ? 'mm-active' : '' }}">
+                            <a href="{{ route('agencies.create') }}">
+                                <i class="metismenu-icon"></i>
+                                Create Admin Agent
+                            </a>
+                        </li>
+                        <li class="{{ Request::is('agencies') ? 'mm-active' : '' }}">
+                            <a href="{{ route('agencies.index') }}">
+                                <i class="metismenu-icon">
+                                </i>Manage Admin Agent
+                            </a>
+                        </li>
 
-                </ul>
-            </li>
+                    </ul>
+                </li>
+            @endif
+
+
             <li>
                 <a href="#">
                     <i class="metismenu-icon pe-7s-users"></i>
