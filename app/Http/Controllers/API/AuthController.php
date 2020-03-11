@@ -68,14 +68,14 @@ class AuthController extends AppBaseController
                 return $this->sendError('You have been not verified your account');
             }
 
-//            if (empty($user->device_id)) {
-//                $user->device_id = $params['device_id'];
-//                $user->save();
-//            } else {
-//                if ($user->device_id !== $params['device_id']) {
-//                    return $this->sendError('Another Device has logged in with this account');
-//                }
-//            }
+            if (empty($user->device_id)) {
+                $user->device_id = $params['device_id'];
+                $user->save();
+            } else {
+                if ($user->device_id !== $params['device_id']) {
+                    return $this->sendError('Another Device has logged in with this account');
+                }
+            }
 
             $data['biodata'] = $user->biodata;
             if ($user->hasRole('agents')) {
