@@ -33,10 +33,15 @@ class HomeController extends Controller
     {
 
 
-
         $now = Carbon::now();
         $yest = Carbon::yesterday();
         $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('amount');
+        $paymentTodayPart = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('partial_amount');
+
+
+        $tenPercent = $paymentToday - $paymentTodayPart;
+
+
         $paymentYesterday = Payment::where('created_at', '>=', $yest->format("Y-m-d"))->get()->sum('amount');
 
         if ($paymentYesterday != 0) {
@@ -57,7 +62,7 @@ class HomeController extends Controller
         $agents = Agent::all()->count();
         $collectors = Collector::all()->count();
         $enforcers = Enforcer::all()->count();
-        return $driversDataTable->render('home', compact('drivers', 'agents', 'collectors', 'enforcers', 'diffPayment', 'paymentToday', 'projectedRev', 'diffProj'));
+        return $driversDataTable->render('home', compact('drivers', 'tenPercent', 'agents', 'collectors', 'enforcers', 'diffPayment', 'paymentToday', 'projectedRev', 'diffProj'));
     }
 
     /**

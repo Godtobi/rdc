@@ -116,6 +116,7 @@
                             </div>
                             <div class="divider m-0 d-md-none d-sm-block"></div>
                         </div>
+
                         <div class="col-sm-6 col-md-4 col-xl-4">
                             <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
                                 <div class="icon-wrapper rounded-circle">
