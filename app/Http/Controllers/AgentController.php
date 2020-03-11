@@ -127,6 +127,7 @@ class AgentController extends AppBaseController
         //$agent = $this->agentRepository->find($id);
         $agent = Agent::where('id', $id)->with('biodata')->first();
 
+
         if (empty($agent)) {
             Flash::error('Agent not found');
 

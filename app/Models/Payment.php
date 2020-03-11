@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Scopes\AgencyScope;
+use Carbon\Carbon;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -62,6 +63,24 @@ class Payment extends Model
         'vehicle_type_id' => 'required|exists:vehicle_type,id',
         'amount' => 'required'
     ];
+
+
+    public function scopeIsAgencyAmount($query, $agencyID)
+    {
+        $agents = Agent::where('agency_id', $agencyID)->pluck('user_id', 'id');
+        return $query->withoutGlobalScope(new AgencyScope())->whereIn('user_id', $agents)->sum('amount');
+    }
+
+
+    public function scopeIsAgencyDailyAmount($query, $agencyID)
+    {
+        $now = Carbon::now();
+        $agents = Agent::where('agency_id', $agencyID)->pluck('user_id', 'id');
+        return $query->withoutGlobalScope(new AgencyScope())
+            ->where('created_at', '>=', $now->format("Y-m-d"))
+            ->whereIn('user_id', $agents)
+            ->sum('amount');
+    }
 
 
     public static function boot()

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', "Show Admin Agent")
+@section('title', "$agency->name Agents")
 @section('content')
     <div class="app-main__outer">
         <div class="app-main__inner">
@@ -11,22 +11,29 @@
                             </i>
                         </div>
                         <div>
-                            Admin Agent
+                            {{$agency->name}} Agents
+
 
                         </div>
+
                     </div>
                 </div>
+
             </div>
             <div class="main-card mb-3 card">
-                @include('adminlte-templates::common.errors')
+                @include('flash::message')
                 <div class="card-body">
-                    <h5 class="card-title">Admin Agent</h5>
-                    <a href="{{ route('agencies.index') }}" class="mb-2 mr-2 btn-icon btn btn-primary">Back</a>
-                    @include('agencies.show_fields')
+                    <h5 class="card-title">{{$agency->name}} Agents</h5>
 
-                    <a href="{{ route('agencies.index') }}" class="mb-2 mr-2 btn-icon btn btn-primary">Back</a>
+                    @include('agencies.table')
+
+
                 </div>
             </div>
+        </div>
+
+        <div class="text-center">
+
         </div>
     </div>
 

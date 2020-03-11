@@ -2,13 +2,31 @@
 
 namespace App\DataTables;
 
-use App\Models\Agency;
-use App\Models\Payment;
+use App\Models\Agent;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class AgencyDataTable extends DataTable
+class AgencyAgentDataTable extends DataTable
 {
+
+    private $agency;
+
+    /**
+     * @return mixed
+     */
+    public function getAgency()
+    {
+        return $this->agency;
+    }
+
+    /**
+     * @param mixed $agency
+     */
+    public function setAgency($agency): void
+    {
+        $this->agency = $agency;
+    }
+
     /**
      * Build DataTable class.
      *
@@ -21,24 +39,34 @@ class AgencyDataTable extends DataTable
 
 
         $dataTable
-            ->addColumn('payment', function ($item) {
-                $payment = new Payment();
-                $amount = $payment->IsAgencyDailyAmount($item->id);
-                return @$amount;
+            ->addColumn('email', function ($item) {
+                return @$item->biodata->email;
+            })
+            ->addColumn('device_id', function ($item) {
+                return @$item->user->device_id;
+            })
+            ->filterColumn('device_id', function ($query, $keyword) {
+                $query->whereHas('user', function ($query) use ($keyword) {
+                    $sql = "users.device_id  like ? ";
+                    $query->whereRaw($sql, ["%{$keyword}%"]);
+                });
+            })
+            ->addColumn('agent_id', function ($item) {
+                return @$item->biodata->unique_code;
             });
-
-        return $dataTable->addColumn('action', 'agencies.datatables_actions');
+        return $dataTable->addColumn('action', 'agents.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Agency $model
+     * @param \App\Models\Agent $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Agency $model)
+    public function query(Agent $model)
     {
-        return $model->newQuery();
+        $agency = $this->getAgency();
+        return $model->newQuery()->with('biodata')->where('agency_id', $agency->id);
     }
 
     /**
@@ -73,14 +101,15 @@ class AgencyDataTable extends DataTable
      */
     protected function getColumns()
     {
-        return [
-            ['title' => 'Name', 'data' => 'name', 'footer' => 'name'],
-            ['title' => 'Address', 'data' => 'address', 'footer' => 'address'],
-            ['title' => 'Contact Name', 'data' => 'contact_name', 'footer' => 'contact_name'],
-            ['title' => 'Contact Phone', 'data' => 'contact_phone', 'footer' => 'contact_phone'],
-            ['title' => 'Daily Payment', 'data' => 'payment', 'footer' => 'payment'],
-        ];
 
+        return [
+            ['title' => 'Agent ID', 'data' => 'agent_id', 'footer' => 'agent_id'],
+            ['title' => 'First Name', 'data' => 'first_name', 'footer' => 'first_name'],
+            ['title' => 'Last Name', 'data' => 'last_name', 'footer' => 'last_name'],
+            ['title' => 'Phone', 'data' => 'phone', 'footer' => 'phone'],
+            ['title' => 'Email', 'data' => 'email', 'footer' => 'email'],
+            ['title' => 'Device ID', 'data' => 'device_id', 'footer' => 'device_id'],
+        ];
     }
 
     /**
@@ -90,6 +119,6 @@ class AgencyDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'agenciesdatatable_' . time();
+        return 'agentsdatatable_' . time();
     }
 }

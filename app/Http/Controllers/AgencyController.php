@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\AgencyAgentDataTable;
 use App\DataTables\AgencyDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateAgencyRequest;
 use App\Http\Requests\UpdateAgencyRequest;
+use App\Models\Payment;
 use App\Models\User;
 use App\Repositories\AgencyRepository;
 use Flash;
@@ -32,6 +34,10 @@ class AgencyController extends AppBaseController
      */
     public function index(AgencyDataTable $agencyDataTable)
     {
+
+//        $payment = new Payment();
+//        $amount = $payment->IsAgencyAmount(1);
+//        dd($amount);
         return $agencyDataTable->render('agencies.index');
     }
 
@@ -100,17 +106,19 @@ class AgencyController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
+    public function show($id, AgencyAgentDataTable $agencyDataTable)
     {
         $agency = $this->agencyRepository->find($id);
 
+        //dd($agency);
         if (empty($agency)) {
             Flash::error('Agency not found');
 
             return redirect(route('agencies.index'));
         }
+        $agencyDataTable->setAgency($agency);
+        return $agencyDataTable->render('agencies.show',compact('agency'));
 
-        return view('agencies.show')->with('agency', $agency);
     }
 
     /**
