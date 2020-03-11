@@ -23,10 +23,18 @@ class AgentDataTable extends DataTable
             ->addColumn('email', function ($item) {
                 return @$item->biodata->email;
             })
+            ->addColumn('device_id', function ($item) {
+                return @$item->user->device_id;
+            })
+            ->filterColumn('device_id', function ($query, $keyword) {
+                $query->whereHas('user', function ($query) use ($keyword) {
+                    $sql = "users.device_id  like ? ";
+                    $query->whereRaw($sql, ["%{$keyword}%"]);
+                });
+            })
             ->addColumn('agent_id', function ($item) {
                 return @$item->biodata->unique_code;
-            })
-        ;
+            });
         return $dataTable->addColumn('action', 'agents.datatables_actions');
     }
 
@@ -73,12 +81,14 @@ class AgentDataTable extends DataTable
      */
     protected function getColumns()
     {
+
         return [
-            'first_name',
-            'last_name',
-            'phone',
-            'email',
-            'agent_id'
+            ['title' => 'Agent ID', 'data' => 'agent_id', 'footer' => 'agent_id'],
+            ['title' => 'First Name', 'data' => 'first_name', 'footer' => 'first_name'],
+            ['title' => 'Last Name', 'data' => 'last_name', 'footer' => 'last_name'],
+            ['title' => 'Phone', 'data' => 'phone', 'footer' => 'phone'],
+            ['title' => 'Email', 'data' => 'email', 'footer' => 'email'],
+            ['title' => 'Device ID', 'data' => 'device_id', 'footer' => 'device_id'],
         ];
     }
 

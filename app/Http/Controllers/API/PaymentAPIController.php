@@ -7,6 +7,7 @@ use App\Http\Requests\API\UpdatePaymentAPIRequest;
 use App\Models\Payment;
 use App\Repositories\PaymentRepository;
 use App\Traits\Errors;
+use App\Traits\FormatInput;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,7 @@ class PaymentAPIController extends AppBaseController
 {
 
     use Errors;
+    use FormatInput;
     protected $saveErrors = [];
     protected $hasError = false;
     protected $savedID = [];
@@ -87,8 +89,8 @@ class PaymentAPIController extends AppBaseController
     public function store()
     {
 
-        //$input = $request->all();
-        $request = \request()->input();
+        $this->formatVehicleType();
+        $request = $this->inputFormatted;
 
         if (!isset($request['items'])) {
             $newRequest['items'] = [$request];

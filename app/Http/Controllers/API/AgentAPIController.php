@@ -82,6 +82,8 @@ class AgentAPIController extends AppBaseController
         return $this->sendResponse($agent->toArray(), 'Agent retrieved successfully');
     }
 
+
+
     /**
      * Update the specified Agent in storage.
      * PUT/PATCH /agents/{id}

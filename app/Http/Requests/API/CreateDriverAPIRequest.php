@@ -39,7 +39,7 @@ class CreateDriverAPIRequest extends APIRequest
             'vehicle_owner_name' => 'required',
             'vehicle_owner_phone' => 'required',
             'lga' => 'required',
-            'passport' => 'required'
+            //'passport' => 'required'
         ];
     }
 }

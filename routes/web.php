@@ -29,7 +29,7 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
     Route::resource('drivers', 'DriversController');
     Route::resource('vehicleTypes', 'VehicleTypeController');
 
-
+    Route::get('agents/reset/{id}', 'AgentController@reset')->name("agents.reset");
     Route::resource('agents', 'AgentController');
 
     Route::resource('collectors', 'CollectorController');

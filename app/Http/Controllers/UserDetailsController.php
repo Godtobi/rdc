@@ -69,7 +69,7 @@ class UserDetailsController extends AppBaseController
             $validator = validator($request->input(), [
                 'first_name' => 'required',
                 'last_name' => 'required',
-                'email' => 'required|email|exists:users,email',
+                'email' => 'required|email|unique:users',
 
             ]);
 

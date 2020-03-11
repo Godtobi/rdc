@@ -135,6 +135,22 @@ class AgentController extends AppBaseController
         return view('agents.show')->with('data', $agent);
     }
 
+
+    public function reset($id)
+    {
+        /** @var Agent $agent */
+        $agent = $this->agentRepository->find($id);
+        if (empty($agent)) {
+            return $this->sendError('Agent not found');
+        }
+        $agent->user->device_id = "";
+        $agent->user->save();
+
+        Flash::success('Agent Device Reset successfully');
+        return redirect()->back();
+
+    }
+
     /**
      * Show the form for editing the specified Agent.
      *

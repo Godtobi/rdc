@@ -7,6 +7,7 @@ use App\Http\Requests\API\UpdateDriverAPIRequest;
 use App\Models\Drivers;
 use App\Models\User;
 use App\Repositories\DriverRepository;
+use App\Traits\FormatInput;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,7 @@ use Response;
  */
 class DriverAPIController extends AppBaseController
 {
+    use FormatInput;
     /** @var  DriverRepository */
     private $driverRepository;
 
@@ -78,7 +80,10 @@ class DriverAPIController extends AppBaseController
      */
     public function store(CreateDriverAPIRequest $request)
     {
-        $input = $request->all();
+        $this->formatVehicleType();
+        $this->formatLga();
+        $input = $this->inputFormatted;
+
         try {
             DB::beginTransaction();
 
@@ -103,25 +108,25 @@ class DriverAPIController extends AppBaseController
 
             //dd($input);
 
+
             if (isset($input['passport'])) {
                 $file = $input['passport'];
                 $fileName = time() . '-' . strtolower(str_replace(' ', '-', $file->getClientOriginalName()));
                 Storage::disk('local')->getDriver()->put($fileName, $file->path(), ['ServerSideEncryption' => 'AES256']);
                 $input['passport'] = $fileName;
             }
+            if(empty($input['passport'])){
+                $input['passport'] = "";
+            }
             $input['driver_id'] = "";
             $driver = $this->driverRepository->create($input);
 
 
-
-
             DB::commit();
-            Flash::success('Collector saved successfully.');
         } catch (\Exception $exception) {
             DB::rollBack();
-            Flash::error($exception->getMessage());
+            return $this->sendError($exception->getMessage());
         }
-
 
 
         return $this->sendResponse($driver->toArray(), 'Driver saved successfully');
