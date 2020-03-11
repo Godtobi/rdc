@@ -107,6 +107,7 @@ class AgentController extends AppBaseController
             DB::commit();
             Flash::success('Agent saved successfully.');
         } catch (\Exception $exception) {
+            //dd($exception->getMessage(), $exception->getLine(),$exception->getFile());
             DB::rollBack();
             Flash::error($exception->getMessage());
         }

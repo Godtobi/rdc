@@ -84,10 +84,15 @@ class Agent extends Model
         parent::boot();
         static::addGlobalScope(new AgencyScope());
         self::creating(function ($model) {
-            $model->agency_id = auth()->user()->agency->id;
+            if(auth()->user()->hasAnyRole(['agency'])){
+                $model->agency_id = auth()->user()->agency->id;
+            }
+
         });
         self::saving(function ($model) {
-            $model->agency_id = auth()->user()->agency->id;
+            if(auth()->user()->hasAnyRole(['agency'])){
+                $model->agency_id = auth()->user()->agency->id;
+            }
         });
     }
 
