@@ -23,7 +23,7 @@ trait FormatInput
             case "taxi":
                     $this->inputFormatted['vehicle_type_id'] = "4";
                 break;
-            case "interstate":
+            case "bus":
                     $this->inputFormatted['vehicle_type_id'] = "6";
                 break;
             case "trucks":
