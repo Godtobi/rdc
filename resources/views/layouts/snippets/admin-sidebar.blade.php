@@ -183,21 +183,21 @@
                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon"></i>
-                            Transacations Reports
-                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                        </a>
-                    </li>
-
-                    {{--<li class="{{ Request::is('payments/report') ? 'mm-active' : '' }}">--}}
-                        {{--<a href="{{ url('payments/report') }}">--}}
+                    {{--<li>--}}
+                        {{--<a href="#">--}}
                             {{--<i class="metismenu-icon"></i>--}}
                             {{--Transacations Reports--}}
                             {{--<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>--}}
                         {{--</a>--}}
                     {{--</li>--}}
+
+                    <li class="{{ Request::is('payments/report') ? 'mm-active' : '' }}">
+                        <a href="{{ url('payments/report') }}">
+                            <i class="metismenu-icon"></i>
+                            Transacations Reports
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                    </li>
                     <li>
                         <a href="#">
                             <i class="metismenu-icon"></i>

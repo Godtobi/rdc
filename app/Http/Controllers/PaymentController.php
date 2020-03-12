@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\PaymentChart;
 use App\DataTables\PaymentDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreatePaymentRequest;
@@ -33,14 +34,31 @@ class PaymentController extends AppBaseController
     {
         $now = Carbon::now();
         $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('amount');
-        return $paymentDataTable->render('payments.index',compact('paymentToday'));
+        return $paymentDataTable->render('payments.index', compact('paymentToday'));
     }
-
 
 
     public function report()
     {
-        return view('payments.report');
+        $data = collect([]); // Could also be an array
+        $labels = collect([]); // Could also be an array
+
+        for ($days_backwards = 15; $days_backwards >= 0; $days_backwards--) {
+            $data->push(Payment::whereDate('created_at', today()->subDays($days_backwards))->sum('amount'));
+            $labels->push(today()->subDays($days_backwards)->format("d M"));
+        }
+
+        $chart = new PaymentChart;
+        $chart->labels($labels);
+        $chart->dataset('REVENUE', 'line', $data)->color("rgb(255, 99, 132)")
+            ->backgroundcolor("rgb(255, 99, 132)");
+
+        return view('payments.report', ['usersChart' => $chart]);
+    }
+
+    public function report2()
+    {
+        return view('payments.report2');
     }
 
     /**
@@ -114,7 +132,7 @@ class PaymentController extends AppBaseController
     /**
      * Update the specified Payment in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdatePaymentRequest $request
      *
      * @return Response

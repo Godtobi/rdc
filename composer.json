@@ -30,7 +30,9 @@
         "yajra/laravel-datatables-buttons": "^4.0",
         "yajra/laravel-datatables-oracle": "~9.0",
         "symfony/translation": "4.3.8",
-        "laravel/passport": "^7.2"
+        "laravel/passport": "^7.2",
+        "consoletvs/charts": "6.*"
+
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

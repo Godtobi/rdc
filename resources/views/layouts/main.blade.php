@@ -16,6 +16,7 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
+
     <link href="{{asset('assets/css/main.87c0748b313a1dda75f5.css')}}" rel="stylesheet">
     @yield('css')
 </head>
@@ -70,7 +71,8 @@
                                 <div class="btn-group">
                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                        class="p-0 btn">
-                                        <img width="42" class="rounded-circle" src="{{asset('assets/images/profile-photo.png')}}" alt="">
+                                        <img width="42" class="rounded-circle"
+                                             src="{{asset('assets/images/profile-photo.png')}}" alt="">
                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                     </a>
                                     <div tabindex="-1" role="menu" aria-hidden="true"
@@ -93,7 +95,7 @@
                                                             </div>
                                                             <div class="widget-content-right mr-2">
                                                                 <a href="{{ url('logout') }}"
-                                                                    class="btn-pill btn-shadow btn-shine btn btn-focus">
+                                                                   class="btn-pill btn-shadow btn-shine btn btn-focus">
                                                                     Logout
                                                                 </a>
                                                             </div>
@@ -433,7 +435,8 @@
                                     </div>
                                     <div class="widget-content-left mr-3">
                                         <div class="widget-content-left"><img width="42" class="rounded"
-                                                                              src="{{asset('assets/images/profile-photo.png')}}" alt=""/>
+                                                                              src="{{asset('assets/images/profile-photo.png')}}"
+                                                                              alt=""/>
                                         </div>
                                     </div>
                                     <div class="widget-content-left">
@@ -588,6 +591,7 @@
 <div class="app-drawer-overlay d-none animated fadeIn"></div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="{{asset('assets/scripts/main.87c0748b313a1dda75f5.js')}}"></script>
+
 @stack('scripts')
 </body>
 
