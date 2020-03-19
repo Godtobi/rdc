@@ -33,6 +33,8 @@ class RemitPayments extends Model
     public $fillable = [
         'agent_id',
         'collector_id',
+        'remarks',
+        'lga',
         'date',
         'amount'
     ];
@@ -45,6 +47,8 @@ class RemitPayments extends Model
     protected $casts = [
         'id' => 'integer',
         'agent_id' => 'string',
+        'lga' => 'string',
+        'remarks' => 'string',
         'collector_id' => 'string',
         'date' => 'date',
         'amount' => 'float'
@@ -57,6 +61,7 @@ class RemitPayments extends Model
      */
     public static $rules = [
         'agent_id' => 'required|exists:agents,id',
+        'lga' => 'required|exists:lga,id',
         'collector_id' => 'required|exists:collectors,id',
         'date' => 'required|date_format:Y-m-d',
         'amount' => 'required'

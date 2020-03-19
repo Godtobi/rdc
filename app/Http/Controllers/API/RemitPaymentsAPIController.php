@@ -7,6 +7,7 @@ use App\Http\Requests\API\UpdateRemitPaymentsAPIRequest;
 use App\Models\RemitPayments;
 use App\Repositories\RemitPaymentsRepository;
 use App\Traits\Errors;
+use App\Traits\FormatInput;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,7 @@ class RemitPaymentsAPIController extends AppBaseController
 {
     /** @var  RemitPaymentsRepository */
     private $remitPaymentsRepository;
-    use Errors;
+    use Errors,FormatInput;
     protected $saveErrors = [];
     protected $hasError = false;
     protected $savedID = [];
@@ -96,6 +97,14 @@ class RemitPaymentsAPIController extends AppBaseController
         foreach ($newRequest['items'] as $eachRequest) {
             $allRequests[] = $eachRequest;
             $request = $eachRequest;
+
+            $this->formatLga2($request);
+            $request = $this->inputFormatted;
+            $this->formatAgent($request);
+            $request = $this->inputFormatted;
+            $this->formatCollector($request);
+            $request = $this->inputFormatted;
+
 
             $validator = Validator::make($request, RemitPayments::$rules);
             if ($validator->fails()) {
