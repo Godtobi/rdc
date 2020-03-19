@@ -54,6 +54,23 @@ class CollectorController extends AppBaseController
         return view('collectors.create')->with(compact('lga'));
     }
 
+
+    public function reset($id)
+    {
+        /** @var Agent $agent */
+        $agent = $this->collectorRepository->find($id);
+        if (empty($agent)) {
+            return $this->sendError('Collector not found');
+        }
+        $agent->user->device_id = "";
+        $agent->user->save();
+
+        Flash::success('Collector Device Reset successfully');
+        return redirect()->back();
+
+    }
+
+
     /**
      * Store a newly created Collector in storage.
      *

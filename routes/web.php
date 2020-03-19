@@ -32,6 +32,8 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
     Route::get('agents/reset/{id}', 'AgentController@reset')->name("agents.reset");
     Route::resource('agents', 'AgentController');
 
+
+    Route::get('collectors/reset/{id}', 'CollectorController@reset')->name("collectors.reset");
     Route::resource('collectors', 'CollectorController');
 
     Route::resource('enforcers', 'EnforcerController');
