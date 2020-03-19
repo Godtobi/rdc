@@ -21,6 +21,15 @@ class CollectorDataTable extends DataTable
             ->addColumn('email', function ($item) {
                 return @$item->biodata->email;
             })
+            ->addColumn('device_id', function ($item) {
+                return @$item->user->device_id;
+            })
+            ->filterColumn('device_id', function ($query, $keyword) {
+                $query->whereHas('user', function ($query) use ($keyword) {
+                    $sql = "users.device_id  like ? ";
+                    $query->whereRaw($sql, ["%{$keyword}%"]);
+                });
+            })
             ->addColumn('collector_id', function ($item) {
                 return @$item->biodata->unique_code;
             });
@@ -75,7 +84,8 @@ class CollectorDataTable extends DataTable
             'last_name',
             'phone',
             'email',
-            'collector_id'
+            'collector_id',
+            ['title' => 'Device ID', 'data' => 'device_id', 'footer' => 'device_id'],
         ];
     }
 
