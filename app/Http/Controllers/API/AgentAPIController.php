@@ -5,16 +5,17 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreateAgentAPIRequest;
 use App\Http\Requests\API\UpdateAgentAPIRequest;
 use App\Models\Agent;
+use App\Models\Payment;
 use App\Repositories\AgentRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Validator;
 use Response;
 
 /**
  * Class AgentController
  * @package App\Http\Controllers\API
  */
-
 class AgentAPIController extends AppBaseController
 {
     /** @var  AgentRepository */
@@ -43,6 +44,43 @@ class AgentAPIController extends AppBaseController
         );
 
         return $this->sendResponse($agents->toArray(), 'Agents retrieved successfully');
+    }
+
+    public function collections()
+    {
+
+        $request = \request()->input();
+
+        $rules = [
+            'agent_id' => 'required',
+            'date' => 'required|date_format:Y-m-d',
+        ];
+
+
+        $validator = Validator::make($request, $rules);
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors()->all());
+        }
+
+        $agent_id = $request['agent_id'];
+        $res = Agent::whereHas('biodata', function ($q) use ($agent_id) {
+            $q->where('unique_code', $agent_id);
+        })->first();
+
+        if (empty($res)) {
+            return $this->sendError('Agent Does not Exist');
+        }
+        $result = Payment::whereDate('created_at', $request['date'])->where('user_id', $res->user_id)->get()->sum('amount');
+
+
+        $object = new \stdClass();
+        $object->agent_id = $agent_id;
+        $object->date = $request['date'];
+        $object->amount = $result;
+
+
+        return $this->sendResponse($object, 'Result');
+
     }
 
     /**
@@ -81,7 +119,6 @@ class AgentAPIController extends AppBaseController
 
         return $this->sendResponse($agent->toArray(), 'Agent retrieved successfully');
     }
-
 
 
     /**

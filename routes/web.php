@@ -30,6 +30,7 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
     Route::resource('vehicleTypes', 'VehicleTypeController');
 
     Route::get('agents/reset/{id}', 'AgentController@reset')->name("agents.reset");
+
     Route::resource('agents', 'AgentController');
 
 

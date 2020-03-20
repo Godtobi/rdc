@@ -89,8 +89,7 @@ class PaymentAPIController extends AppBaseController
     public function store()
     {
 
-        $this->formatVehicleType();
-        $request = $this->inputFormatted;
+        $request = request()->all();
 
         if (!isset($request['items'])) {
             $newRequest['items'] = [$request];
@@ -102,6 +101,10 @@ class PaymentAPIController extends AppBaseController
             $allRequests[] = $eachRequest;
             $request = $eachRequest;
 
+            $this->formatVehicleType2($request);
+            $request = $this->inputFormatted;
+
+            //dd($request);
             $validator = Validator::make($request, Payment::$rules);
             if ($validator->fails()) {
                 $object = new \stdClass();

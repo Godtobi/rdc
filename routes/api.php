@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::resource('states', 'StateAPIController');
     Route::resource('payments', 'PaymentAPIController');
     Route::resource('remit_payments', 'RemitPaymentsAPIController');
+    Route::post('agents/collections', 'AgentAPIController@collections');
     Route::resource('agents', 'AgentAPIController');
 
     Route::resource('collectors', 'CollectorAPIController');

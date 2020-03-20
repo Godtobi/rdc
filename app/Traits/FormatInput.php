@@ -40,6 +40,29 @@ trait FormatInput
     }
 
 
+
+    function formatVehicleType2($req)
+    {
+        $this->inputFormatted = $req;
+
+        switch (strtolower($this->inputFormatted['vehicle_type_id'])) {
+            case "taxi":
+                $this->inputFormatted['vehicle_type_id'] = "4";
+                break;
+            case "bus":
+                $this->inputFormatted['vehicle_type_id'] = "6";
+                break;
+            case "trucks":
+                $this->inputFormatted['vehicle_type_id'] = "8";
+                break;
+
+            default :
+                break;
+
+        }
+    }
+
+
     function formatLga()
     {
         $lga = strtolower($this->inputFormatted['lga']);
