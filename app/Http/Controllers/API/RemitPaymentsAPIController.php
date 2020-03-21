@@ -98,12 +98,12 @@ class RemitPaymentsAPIController extends AppBaseController
             $allRequests[] = $eachRequest;
             $request = $eachRequest;
 
-            $this->formatLga2($request);
-            $request = $this->inputFormatted;
-            $this->formatAgent($request);
-            $request = $this->inputFormatted;
-            $this->formatCollector($request);
-            $request = $this->inputFormatted;
+//            $this->formatLga2($request);
+//            $request = $this->inputFormatted;
+//            $this->formatAgent($request);
+//            $request = $this->inputFormatted;
+//            $this->formatCollector($request);
+//            $request = $this->inputFormatted;
 
 
             $validator = Validator::make($request, RemitPayments::$rules);

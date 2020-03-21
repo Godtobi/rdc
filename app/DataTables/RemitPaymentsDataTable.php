@@ -2,6 +2,8 @@
 
 namespace App\DataTables;
 
+use App\Models\Agent;
+use App\Models\Collector;
 use App\Models\RemitPayments;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
@@ -19,9 +21,23 @@ class RemitPaymentsDataTable extends DataTable
         $dataTable = new EloquentDataTable($query);
         $dataTable
             ->editColumn('agent_id', function ($item) {
+                if(empty($item->agents)){
+                    $agent_id = $item->agent_id;
+                    $res = Agent::whereHas('biodata', function ($q) use ($agent_id) {
+                        $q->where('unique_code', $agent_id);
+                    })->first();
+                    return @$res->full_name;
+                }
                 return @$item->agents->full_name;
             })
             ->editColumn('collector_id', function ($item) {
+                if(empty($item->agents)){
+                    $agent_id = $item->collector_id;
+                    $res = Collector::whereHas('biodata', function ($q) use ($agent_id) {
+                        $q->where('unique_code', $agent_id);
+                    })->first();
+                    return @$res->full_name;
+                }
                 return @$item->collectors->full_name;
             })
         ;

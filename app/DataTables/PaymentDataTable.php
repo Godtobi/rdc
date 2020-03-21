@@ -21,32 +21,35 @@ class PaymentDataTable extends DataTable
 
         $dataTable
             ->editColumn('vehicle_type_id', function ($item) {
+                if(empty($item->vehicle_type)){
+                    return @$item->vehicle_type_id;
+                }
                 return @$item->vehicle_type->name;
             })
-            ->filterColumn('vehicle_type_id', function ($query, $keyword) {
-                $query->whereHas('vehicle_type', function ($query) use ($keyword) {
-                    $sql = "vehicle_type.name  like ?";
-                    $query->whereRaw($sql, ["%{$keyword}%"]);
-                });
-            })
-            ->editColumn('driver_name', function ($item) {
-                return @$item->driver->full_name;
-            })
-            ->filterColumn('driver_name', function ($query, $keyword) {
-                $query->whereHas('driver', function ($query) use ($keyword) {
-                    $sql = "drivers.first_name  like ? OR drivers.last_name  like ?";
-                    $query->whereRaw($sql, ["%{$keyword}%", "%{$keyword}%"]);
-                });
-            })
-            ->editColumn('local_govt', function ($item) {
-                return @$item->driver->local_govt->name;
-            })
-            ->filterColumn('local_govt', function ($query, $keyword) {
-                $query->whereHas('driver.local_govt', function ($query) use ($keyword) {
-                    $sql = "lga.name  like ?";
-                    $query->whereRaw($sql, ["%{$keyword}%"]);
-                });
-            })
+//            ->filterColumn('vehicle_type_id', function ($query, $keyword) {
+//                $query->whereHas('vehicle_type', function ($query) use ($keyword) {
+//                    $sql = "vehicle_type.name  like ?";
+//                    $query->whereRaw($sql, ["%{$keyword}%"]);
+//                });
+//            })
+//            ->editColumn('driver_name', function ($item) {
+//                return @$item->driver->full_name;
+//            })
+//            ->filterColumn('driver_name', function ($query, $keyword) {
+//                $query->whereHas('driver', function ($query) use ($keyword) {
+//                    $sql = "drivers.first_name  like ? OR drivers.last_name  like ?";
+//                    $query->whereRaw($sql, ["%{$keyword}%", "%{$keyword}%"]);
+//                });
+//            })
+//            ->editColumn('local_govt', function ($item) {
+//                return @$item->driver->local_govt->name;
+//            })
+//            ->filterColumn('local_govt', function ($query, $keyword) {
+//                $query->whereHas('driver.local_govt', function ($query) use ($keyword) {
+//                    $sql = "lga.name  like ?";
+//                    $query->whereRaw($sql, ["%{$keyword}%"]);
+//                });
+//            })
             ->editColumn('agent', function ($item) {
                 return @$item->user->name;
             })
@@ -109,8 +112,8 @@ class PaymentDataTable extends DataTable
 
 
         return [
-            ['title' => 'Driver Name', 'data' => 'driver_name', 'footer' => 'driver_name', 'orderable' => false],
-            ['title' => 'Local Govt', 'data' => 'local_govt', 'footer' => 'local_govt', 'orderable' => false],
+           // ['title' => 'Driver Name', 'data' => 'driver_name', 'footer' => 'driver_name', 'orderable' => false],
+           // ['title' => 'Local Govt', 'data' => 'local_govt', 'footer' => 'local_govt', 'orderable' => false],
             ['title' => 'Agent', 'data' => 'agent', 'footer' => 'agent', 'orderable' => false],
             ['title' => 'Vehicle Type', 'data' => 'vehicle_type_id', 'footer' => 'vehicle_type_id'],
             ['title' => 'Time', 'data' => 'time', 'footer' => 'time', 'searchable' => false],
