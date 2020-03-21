@@ -114,7 +114,7 @@ class PaymentDataTable extends DataTable
             ['title' => 'Agent', 'data' => 'agent', 'footer' => 'agent', 'orderable' => false],
             ['title' => 'Vehicle Type', 'data' => 'vehicle_type_id', 'footer' => 'vehicle_type_id'],
             ['title' => 'Time', 'data' => 'time', 'footer' => 'time', 'searchable' => false],
-            ['title' => 'Amount', 'data' => 'amount', 'footer' => 'amount'],
+            ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],
         ];
     }
 

@@ -80,7 +80,7 @@ class HomeController extends Controller
         $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('partial_amount');
         $paymentYesterday = Payment::where('created_at', '>=', $yest->format("Y-m-d"))->get()->sum('partial_amount');
 
-        if ($paymentYesterday != 0) {
+        if ($paymentToday != 0) {
             $diffPayment = ($paymentToday - $paymentYesterday) * 100 / $paymentToday;
         } else {
             $diffPayment = 0;

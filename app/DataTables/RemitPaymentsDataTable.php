@@ -76,7 +76,7 @@ class RemitPaymentsDataTable extends DataTable
             'agent_id',
             'collector_id',
             'date',
-            'amount'
+            ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],
         ];
     }
 
