@@ -101,8 +101,8 @@ class PaymentAPIController extends AppBaseController
             $allRequests[] = $eachRequest;
             $request = $eachRequest;
 
-//            $this->formatVehicleType2($request);
-//            $request = $this->inputFormatted;
+            $this->formatVehicleType2($request);
+            $request = $this->inputFormatted;
 
             //dd($request);
             $validator = Validator::make($request, Payment::$rules);
