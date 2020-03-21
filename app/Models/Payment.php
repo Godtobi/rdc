@@ -64,6 +64,8 @@ class Payment extends Model
         'amount' => 'required'
     ];
 
+    public $appends = ['partial_amount'];
+
 
     public function scopeIsAgencyAmount($query, $agencyID)
     {

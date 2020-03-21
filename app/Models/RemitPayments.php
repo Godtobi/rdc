@@ -67,6 +67,7 @@ class RemitPayments extends Model
         'amount' => 'required'
     ];
 
+    public $appends = ['partial_amount'];
     function getPartialAmountAttribute()
     {
         return ($this->attributes['amount'] * 90) / 100;
