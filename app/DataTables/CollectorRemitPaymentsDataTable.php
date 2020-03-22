@@ -9,8 +9,27 @@ use Carbon\Carbon;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class RemitPaymentsDataTable extends DataTable
+class CollectorRemitPaymentsDataTable extends DataTable
 {
+    private $collector;
+
+    /**
+     * @return mixed
+     */
+    public function getCollector()
+    {
+        return $this->collector;
+    }
+
+    /**
+     * @param mixed $collector
+     */
+    public function setCollector($collector): void
+    {
+        $this->collector = $collector;
+    }
+
+
     /**
      * Build DataTable class.
      *
@@ -41,10 +60,6 @@ class RemitPaymentsDataTable extends DataTable
                 }
                 return @$item->collectors->full_name;
             });
-        $dataTable->editColumn('partial_amount', function ($item) {
-            $payment = RemitPayments::where('collector_id', $item->collector_id)->get()->sum('partial_amount');
-            return number_format(@$payment, 2);
-        });
         $dataTable->addColumn('action', function ($item) {
             return view('remit_payments.datatables_actions', compact('item'))->render();
         });
@@ -59,16 +74,14 @@ class RemitPaymentsDataTable extends DataTable
      */
     public function query(RemitPayments $model)
     {
+        $collector = $this->getCollector();
         $yest = Carbon::yesterday();
         $today = Carbon::today();
         $q = $model
             ->whereDate('created_at', $today)
+            ->where('collector_id', $collector->biodata->unique_code)
             ->newQuery();
-        $lga_id = session('lga_id');
-        if (!empty($lga_id) && $lga_id != "0") {
-            $q->where('lga', $lga_id);
-        }
-        return $q->groupBy('collector_id');
+        return $q;
     }
 
     /**
@@ -100,7 +113,7 @@ class RemitPaymentsDataTable extends DataTable
      */
     protected function getColumns()
     {
-        if (auth()->user()->hasAnyRole(['govt'])) {
+        if(auth()->user()->hasAnyRole(['govt'])){
             return [
                 'date',
                 ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],

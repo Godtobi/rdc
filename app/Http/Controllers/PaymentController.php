@@ -58,6 +58,43 @@ class PaymentController extends AppBaseController
         return view('payments.report', ['usersChart' => $chart]);
     }
 
+
+    public function reportWeeks()
+    {
+        $data = collect([]); // Could also be an array
+        $labels = collect([]); // Could also be an array
+
+        for ($days_backwards = 15; $days_backwards >= 0; $days_backwards--) {
+            $data->push(Payment::whereDate('created_at', today()->subWeeks($days_backwards))->sum('amount'));
+            $labels->push(today()->subWeeks($days_backwards)->format("d M"));
+        }
+
+        $chart = new PaymentChart;
+        $chart->labels($labels);
+        $chart->dataset('REVENUE', 'line', $data)->color("rgb(255, 99, 132)")
+            ->backgroundcolor("rgb(255, 99, 132)");
+
+        return view('payments.report', ['usersChart' => $chart]);
+    }
+
+    public function reportMonth()
+    {
+        $data = collect([]); // Could also be an array
+        $labels = collect([]); // Could also be an array
+
+        for ($days_backwards = 12; $days_backwards >= 0; $days_backwards--) {
+            $data->push(Payment::whereDate('created_at', today()->subMonthsWithoutOverflow($days_backwards))->sum('amount'));
+            $labels->push(today()->subMonthsWithoutOverflow($days_backwards)->format("d M"));
+        }
+
+        $chart = new PaymentChart;
+        $chart->labels($labels);
+        $chart->dataset('REVENUE', 'line', $data)->color("rgb(255, 99, 132)")
+            ->backgroundcolor("rgb(255, 99, 132)");
+
+        return view('payments.report', ['usersChart' => $chart]);
+    }
+
     public function report2()
     {
         return view('payments.report2');

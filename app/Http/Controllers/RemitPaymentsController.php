@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\CollectorRemitPaymentsDataTable;
 use App\DataTables\RemitPaymentsDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateRemitPaymentsRequest;
 use App\Http\Requests\UpdateRemitPaymentsRequest;
+use App\Models\Collector;
 use App\Repositories\RemitPaymentsRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -67,17 +69,22 @@ class RemitPaymentsController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
+    public function show($id, CollectorRemitPaymentsDataTable $__DataTable)
     {
-        $remitPayments = $this->remitPaymentsRepository->find($id);
 
-        if (empty($remitPayments)) {
+        $collector = Collector::whereHas('biodata', function ($q) use ($id) {
+            $q->where('unique_code', $id);
+        })->first();
+
+        //dd($collector);
+        if (empty($collector)) {
             Flash::error('Remit Payments not found');
 
             return redirect(route('remitPayments.index'));
         }
 
-        return view('remit_payments.show')->with('remitPayments', $remitPayments);
+        $__DataTable->setCollector($collector);
+        return $__DataTable->render('remit_payments.show', compact('collector'));
     }
 
     /**
@@ -103,7 +110,7 @@ class RemitPaymentsController extends AppBaseController
     /**
      * Update the specified RemitPayments in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateRemitPaymentsRequest $request
      *
      * @return Response
