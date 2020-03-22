@@ -142,74 +142,7 @@
                                 </div>
                             </div>
 
-                            <div class="card-body">
-                                @include('drivers.table')
-                                {{--<table style="width: 100%;" id="example2"--}}
-                                {{--class="table table-hover table-striped table-bordered">--}}
-                                {{--<thead>--}}
-                                {{--<tr>--}}
-                                {{--<th>Name</th>--}}
-                                {{--<th>Phone</th>--}}
-                                {{--<th>LGA</th>--}}
-                                {{--<th>Vehicle Type</th>--}}
-                                {{--<th>Registration date</th>--}}
-                                {{--<th>Total Contributions</th>--}}
-                                {{--</tr>--}}
-                                {{--</thead>--}}
-                                {{--<tbody>--}}
-                                {{--<tr>--}}
-                                {{--<td>Tiger Nixon</td>--}}
-                                {{--<td>08027171999</td>--}}
-                                {{--<td>IBADAN N/W</td>--}}
-                                {{--<td>Bus</td>--}}
-                                {{--<td>2011/04/25</td>--}}
-                                {{--<td>320,800</td>--}}
-                                {{--</tr>--}}
-                                {{--<tr>--}}
-                                {{--<td>Tiger Nixon</td>--}}
-                                {{--<td>08027171999</td>--}}
-                                {{--<td>IBADAN N/W</td>--}}
-                                {{--<td>Bus</td>--}}
-                                {{--<td>2011/04/25</td>--}}
-                                {{--<td>320,800</td>--}}
-                                {{--</tr>--}}
-                                {{--<tr>--}}
-                                {{--<td>Tiger Nixon</td>--}}
-                                {{--<td>08027171999</td>--}}
-                                {{--<td>IBADAN N/W</td>--}}
-                                {{--<td>Bus</td>--}}
-                                {{--<td>2011/04/25</td>--}}
-                                {{--<td>320,800</td>--}}
-                                {{--</tr>--}}
-                                {{--<tr>--}}
-                                {{--<td>Tiger Nixon</td>--}}
-                                {{--<td>08027171999</td>--}}
-                                {{--<td>IBADAN N/W</td>--}}
-                                {{--<td>Bus</td>--}}
-                                {{--<td>2011/04/25</td>--}}
-                                {{--<td>320,800</td>--}}
-                                {{--</tr>--}}
-                                {{--<tr>--}}
-                                {{--<td>Tiger Nixon</td>--}}
-                                {{--<td>08027171999</td>--}}
-                                {{--<td>IBADAN N/W</td>--}}
-                                {{--<td>Bus</td>--}}
-                                {{--<td>2011/04/25</td>--}}
-                                {{--<td>320,800</td>--}}
-                                {{--</tr>--}}
-                                {{--</tbody>--}}
-                                {{--<tfoot>--}}
-                                {{--<tr>--}}
-                                {{--<th>Name</th>--}}
-                                {{--<th>Position</th>--}}
-                                {{--<th>Office</th>--}}
-                                {{--<th>Age</th>--}}
-                                {{--<th>Start date</th>--}}
-                                {{--<th>Salary</th>--}}
-                                {{--</tr>--}}
-                                {{--</tfoot>--}}
-                                {{--</table>--}}
-                            </div>
+
                         </div>
                     </div>
                 </div>
