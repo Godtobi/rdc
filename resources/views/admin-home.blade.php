@@ -68,7 +68,7 @@
                                 <div id="dashboard-sparklines-simple-1"></div>
                             </div>
                         </div>
-                    </div>s
+                    </div>
                     @endif
 
 
