@@ -45,6 +45,13 @@ class UserDetailsController extends AppBaseController
     public function create()
     {
         $roles = Role::all()->pluck('title', 'name');
+
+        $user = auth()->user();
+        if($user->hasAnyRole(['govt']) ){
+            $govt = ['govt'=>'GOVT'];
+            $roles = collect($govt);
+        }
+
         return view('user_details.create')->with(compact('roles'));
     }
 

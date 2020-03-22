@@ -39,6 +39,7 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
 
     Route::resource('enforcers', 'EnforcerController');
 
+    Route::post('lgas/search', 'LgaController@search');
     Route::resource('lgas', 'LgaController');
 
     Route::resource('biodatas', 'BiodataController');

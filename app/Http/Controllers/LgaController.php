@@ -32,6 +32,14 @@ class LgaController extends AppBaseController
         return $lgaDataTable->render('lgas.index');
     }
 
+
+    function search()
+    {
+        session()->put('lga_id', \request()->input()['lga']);
+        return redirect()->back();
+        //$session = session('company_db');
+    }
+
     /**
      * Show the form for creating a new Lga.
      *

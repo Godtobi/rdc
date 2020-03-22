@@ -11,6 +11,11 @@ function getValue($type){
 }
 
 
+function LocalGovt(){
+    return \App\Models\Lga::all()->pluck('name','id');
+}
+
+
 function lastDayOf($period, DateTime $date = null)
 {
     $period = strtolower($period);

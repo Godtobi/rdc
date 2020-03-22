@@ -67,7 +67,9 @@
                     </div>
                 </div>
             </div>
+            {{--@include('search')--}}
             <div class="main-card mb-3 card">
+
                 <div class="card-body">
                     @include('payments.table')
                 </div>

@@ -18,6 +18,12 @@ class UserDetailsDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
+        $dataTable
+            ->addColumn('role', function ($item) {
+                $res = $item->user->roles->first()['title'];
+                return @$res;
+            });
+
         return $dataTable->addColumn('action', 'user_details.datatables_actions');
     }
 
@@ -68,6 +74,7 @@ class UserDetailsDataTable extends DataTable
             'first_name',
             'last_name',
             'phone',
+            ['title' => 'Role', 'data' => 'role', 'footer' => 'role'],
         ];
     }
 
