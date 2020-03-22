@@ -26,6 +26,7 @@
                             </button>
                             <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                 <ul class="nav flex-column">
+                                    @unlessrole('govt')
                                     <li class="nav-item">
                                         <a class="nav-link">
                                             <i class="nav-link-icon lnr-briefcase"></i>
@@ -42,6 +43,7 @@
                                                     </span>
                                         </a>
                                     </li>
+                                    @endunlessrole
                                     <li class="nav-item">
                                         <a class="nav-link">
                                             <i class="nav-link-icon lnr-apartment"></i>
