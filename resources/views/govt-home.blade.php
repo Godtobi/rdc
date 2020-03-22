@@ -96,23 +96,7 @@
                             View Complete Report
                         </button></a>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-xl-12">
-                        <div class="mb-3 card">
-                            <div class="card-header-tab card-header">
-                                <div>Driver Table</div>
-                                <div class="btn-actions-pane-right">
-                                    <div role="group" class="btn-group-sm btn-group">
-                                        <button class="btn-shadow  btn btn-dark">Refresh</button>
-                                        <button type="button" class="btn-shadow  btn btn-dark">Remove</button>
-                                    </div>
-                                </div>
-                            </div>
 
-
-                        </div>
-                    </div>
-                </div>
                 <div class="card no-shadow bg-transparent no-border rm-borders mb-3">
                     <div class="card">
                         <div class="no-gutters row">
