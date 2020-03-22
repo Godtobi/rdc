@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a66b3da0-7120-4976-a46c-09fcba155464" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/AgencyAgentDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/AgencyAgentDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/AgencyDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/AgencyDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/AgentDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/AgentDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/AgentPaymentDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/AgentPaymentDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/BiodataDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/BiodataDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/CollectorDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/CollectorDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/DriversDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/DriversDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/EnforcerDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/EnforcerDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/LgaDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/LgaDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/ParkManagerDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/ParkManagerDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/PaymentDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/PaymentDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/RemitPaymentsDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/RemitPaymentsDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/UserDetailsDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/UserDetailsDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/VehicleTypeDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/VehicleTypeDataTable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/govt-home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/govt-home.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,11 +39,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/DataTables/VehicleTypeDataTable.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="550">
               <caret line="51" column="94" selection-start-line="51" selection-start-column="94" selection-end-line="51" selection-end-column="94" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/govt-home.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="144" column="27" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -67,15 +62,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
               <caret line="106" column="94" selection-start-line="106" selection-start-column="94" selection-end-line="106" selection-end-column="94" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/DataTables/BiodataDataTable.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="51" column="94" selection-start-line="51" selection-start-column="94" selection-end-line="51" selection-end-column="94" />
             </state>
           </provider>
         </entry>
@@ -212,7 +198,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/RemitPaymentsAPIController.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/UserDetails.php" />
-        <option value="$PROJECT_DIR$/resources/views/govt-home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/snippets/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserDetailsController.php" />
         <option value="$PROJECT_DIR$/resources/views/search.blade.php" />
@@ -244,6 +229,7 @@
         <option value="$PROJECT_DIR$/app/DataTables/RemitPaymentsDataTable.php" />
         <option value="$PROJECT_DIR$/app/DataTables/UserDetailsDataTable.php" />
         <option value="$PROJECT_DIR$/app/DataTables/VehicleTypeDataTable.php" />
+        <option value="$PROJECT_DIR$/resources/views/govt-home.blade.php" />
       </list>
     </option>
   </component>
@@ -410,17 +396,6 @@
             <path>
               <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
               <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="DataTables" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -428,20 +403,6 @@
               <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="payments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
-              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="remit_payments" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -519,14 +480,7 @@
       <workItem from="1583876922471" duration="23849000" />
       <workItem from="1584398658613" duration="10474000" />
       <workItem from="1584778052991" duration="5390000" />
-      <workItem from="1584858026513" duration="8785000" />
-    </task>
-    <task id="LOCAL-00011" summary="fix">
-      <created>1581881964297</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1581881964297</updated>
+      <workItem from="1584858026513" duration="9120000" />
     </task>
     <task id="LOCAL-00012" summary="fix">
       <created>1581889451956</created>
@@ -864,14 +818,22 @@
       <option name="project" value="LOCAL" />
       <updated>1584897560222</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="fix">
+      <created>1584897860187</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1584897860187</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147376000" />
+    <option name="totallyTimeSpent" value="147711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="963" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49712974" visible="true" weight="0.2832723" />
       <window_info id="Structure" order="1" sideWeight="0.50287026" side_tool="true" weight="0.25274727" />
@@ -972,13 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="701">
           <caret line="63" column="24" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/govt-home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2902">
-          <caret line="246" column="34" selection-start-line="246" selection-start-column="34" selection-end-line="246" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1298,6 +1253,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="51" column="94" selection-start-line="51" selection-start-column="94" selection-end-line="51" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/govt-home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="144" column="27" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="27" />
         </state>
       </provider>
     </entry>

@@ -32,15 +32,9 @@
                                 </div>
                                 <div
                                     class="widget-subheading fsize-1 pt-2 opacity-10 text-warning font-weight-bold">
-                                    Total Cash
+                                    Total Amount
                                 </div>
-                                <div class="widget-description opacity-8">
-                                                <span class="text-danger pr-1">
-                                                    <i class="fa fa-angle-up"></i>
-                                                    <span class="pl-1">{{$diffPayment}}%</span>
-                                                </span>
-                                    up yesterday
-                                </div>
+
                             </div>
                             <div class="widget-chart-wrapper">
                                 <div id="dashboard-sparklines-simple-1"></div>
@@ -48,28 +42,7 @@
                         </div>
                     </div>
 
-                    @if (request()->url() == url('home2'))
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="card mb-3 widget-chart">
-                            <div class="widget-chart-content">
-                                <div class="icon-wrapper rounded">
-                                    <div class="icon-wrapper-bg bg-warning"></div>
-                                    <i class="metismenu-icon pe-7s-cash text-warning"></i></div>
-                                <div class="widget-numbers">
-                                    <span>₦	{{@$tenPercent}}</span>
-                                </div>
-                                <div
-                                    class="widget-subheading fsize-1 pt-2 opacity-10 text-warning font-weight-bold">
-                                    10 % Revenue on Payments
-                                </div>
 
-                            </div>
-                            <div class="widget-chart-wrapper">
-                                <div id="dashboard-sparklines-simple-1"></div>
-                            </div>
-                        </div>
-                    </div>s
-                    @endif
 
 
                     {{--<div class="col-sm-12 col-md-6 col-xl-4">--}}
@@ -107,13 +80,7 @@
                                 <div class="widget-subheading fsize-1 pt-2 opacity-10 text-info font-weight-bold">
                                     Total Drivers
                                 </div>
-                                <div class="widget-description opacity-8">
 
-                                            <span class="text-success pl-1">
-                                                <i class="fa fa-angle-up"></i>
-                                                    <span class="pl-1">Average 200 per LGA</span>
-                                                </span>
-                                </div>
                             </div>
                             <div class="widget-chart-wrapper">
                                 <div id="dashboard-sparklines-simple-3"></div>
@@ -122,12 +89,12 @@
                     </div>
                 </div>
                 <div class="text-center mbg-3">
-                    <button class="btn-wide btn-pill btn-shadow fsize-1 btn btn-focus btn-lg">
+                    <a href="{{url('payments/report')}}"><button class="btn-wide btn-pill btn-shadow fsize-1 btn btn-focus btn-lg">
                                     <span class="mr-2 opacity-7">
                                         <i class="icon icon-anim-pulse ion-ios-analytics-outline"></i>
                                     </span>
-                        View Complete Report
-                    </button>
+                            View Complete Report
+                        </button></a>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-xl-12">
