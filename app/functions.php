@@ -1,18 +1,19 @@
 <?php
 
 
-
-function getValue($type){
-    $res = \App\Models\Settings::where('key',$type)->first();
-    if(empty($res)){
+function getValue($type)
+{
+    $res = \App\Models\Settings::where('key', $type)->first();
+    if (empty($res)) {
         return null;
     }
     return $res->value;
 }
 
 
-function LocalGovt(){
-    return \App\Models\Lga::all()->pluck('name','id');
+function LocalGovt()
+{
+    return \App\Models\Lga::all()->pluck('name', 'name');
 }
 
 

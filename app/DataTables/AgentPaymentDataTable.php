@@ -7,8 +7,27 @@ use Carbon\Carbon;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class PaymentDataTable extends DataTable
+class AgentPaymentDataTable extends DataTable
 {
+
+    private $agent;
+
+    /**
+     * @return mixed
+     */
+    public function getAgent()
+    {
+        return $this->agent;
+    }
+
+    /**
+     * @param mixed $agent
+     */
+    public function setAgent($agent): void
+    {
+        $this->agent = $agent;
+    }
+
     /**
      * Build DataTable class.
      *
@@ -51,10 +70,6 @@ class PaymentDataTable extends DataTable
 //                });
 //            })
 
-            ->editColumn('partial_amount', function ($item) {
-                $payment = Payment::where('user_id', $item->user_id)->get()->sum('partial_amount');
-                return number_format(@$payment, 2);
-            })
             ->editColumn('agent', function ($item) {
                 return @$item->user->name;
             })
@@ -67,9 +82,6 @@ class PaymentDataTable extends DataTable
             ->editColumn('time', function ($__res) {
                 return $__res->created_at->format('h:i a');
             });
-        $dataTable->addColumn('action', function ($item) {
-            return view('payments.datatables_actions', compact('item'))->render();
-        });
 
         return $dataTable;
     }
@@ -82,9 +94,10 @@ class PaymentDataTable extends DataTable
      */
     public function query(Payment $model)
     {
+        $agency = $this->getAgent();
         $yest = Carbon::yesterday();
         $today = Carbon::today();
-        return $model->whereDate('created_at', $today)->newQuery()->groupBy('user_id');
+        return $model->whereDate('created_at', $today)->newQuery()->where('user_id', $agency->id);
     }
 
     /**
@@ -97,7 +110,7 @@ class PaymentDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false])
+           // ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
                 'dom' => 'Bfrtip',
                 'stateSave' => true,
@@ -125,8 +138,8 @@ class PaymentDataTable extends DataTable
             // ['title' => 'Driver Name', 'data' => 'driver_name', 'footer' => 'driver_name', 'orderable' => false],
             // ['title' => 'Local Govt', 'data' => 'local_govt', 'footer' => 'local_govt', 'orderable' => false],
             ['title' => 'Agent', 'data' => 'agent', 'footer' => 'agent', 'orderable' => false],
-            //['title' => 'Vehicle Type', 'data' => 'vehicle_type_id', 'footer' => 'vehicle_type_id'],
-            // ['title' => 'Time', 'data' => 'time', 'footer' => 'time', 'searchable' => false],
+            ['title' => 'Vehicle Type', 'data' => 'vehicle_type_id', 'footer' => 'vehicle_type_id'],
+            ['title' => 'Time', 'data' => 'time', 'footer' => 'time', 'searchable' => false],
             ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],
         ];
     }
@@ -138,6 +151,6 @@ class PaymentDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'paymentsdatatable_' . time();
+        return 'paymentsdatatablee_' . time();
     }
 }

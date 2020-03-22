@@ -21,7 +21,7 @@ class RemitPaymentsDataTable extends DataTable
         $dataTable = new EloquentDataTable($query);
         $dataTable
             ->editColumn('agent_id', function ($item) {
-                if(empty($item->agents)){
+                if (empty($item->agents)) {
                     $agent_id = $item->agent_id;
                     $res = Agent::whereHas('biodata', function ($q) use ($agent_id) {
                         $q->where('unique_code', $agent_id);
@@ -31,7 +31,7 @@ class RemitPaymentsDataTable extends DataTable
                 return @$item->agents->full_name;
             })
             ->editColumn('collector_id', function ($item) {
-                if(empty($item->agents)){
+                if (empty($item->agents)) {
                     $agent_id = $item->collector_id;
                     $res = Collector::whereHas('biodata', function ($q) use ($agent_id) {
                         $q->where('unique_code', $agent_id);
@@ -39,9 +39,7 @@ class RemitPaymentsDataTable extends DataTable
                     return @$res->full_name;
                 }
                 return @$item->collectors->full_name;
-            })
-        ;
-
+            });
         return $dataTable->addColumn('action', 'remit_payments.datatables_actions');
     }
 
@@ -53,7 +51,12 @@ class RemitPaymentsDataTable extends DataTable
      */
     public function query(RemitPayments $model)
     {
-        return $model->newQuery();
+        $q = $model->newQuery();
+        $lga_id = session('lga_id');
+        if (!empty($lga_id) && $lga_id != "0") {
+            $q->where('lga', $lga_id);
+        }
+        return $q;
     }
 
     /**
@@ -68,10 +71,10 @@ class RemitPaymentsDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom' => 'Bfrtip',
                 'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
+                'order' => [[0, 'desc']],
+                'buttons' => [
                     ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -93,6 +96,7 @@ class RemitPaymentsDataTable extends DataTable
             'collector_id',
             'date',
             ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],
+            ['title' => 'Local Govt', 'data' => 'lga', 'footer' => 'lga'],
         ];
     }
 

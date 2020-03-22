@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Charts\PaymentChart;
+use App\DataTables\AgentPaymentDataTable;
 use App\DataTables\PaymentDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreatePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Models\Agent;
 use App\Models\Payment;
 use App\Repositories\PaymentRepository;
 use Carbon\Carbon;
@@ -96,17 +98,17 @@ class PaymentController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
+    public function show($id, AgentPaymentDataTable $__DataTable)
     {
-        $payment = $this->paymentRepository->find($id);
-
-        if (empty($payment)) {
+        //$payment = $this->paymentRepository->find($id);
+        $agent = Agent::find($id);
+        if (empty($agent)) {
             Flash::error('Payment not found');
 
             return redirect(route('payments.index'));
         }
-
-        return view('payments.show')->with('payment', $payment);
+        $__DataTable->setAgent($agent);
+        return $__DataTable->render('payments.show', compact('agent'));
     }
 
     /**
