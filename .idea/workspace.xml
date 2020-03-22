@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a66b3da0-7120-4976-a46c-09fcba155464" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/DataTables/CollectorRemitPaymentsDataTable.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/AgentPaymentDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/AgentPaymentDataTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTables/RemitPaymentsDataTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTables/RemitPaymentsDataTable.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RemitPaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RemitPaymentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/remit_payments/datatables_actions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/remit_payments/datatables_actions.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,44 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Traits/FormatInput.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="105" column="20" lean-forward="true" selection-start-line="103" selection-start-column="7" selection-end-line="105" selection-end-column="20" />
-              <folding>
-                <element signature="e#31#52#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="147" column="71" lean-forward="true" selection-start-line="146" selection-start-column="8" selection-end-line="147" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RemitPaymentsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="79" column="32" lean-forward="true" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
-              <folding>
-                <element signature="e#40#91#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/DataTables/CollectorRemitPaymentsDataTable.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1086">
-              <caret line="82" column="25" lean-forward="true" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
+            <state relative-caret-position="494">
+              <caret line="141" column="16" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -134,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/layouts/snippets/admin-sidebar.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/scripts/main.87c0748b313a1dda75f5.js" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/resources/views/layouts/main.blade.php" />
@@ -179,12 +140,13 @@
         <option value="$PROJECT_DIR$/app/DataTables/VehicleTypeDataTable.php" />
         <option value="$PROJECT_DIR$/resources/views/govt-home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/remit_payments/show_fields.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" />
-        <option value="$PROJECT_DIR$/app/DataTables/RemitPaymentsDataTable.php" />
         <option value="$PROJECT_DIR$/resources/views/remit_payments/datatables_actions.blade.php" />
         <option value="$PROJECT_DIR$/app/DataTables/AgentPaymentDataTable.php" />
-        <option value="$PROJECT_DIR$/app/DataTables/CollectorRemitPaymentsDataTable.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RemitPaymentsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/remit_payments/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/DataTables/RemitPaymentsDataTable.php" />
+        <option value="$PROJECT_DIR$/app/DataTables/CollectorRemitPaymentsDataTable.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PaymentController.php" />
       </list>
     </option>
   </component>
@@ -376,6 +338,12 @@
               <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
               <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="levy_collections" type="b2602c69:ProjectViewProjectNode" />
+              <item name="levy_collections" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Traits" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -479,21 +447,7 @@
       <workItem from="1583876922471" duration="23849000" />
       <workItem from="1584398658613" duration="10474000" />
       <workItem from="1584778052991" duration="5390000" />
-      <workItem from="1584858026513" duration="12095000" />
-    </task>
-    <task id="LOCAL-00015" summary="fix">
-      <created>1581936592764</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1581936592764</updated>
-    </task>
-    <task id="LOCAL-00016" summary="fix">
-      <created>1581946398666</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1581946398666</updated>
+      <workItem from="1584858026513" duration="13550000" />
     </task>
     <task id="LOCAL-00017" summary="fix">
       <created>1581946488731</created>
@@ -824,11 +778,25 @@
       <option name="project" value="LOCAL" />
       <updated>1584899779502</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="fix">
+      <created>1584903561914</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1584903561918</updated>
+    </task>
+    <task id="LOCAL-00065" summary="fix">
+      <created>1584904739704</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1584904739705</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150686000" />
+    <option name="totallyTimeSpent" value="152141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="963" extended-state="0" />
@@ -892,13 +860,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/PaymentAPIController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Lga.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1031,13 +992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/payments/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1159,13 +1113,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/remit_payments/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="56" lean-forward="true" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/remit_payments/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1211,41 +1158,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/DataTables/RemitPaymentsDataTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="70" column="40" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="40" />
-          <folding>
-            <element signature="e#34#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/remit_payments/datatables_actions.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DataTables/CollectorRemitPaymentsDataTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1086">
-          <caret line="82" column="25" lean-forward="true" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DataTables/AgentPaymentDataTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="96" column="36" lean-forward="true" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="147" column="71" lean-forward="true" selection-start-line="146" selection-start-column="8" selection-end-line="147" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -1259,13 +1175,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/payments/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="18" lean-forward="true" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Biodata.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1405" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/remit_payments/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="55" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RemitPaymentsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="79" column="32" lean-forward="true" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
+        <state relative-caret-position="430">
+          <caret line="75" column="34" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="34" />
           <folding>
             <element signature="e#40#91#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/DataTables/AgentPaymentDataTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="90" column="6" lean-forward="true" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/DataTables/RemitPaymentsDataTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
+          <folding>
+            <element signature="e#34#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/DataTables/CollectorRemitPaymentsDataTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="80" column="14" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PaymentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="141" column="16" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
         </state>
       </provider>
     </entry>

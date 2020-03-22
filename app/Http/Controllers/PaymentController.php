@@ -138,7 +138,8 @@ class PaymentController extends AppBaseController
     public function show($id, AgentPaymentDataTable $__DataTable)
     {
         //$payment = $this->paymentRepository->find($id);
-        $agent = Agent::find($id);
+
+        $agent = Agent::where('user_id',$id)->first();
         if (empty($agent)) {
             Flash::error('Payment not found');
 

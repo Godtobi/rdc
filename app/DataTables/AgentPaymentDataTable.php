@@ -98,7 +98,7 @@ class AgentPaymentDataTable extends DataTable
         $yest = Carbon::yesterday();
         $today = Carbon::today();
         return $model->whereDate('created_at', $today)->newQuery()
-            ->where('user_id', $agency->id);
+            ->where('user_id', $agency->user_id);
     }
 
     /**
