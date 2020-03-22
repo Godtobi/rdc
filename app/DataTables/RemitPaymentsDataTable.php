@@ -91,6 +91,13 @@ class RemitPaymentsDataTable extends DataTable
      */
     protected function getColumns()
     {
+        if(auth()->user()->hasAnyRole(['govt'])){
+            return [
+                'date',
+                ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],
+                ['title' => 'Local Govt', 'data' => 'lga', 'footer' => 'lga'],
+            ];
+        }
         return [
             'agent_id',
             'collector_id',

@@ -18,10 +18,12 @@
 
                     </div>
                 </div>
+                @unlessrole('govt')
                 <h1 class="pull-right">
                     <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
                        href="{{ route('remitPayments.create') }}">Add New</a>
                 </h1>
+                @endunlessrole
             </div>
             @include('search')
             <div class="main-card mb-3 card">
