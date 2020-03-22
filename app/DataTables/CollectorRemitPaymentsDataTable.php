@@ -78,7 +78,7 @@ class CollectorRemitPaymentsDataTable extends DataTable
         $yest = Carbon::yesterday();
         $today = Carbon::today();
         $q = $model
-            ->whereDate('created_at', $today)
+            //->whereDate('created_at', $today)
             ->where('collector_id', $collector->biodata->unique_code)
             ->newQuery();
         return $q;

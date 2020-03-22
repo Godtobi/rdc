@@ -62,7 +62,7 @@ class RemitPaymentsDataTable extends DataTable
         $yest = Carbon::yesterday();
         $today = Carbon::today();
         $q = $model
-            ->whereDate('created_at', $today)
+            //->whereDate('created_at', $today)
             ->newQuery();
         $lga_id = session('lga_id');
         if (!empty($lga_id) && $lga_id != "0") {
