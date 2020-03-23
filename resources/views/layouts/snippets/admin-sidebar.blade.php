@@ -183,6 +183,15 @@
                             <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                         </a>
                     </li>
+
+
+                    <li class="{{ Request::is('payments/list') ? 'mm-active' : '' }}">
+                        <a href="{{ url('payments/list') }}">
+                            <i class="metismenu-icon"></i>
+                            Payment List
+                            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        </a>
+                    </li>
                     {{--<li>--}}
                         {{--<a href="#">--}}
                             {{--<i class="metismenu-icon"></i>--}}

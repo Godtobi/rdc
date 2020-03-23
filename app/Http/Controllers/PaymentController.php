@@ -35,6 +35,24 @@ class PaymentController extends AppBaseController
      */
     public function index(PaymentDataTable $paymentDataTable)
     {
+        if(!request()->headers->get('referer') == url('date/search')){
+            session()->remove('start_date');
+            session()->remove('end_date');
+        }
+
+        $now = Carbon::now();
+        $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('amount');
+        return $paymentDataTable->render('payments.index', compact('paymentToday'));
+    }
+
+
+    public function listP(PaymentDataTable2 $paymentDataTable)
+    {
+        if(!request()->headers->get('referer') == url('date/search')){
+            session()->remove('start_date');
+            session()->remove('end_date');
+        }
+
         $now = Carbon::now();
         $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('amount');
         return $paymentDataTable->render('payments.index', compact('paymentToday'));
