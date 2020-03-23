@@ -59,7 +59,7 @@ class PaymentDataTable2 extends DataTable
     {
         $yest = Carbon::yesterday();
         $today = Carbon::today();
-        return $model->whereDate('created_at', $yest)->newQuery();
+        return $model->whereDate('created_at', $today)->newQuery();
     }
 
     /**
