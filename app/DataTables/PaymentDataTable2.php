@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class PaymentDataTable extends DataTable
+class PaymentDataTable2 extends DataTable
 {
     /**
      * Build DataTable class.
@@ -26,39 +26,14 @@ class PaymentDataTable extends DataTable
                 }
                 return @$item->vehicle_type->name;
             })
-//            ->filterColumn('vehicle_type_id', function ($query, $keyword) {
-//                $query->whereHas('vehicle_type', function ($query) use ($keyword) {
-//                    $sql = "vehicle_type.name  like ?";
-//                    $query->whereRaw($sql, ["%{$keyword}%"]);
-//                });
+//            ->editColumn('partial_amount', function ($item) {
+//                $yest = Carbon::yesterday();
+//                $today = Carbon::today();
+//                $payment = Payment::where('user_id', $item->user_id)
+//                    ->whereDate('created_at', $yest)
+//                    ->get()->sum('partial_amount');
+//                return number_format(@$payment, 2);
 //            })
-//            ->editColumn('driver_name', function ($item) {
-//                return @$item->driver->full_name;
-//            })
-//            ->filterColumn('driver_name', function ($query, $keyword) {
-//                $query->whereHas('driver', function ($query) use ($keyword) {
-//                    $sql = "drivers.first_name  like ? OR drivers.last_name  like ?";
-//                    $query->whereRaw($sql, ["%{$keyword}%", "%{$keyword}%"]);
-//                });
-//            })
-//            ->editColumn('local_govt', function ($item) {
-//                return @$item->driver->local_govt->name;
-//            })
-//            ->filterColumn('local_govt', function ($query, $keyword) {
-//                $query->whereHas('driver.local_govt', function ($query) use ($keyword) {
-//                    $sql = "lga.name  like ?";
-//                    $query->whereRaw($sql, ["%{$keyword}%"]);
-//                });
-//            })
-
-            ->editColumn('partial_amount', function ($item) {
-                $yest = Carbon::yesterday();
-                $today = Carbon::today();
-                $payment = Payment::where('user_id', $item->user_id)
-                    ->whereDate('created_at', $today)
-                    ->get()->sum('partial_amount');
-                return number_format(@$payment, 2);
-            })
             ->editColumn('agent', function ($item) {
                 return @$item->user->name;
             })
@@ -88,7 +63,7 @@ class PaymentDataTable extends DataTable
     {
         $yest = Carbon::yesterday();
         $today = Carbon::today();
-        return $model->whereDate('created_at', $today)->newQuery()->groupBy('user_id');
+        return $model->whereDate('created_at', $yest)->newQuery();
     }
 
     /**
@@ -126,8 +101,8 @@ class PaymentDataTable extends DataTable
             // ['title' => 'Driver Name', 'data' => 'driver_name', 'footer' => 'driver_name', 'orderable' => false],
             // ['title' => 'Local Govt', 'data' => 'local_govt', 'footer' => 'local_govt', 'orderable' => false],
             ['title' => 'Agent', 'data' => 'agent', 'footer' => 'agent', 'orderable' => false],
-            //['title' => 'Vehicle Type', 'data' => 'vehicle_type_id', 'footer' => 'vehicle_type_id'],
-            // ['title' => 'Time', 'data' => 'time', 'footer' => 'time', 'searchable' => false],
+            ['title' => 'Vehicle Type', 'data' => 'vehicle_type_id', 'footer' => 'vehicle_type_id'],
+            ['title' => 'Time', 'data' => 'time', 'footer' => 'time', 'searchable' => false],
             ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],
         ];
     }

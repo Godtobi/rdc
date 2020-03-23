@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            {{--@include('search')--}}
+                {{--@include('search-date')--}}
             <div class="main-card mb-3 card">
 
                 <div class="card-body">
@@ -80,5 +80,18 @@
         </div>
     </div>
 @endsection
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('js/datepicker/datepicker.css') }}" type="text/css"/>
+@endsection
+@push('scripts')
+    <script src="{{ asset('js/datepicker/bootstrap-datepicker.js') }}"></script>
+    <script>
+        $('#clearBTN').click(function () {
+            $('#start_date').val('');
+            $('#end_date').val('');
+        });
+    </script>
+@endpush
 
 

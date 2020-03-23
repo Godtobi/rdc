@@ -590,6 +590,7 @@
 </div>
 <div class="app-drawer-overlay d-none animated fadeIn"></div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="{{ asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/scripts/main.87c0748b313a1dda75f5.js')}}"></script>
 
 @stack('scripts')

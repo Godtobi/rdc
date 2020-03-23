@@ -77,7 +77,16 @@ class HomeController extends Controller
 
         $now = Carbon::now();
         $yest = Carbon::yesterday();
-        $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('partial_amount');
+        $paymentToday = Payment::whereDate('created_at', $now)->get()->sum('partial_amount');
+//        $ee = Payment::whereDate('created_at', $yest)->count();
+//        dd($ee);
+//        $paymentToday__ = Payment::whereDate('created_at', $yest)->groupBy('user_id')->get();
+//
+//        dd($paymentToday__);
+
+
+
+
         $paymentYesterday = Payment::where('created_at', '>=', $yest->format("Y-m-d"))->get()->sum('partial_amount');
 
         if ($paymentToday != 0) {

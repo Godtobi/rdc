@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Charts\PaymentChart;
 use App\DataTables\AgentPaymentDataTable;
 use App\DataTables\PaymentDataTable;
+use App\DataTables\PaymentDataTable2;
 use App\Http\Requests;
 use App\Http\Requests\CreatePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
