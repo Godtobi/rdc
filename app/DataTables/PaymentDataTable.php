@@ -75,7 +75,7 @@ class PaymentDataTable extends DataTable
                         }
 
                         if (empty($start_date) && empty($end_date)) {
-                            $q->whereDate('created_at', $yest);
+                            $q->whereDate('created_at', $today);
                         }
 
                     })->get()->sum('partial_amount');
