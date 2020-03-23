@@ -26,14 +26,9 @@ class PaymentDataTable2 extends DataTable
                 }
                 return @$item->vehicle_type->name;
             })
-//            ->editColumn('partial_amount', function ($item) {
-//                $yest = Carbon::yesterday();
-//                $today = Carbon::today();
-//                $payment = Payment::where('user_id', $item->user_id)
-//                    ->whereDate('created_at', $yest)
-//                    ->get()->sum('partial_amount');
-//                return number_format(@$payment, 2);
-//            })
+            ->editColumn('partial_amount', function ($item) {
+                return number_format(@$item->amount, 2);
+            })
             ->editColumn('agent', function ($item) {
                 return @$item->user->name;
             })
@@ -44,7 +39,8 @@ class PaymentDataTable2 extends DataTable
                 });
             })
             ->editColumn('time', function ($__res) {
-                return $__res->created_at->format('h:i a');
+                //return $__res->created_at->format('h:i a');
+                return $__res->created_at->format('Y-m-d h:i a');
             });
         $dataTable->addColumn('action', function ($item) {
             return view('payments.datatables_actions', compact('item'))->render();

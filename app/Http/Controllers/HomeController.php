@@ -65,6 +65,17 @@ class HomeController extends Controller
         return $driversDataTable->render('home', compact('drivers', 'tenPercent', 'agents', 'collectors', 'enforcers', 'diffPayment', 'paymentToday', 'projectedRev', 'diffProj'));
     }
 
+
+    function date_search()
+    {
+
+        // dd(\request()->input()['start_date']);
+        session()->put('start_date', \request()->input()['start_date']);
+        session()->put('end_date', \request()->input()['end_date']);
+        return redirect()->back();
+        //$session = session('company_db');
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -72,8 +83,37 @@ class HomeController extends Controller
      */
     public function index(DriversDataTable $driversDataTable)
     {
-//        $ag = Agent::find(24);
-//        dd($ag->user);
+
+
+//        $start_date = session('start_date');
+//        $end_date = session('end_date');
+//
+//        $payment = Payment::where('user_id', 80)
+//            ->where(function ($q) use ($start_date, $end_date) {
+//                $yest = Carbon::yesterday();
+//                $today = Carbon::today();
+//
+//                if (!empty($start_date)) {
+//                    $start = Carbon::createFromFormat('m/d/Y', $start_date);
+//                    $start = $start->format('Y-m-d');
+//                    $q->whereDate('created_at', '>=', $start);
+//
+//                }
+//                if (!empty($end_date)) {
+//                    $end = Carbon::createFromFormat('m/d/Y', $end_date);
+//                    $end = $end->format('Y-m-d');
+//                    $q->whereDate('created_at', '<=', $end);
+//                }
+//
+//                if (empty($start_date) && empty($end_date)) {
+//                    $q->whereDate('created_at', $yest);
+//                }
+//
+//            })->get()->sum('partial_amount');
+//
+//
+//
+//        dd($payment);
 
         $now = Carbon::now();
         $yest = Carbon::yesterday();
@@ -83,8 +123,6 @@ class HomeController extends Controller
 //        $paymentToday__ = Payment::whereDate('created_at', $yest)->groupBy('user_id')->get();
 //
 //        dd($paymentToday__);
-
-
 
 
         $paymentYesterday = Payment::where('created_at', '>=', $yest->format("Y-m-d"))->get()->sum('partial_amount');

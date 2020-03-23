@@ -22,6 +22,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['web', 'auth:web']], function () {
 
+    Route::post('date/search', 'HomeController@date_search');
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/home2', 'HomeController@indexs');

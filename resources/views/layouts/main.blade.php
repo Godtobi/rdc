@@ -16,7 +16,7 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-
+    <link rel="stylesheet" href="{{ asset('js/datepicker/datepicker.css') }}" type="text/css"/>
     <link href="{{asset('assets/css/main.87c0748b313a1dda75f5.css')}}" rel="stylesheet">
     @yield('css')
 </head>

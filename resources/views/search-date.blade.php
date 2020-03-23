@@ -1,4 +1,4 @@
-<form id="filter_ledger" action="{{ url('journal-entry') }}" method="post">
+<form id="filter_ledger" action="{{ url('date/search') }}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
     <div class="col-sm-3 m-b-xs">
         <div class="input-group">
