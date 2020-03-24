@@ -216,33 +216,33 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#">
-                    <i class="metismenu-icon pe-7s-news-paper"></i>
-                    Receipts
-                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                </a>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon">
-                            </i>Generate Receipts
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon">
-                            </i>Verify Receipts
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="metismenu-icon">
-                            </i>Receipt reports
-                        </a>
-                    </li>
-                </ul>
-            </li>
+            {{--<li>--}}
+                {{--<a href="#">--}}
+                    {{--<i class="metismenu-icon pe-7s-news-paper"></i>--}}
+                    {{--Receipts--}}
+                    {{--<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>--}}
+                {{--</a>--}}
+                {{--<ul>--}}
+                    {{--<li>--}}
+                        {{--<a href="#">--}}
+                            {{--<i class="metismenu-icon">--}}
+                            {{--</i>Generate Receipts--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="#">--}}
+                            {{--<i class="metismenu-icon">--}}
+                            {{--</i>Verify Receipts--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="#">--}}
+                            {{--<i class="metismenu-icon">--}}
+                            {{--</i>Receipt reports--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
             <li>
                 <a href="#">
                     <i class="metismenu-icon pe-7s-display2"></i>
