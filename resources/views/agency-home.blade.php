@@ -36,7 +36,11 @@
                                 </div>
                                 <div class="widget-description opacity-8">
                                                 <span class="text-danger pr-1">
-                                                    <i class="fa fa-angle-up"></i>
+                                                     @if ($up)
+                                                        <i class="fa fa-angle-up"></i>
+                                                    @else
+                                                        <i class="fa fa-angle-down"></i>
+                                                    @endif
                                                     <span class="pl-1">{{$diffPayment}}%</span>
                                                 </span>
                                     up yesterday

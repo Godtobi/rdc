@@ -36,10 +36,22 @@
                                 </div>
                                 <div class="widget-description opacity-8">
                                                 <span class="text-danger pr-1">
-                                                    <i class="fa fa-angle-up"></i>
+                                                    @if ($up)
+                                                        <i class="fa fa-angle-up"></i>
+                                                    @else
+                                                        <i class="fa fa-angle-down"></i>
+                                                    @endif
+
                                                     <span class="pl-1">{{$diffPayment}}%</span>
                                                 </span>
-                                    up yesterday
+
+                                    @if ($up)
+                                        up
+                                    @else
+                                        down
+                                    @endif
+
+                                    yesterday
                                 </div>
                             </div>
                             <div class="widget-chart-wrapper">
@@ -49,26 +61,26 @@
                     </div>
 
                     @if (request()->url() == url('home2'))
-                    <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="card mb-3 widget-chart">
-                            <div class="widget-chart-content">
-                                <div class="icon-wrapper rounded">
-                                    <div class="icon-wrapper-bg bg-warning"></div>
-                                    <i class="metismenu-icon pe-7s-cash text-warning"></i></div>
-                                <div class="widget-numbers">
-                                    <span>₦	{{@$tenPercent}}</span>
-                                </div>
-                                <div
-                                    class="widget-subheading fsize-1 pt-2 opacity-10 text-warning font-weight-bold">
-                                    10 % Revenue on Payments
-                                </div>
+                        <div class="col-sm-12 col-md-6 col-xl-4">
+                            <div class="card mb-3 widget-chart">
+                                <div class="widget-chart-content">
+                                    <div class="icon-wrapper rounded">
+                                        <div class="icon-wrapper-bg bg-warning"></div>
+                                        <i class="metismenu-icon pe-7s-cash text-warning"></i></div>
+                                    <div class="widget-numbers">
+                                        <span>₦	{{@$tenPercent}}</span>
+                                    </div>
+                                    <div
+                                        class="widget-subheading fsize-1 pt-2 opacity-10 text-warning font-weight-bold">
+                                        10 % Revenue on Payments
+                                    </div>
 
-                            </div>
-                            <div class="widget-chart-wrapper">
-                                <div id="dashboard-sparklines-simple-1"></div>
+                                </div>
+                                <div class="widget-chart-wrapper">
+                                    <div id="dashboard-sparklines-simple-1"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
 
 

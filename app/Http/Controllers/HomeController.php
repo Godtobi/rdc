@@ -146,12 +146,16 @@ class HomeController extends Controller
             $diffProj = 0;
         }
 
+        $up = false;
+        if($paymentToday > $paymentYesterday){
+            $up = true;
+        }
 
         //dd($diff);
         $drivers = Drivers::all()->count();
         $agents = Agent::all()->count();
         $collectors = Collector::all()->count();
         $enforcers = Enforcer::all()->count();
-        return $driversDataTable->render('home', compact('drivers', 'agents', 'collectors', 'enforcers', 'diffPayment', 'paymentToday', 'projectedRev', 'diffProj'));
+        return $driversDataTable->render('home', compact('drivers', 'agents', 'collectors', 'enforcers', 'diffPayment', 'paymentToday', 'projectedRev', 'diffProj','up'));
     }
 }
