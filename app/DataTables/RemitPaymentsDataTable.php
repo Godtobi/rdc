@@ -44,6 +44,9 @@ class RemitPaymentsDataTable extends DataTable
         $dataTable->editColumn('partial_amount', function ($item) {
             $payment = RemitPayments::where('collector_id', $item->collector_id)->get()->sum('partial_amount');
             return number_format(@$payment, 2);
+        })
+            ->editColumn('date', function ($__res) {
+                return $__res->created_at->format('Y-m-d h:i a');
         });
         $dataTable->addColumn('action', function ($item) {
             return view('remit_payments.datatables_actions', compact('item'))->render();

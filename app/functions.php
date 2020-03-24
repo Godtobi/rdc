@@ -1,6 +1,6 @@
 <?php
 
-
+use Carbon\Carbon;
 function getValue($type)
 {
     $res = \App\Models\Settings::where('key', $type)->first();
@@ -14,6 +14,48 @@ function getValue($type)
 function LocalGovt()
 {
     return \App\Models\Lga::all()->pluck('name', 'name');
+}
+
+if (!function_exists('get_report_range_date')) {
+
+    function get_report_range_date($from = null, $to = null)
+    {
+        $dates = [
+
+            'from' => null,
+            'to' => null
+        ];
+
+        // If no date is set, default to today
+        if (is_null($from) && is_null($to)) {
+
+            // Set start date from the beginning of the day 00:00
+            $dates['from'] = Carbon::now()->startOfDay();
+
+            // Set end date to current date and time
+            $dates['to'] = Carbon::now();
+        } else {
+
+            /**
+             * If end date is not set, default to current time else set from timestamp.
+             *
+             * Its okay if start date is not set, it will default to year 1970
+             * unix epoch time which makes sense in the context of our app.
+             *
+             * However if an end date is not set, we'll end up with an unreasonable
+             * date range in our app like 2018 - 1970 which is negative so we need to
+             * trap it and make sure end date is greater or equal to start date.
+             */
+
+            $ends = Carbon::createFromFormat('m/d/Y', $to);
+            $dates['to'] = is_null($to) ? Carbon::now() : $ends;
+
+            $starts = Carbon::createFromFormat('m/d/Y', $from);
+            $dates['from'] = $starts;
+        }
+
+        return collect($dates);
+    }
 }
 
 

@@ -13,8 +13,10 @@ use App\Models\Agent;
 use App\Models\Payment;
 use App\Repositories\PaymentRepository;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Input;
 use Response;
 
 class PaymentController extends AppBaseController
@@ -35,10 +37,7 @@ class PaymentController extends AppBaseController
      */
     public function index(PaymentDataTable $paymentDataTable)
     {
-        if(!request()->headers->get('referer') == url('date/search')){
-            session()->remove('start_date');
-            session()->remove('end_date');
-        }
+
 
         $now = Carbon::now();
         $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('amount');
@@ -48,10 +47,6 @@ class PaymentController extends AppBaseController
 
     public function listP(PaymentDataTable2 $paymentDataTable)
     {
-        if(!request()->headers->get('referer') == url('date/search')){
-            session()->remove('start_date');
-            session()->remove('end_date');
-        }
 
         $now = Carbon::now();
         $paymentToday = Payment::where('created_at', '>=', $now->format("Y-m-d"))->get()->sum('amount');
@@ -61,6 +56,49 @@ class PaymentController extends AppBaseController
 
     public function report()
     {
+        $diff = 15;
+        $data = collect([]); // Could also be an array
+        $labels = collect([]); // Could also be an array
+        $starts = $ends =  $val = "";
+        $from = Input::get('date_from');
+        $to = Input::get('date_to');
+
+
+        $dates = get_report_range_date($from, $to);
+        $period = CarbonPeriod::create($dates['from']->format('Y-m-d'), $dates['to']->format('Y-m-d'));
+
+        if(empty($from) && empty($to)){
+            for ($days_backwards = 15; $days_backwards >= 0; $days_backwards--) {
+                $data->push(Payment::whereDate('created_at', today()->subDays($days_backwards))->sum('amount'));
+                $labels->push(today()->subDays($days_backwards)->format("d M"));
+            }
+
+        }else{
+            foreach ($period as $date) {
+                $data->push(Payment::whereDate('created_at', $date)->sum('amount'));
+                $labels->push($date->format("d M"));
+            }
+        }
+
+
+
+        $chart = new PaymentChart;
+        $chart->labels($labels);
+        $chart->dataset('REVENUE', 'line', $data)->color("rgb(255, 99, 132)")
+            ->backgroundcolor("rgb(255, 99, 132)");
+
+        return view('payments.report', [
+            'usersChart' => $chart,
+            'from' => $from,
+            'to' => $to,
+            'date_from' => $dates->get('from')->timestamp,
+            'date_to' => $dates->get('to')->timestamp,
+        ])->with(compact('starts','ends','val'));
+    }
+
+    public function reportv()
+    {
+
         $data = collect([]); // Could also be an array
         $labels = collect([]); // Could also be an array
 
@@ -158,7 +196,7 @@ class PaymentController extends AppBaseController
     {
         //$payment = $this->paymentRepository->find($id);
 
-        $agent = Agent::where('user_id',$id)->first();
+        $agent = Agent::where('user_id', $id)->first();
         if (empty($agent)) {
             Flash::error('Payment not found');
 

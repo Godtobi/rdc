@@ -11,6 +11,8 @@ use App\Models\Collector;
 use App\Repositories\RemitPaymentsRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\URL;
 use Response;
 
 class RemitPaymentsController extends AppBaseController
@@ -31,10 +33,6 @@ class RemitPaymentsController extends AppBaseController
      */
     public function index(RemitPaymentsDataTable $remitPaymentsDataTable)
     {
-        if(!request()->headers->get('referer') == url('lgas/search')){
-            session()->remove('lga_id');
-        }
-
         return $remitPaymentsDataTable->render('remit_payments.index');
     }
 

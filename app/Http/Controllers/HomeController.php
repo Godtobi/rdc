@@ -68,6 +68,13 @@ class HomeController extends Controller
 
     function date_search()
     {
+        session()->remove('start_date');
+        session()->remove('end_date');
+        return redirect()->back();
+    }
+
+    function date_clear()
+    {
 
         // dd(\request()->input()['start_date']);
         session()->put('start_date', \request()->input()['start_date']);

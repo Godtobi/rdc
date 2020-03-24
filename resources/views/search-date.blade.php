@@ -24,7 +24,7 @@
     <div class="btn-group col-md-3">
         <button type="submit" class="btn btn-info"><i class="fa fa-search"></i> Submit
         </button>
-        <a id="clearBTN" class="btn btn-default">Clear</a>
+        <a href="{{url('date/clear')}}" id="clearBTN" class="btn btn-default">Clear</a>
     </div>
     <br/><br/>
 </form>

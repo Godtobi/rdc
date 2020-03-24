@@ -23,6 +23,7 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['web', 'auth:web']], function () {
 
     Route::post('date/search', 'HomeController@date_search');
+    Route::get('date/clear', 'HomeController@date_clear');
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/home2', 'HomeController@indexs');
@@ -41,10 +42,12 @@ Route::group(['middleware' => ['web', 'auth:web']], function () {
     Route::resource('enforcers', 'EnforcerController');
 
     Route::post('lgas/search', 'LgaController@search');
+    Route::get('lgas/clear', 'LgaController@clear');
     Route::resource('lgas', 'LgaController');
 
     Route::resource('biodatas', 'BiodataController');
     Route::get('payments/report', 'PaymentController@report');
+    Route::get('payments/reportSearch', 'PaymentController@reportSearch');
     Route::get('payments/list', 'PaymentController@listP');
     Route::get('payments/report2', 'PaymentController@report2');
     Route::resource('payments', 'PaymentController');

@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateLgaRequest;
 use App\Repositories\LgaRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\URL;
 use Response;
 
 class LgaController extends AppBaseController
@@ -36,6 +37,15 @@ class LgaController extends AppBaseController
     function search()
     {
         session()->put('lga_id', \request()->input()['lga']);
+        return redirect()->back();
+        //$session = session('company_db');
+    }
+
+
+    function clear()
+    {
+        session()->remove('lga_id');
+       // dd('f');
         return redirect()->back();
         //$session = session('company_db');
     }
