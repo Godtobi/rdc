@@ -31,8 +31,14 @@ class RemitPaymentsDataTable extends DataTable
                 }
                 return @$item->agents->full_name;
             })
+            ->filterColumn('agent_id', function ($query, $keyword) {
+                $query->whereHas('agents', function ($query) use ($keyword) {
+                    $sql = "agents.first_name  like ? OR agents.last_name  like ?";
+                    $query->whereRaw($sql, ["%{$keyword}%", "%{$keyword}%"]);
+                });
+            })
             ->editColumn('collector_id', function ($item) {
-                if (empty($item->agents)) {
+                if (empty($item->collectors)) {
                     $agent_id = $item->collector_id;
                     $res = Collector::whereHas('biodata', function ($q) use ($agent_id) {
                         $q->where('unique_code', $agent_id);
@@ -40,14 +46,21 @@ class RemitPaymentsDataTable extends DataTable
                     return @$res->full_name;
                 }
                 return @$item->collectors->full_name;
-            });
+            })
+            ->filterColumn('collector_id', function ($query, $keyword) {
+                $query->whereHas('collectors', function ($query) use ($keyword) {
+                    $sql = "collectors.first_name  like ? OR collectors.last_name  like ?";
+                    $query->whereRaw($sql, ["%{$keyword}%", "%{$keyword}%"]);
+                });
+            })
+        ;
         $dataTable->editColumn('partial_amount', function ($item) {
             $payment = RemitPayments::where('collector_id', $item->collector_id)->get()->sum('partial_amount');
             return number_format(@$payment, 2);
         })
             ->editColumn('date', function ($__res) {
                 return $__res->created_at->format('Y-m-d h:i a');
-        });
+            });
         $dataTable->addColumn('action', function ($item) {
             return view('remit_payments.datatables_actions', compact('item'))->render();
         });
@@ -106,7 +119,7 @@ class RemitPaymentsDataTable extends DataTable
         if (auth()->user()->hasAnyRole(['govt'])) {
             return [
                 'date',
-                ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],
+                ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount', "searchable" => false],
                 ['title' => 'Local Govt', 'data' => 'lga', 'footer' => 'lga'],
             ];
         }
@@ -114,7 +127,7 @@ class RemitPaymentsDataTable extends DataTable
             'agent_id',
             'collector_id',
             'date',
-            ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],
+            ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount', "searchable" => false],
             ['title' => 'Local Govt', 'data' => 'lga', 'footer' => 'lga'],
         ];
     }
