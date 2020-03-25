@@ -124,7 +124,7 @@ class RemitPaymentsDataTable extends DataTable
             ];
         }
         return [
-            'agent_id',
+          //  'agent_id',
             'collector_id',
             'date',
             ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount', "searchable" => false],
