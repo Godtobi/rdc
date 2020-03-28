@@ -18,11 +18,7 @@ class EnforcerDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        $dataTable
-            ->addColumn('state_id', function ($item) {
-                return @$item->state->name;
-            })
-            ->addColumn('lga_id', function ($item) {
+        $dataTable ->addColumn('lga_id', function ($item) {
                 return @$item->local_govt->name;
             });
         return $dataTable->addColumn('action', 'enforcers.datatables_actions');
@@ -72,10 +68,7 @@ class EnforcerDataTable extends DataTable
             'first_name',
             'last_name',
             'phone',
-            'email',
-            'address',
-            'state_id',
-            'marital_status',
+            ['title' => 'Enforcers ID', 'data' => 'unique_id'],
             ['title' => 'Local Govt', 'data' => 'lga_id'],
         ];
     }

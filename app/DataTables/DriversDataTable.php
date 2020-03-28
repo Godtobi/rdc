@@ -72,8 +72,7 @@ class DriversDataTable extends DataTable
             'last_name',
             'phone',
             'plate_no',
-            'vehicle_owner_name',
-            'vehicle_owner_phone',
+            'driver_id',
             'lga',
             //'driver_id'
         ];

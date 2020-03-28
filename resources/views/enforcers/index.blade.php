@@ -11,7 +11,7 @@
                                 </i>
                             </div>
                             <div>
-                            Enforcers
+                            Manage Enforcers
 
 
 
@@ -20,9 +20,9 @@
 
                         </div>
                     </div>
-                    <h1 class="pull-right">
-                                                                                       <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ route('enforcers.create') }}">Add New</a>
-                                                                                    </h1>
+                    {{--<h1 class="pull-right">--}}
+                                                                                       {{--<a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ route('enforcers.create') }}">Add New</a>--}}
+                                                                                    {{--</h1>--}}
                 </div>
                 <div class="main-card mb-3 card">
                @include('flash::message')

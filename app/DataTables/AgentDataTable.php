@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Agent;
+use App\Models\Lga;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -20,12 +21,16 @@ class AgentDataTable extends DataTable
 
 
         $dataTable
-            ->addColumn('email', function ($item) {
-                return @$item->biodata->email;
+            ->addColumn('lg', function ($item) {
+                $lga_id= @$item->biodata->lga_id;
+                if (empty($lga_id)){
+                    return "";
+                }
+
+                    return Lga::find($lga_id)->name;
+
             })
-            ->addColumn('device_id', function ($item) {
-                return @$item->user->device_id;
-            })
+
             ->filterColumn('device_id', function ($query, $keyword) {
                 $query->whereHas('user', function ($query) use ($keyword) {
                     $sql = "users.device_id  like ? ";
@@ -84,8 +89,8 @@ class AgentDataTable extends DataTable
             ['title' => 'First Name', 'data' => 'first_name', 'footer' => 'first_name'],
             ['title' => 'Last Name', 'data' => 'last_name', 'footer' => 'last_name'],
             ['title' => 'Phone', 'data' => 'phone', 'footer' => 'phone'],
-            ['title' => 'Email', 'data' => 'email', 'footer' => 'email'],
-            ['title' => 'Device ID', 'data' => 'device_id', 'footer' => 'device_id'],
+            ['title' => 'LGA', 'data' => 'lg', 'footer' => 'LGA'],
+
         ];
     }
 

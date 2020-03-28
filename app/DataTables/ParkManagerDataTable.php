@@ -63,10 +63,7 @@ class ParkManagerDataTable extends DataTable
     {
         return [
             'firstname',
-            'middlename',
             'lastname',
-            'phone',
-            'vehicle_type',
             'local_govt',
             'Parkmanager_id'
         ];

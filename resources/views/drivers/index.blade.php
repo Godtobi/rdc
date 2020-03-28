@@ -7,21 +7,21 @@
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
                         <div class="page-title-icon">
-                            <i class="lnr-picture text-danger">
+                            <i class="ln lnr-user text-danger">
                             </i>
                         </div>
                         <div>
-                            Drivers
+                            Manage Drivers
 
 
                         </div>
 
                     </div>
                 </div>
-                <h1 class="pull-right">
-                    <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
-                       href="{{ route('drivers.create') }}">Add New</a>
-                </h1>
+                {{--<h1 class="pull-right">--}}
+                    {{--<a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"--}}
+                       {{--href="{{ route('drivers.create') }}">Add New</a>--}}
+                {{--</h1>--}}
             </div>
             <div class="main-card mb-3 card">
                 @include('flash::message')

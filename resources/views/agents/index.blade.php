@@ -11,7 +11,7 @@
                             </i>
                         </div>
                         <div>
-                            Agents
+                            Manage Agents
 
 
                         </div>

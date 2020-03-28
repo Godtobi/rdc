@@ -82,7 +82,7 @@ class ParkManager extends Model
         'origin' => 'required',
         'vehicle_type' => 'required',
         'local_govt' => 'required',
-        'Parkmanager_id' => 'required'
+        'Parkmanager_id' => ' '
     ];
 
     

@@ -7,11 +7,11 @@
                     <div class="page-title-wrapper">
                         <div class="page-title-heading">
                             <div class="page-title-icon">
-                                <i class="lnr-picture text-danger">
+                                <i class="ln lnr-user text-danger">
                                 </i>
                             </div>
                             <div>
-                            User Details
+                            Create User
 
 
 

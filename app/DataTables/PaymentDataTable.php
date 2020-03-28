@@ -2,6 +2,9 @@
 
 namespace App\DataTables;
 
+use App\Models\Agent;
+use App\Models\Biodata;
+use App\Models\Lga;
 use App\Models\Payment;
 use Carbon\Carbon;
 use Yajra\DataTables\Services\DataTable;
@@ -85,6 +88,22 @@ class PaymentDataTable extends DataTable
             })
             ->editColumn('agent', function ($item) {
                 return @$item->user->name;
+            })
+            ->editColumn('lga', function ($item) {
+                $lg = @$item->user->biodata->lga_id;
+                if (empty($lg)){
+                    return '';
+                }
+
+                return Lga::find($lg)->name;
+            })
+            ->editColumn('agent_id', function ($item) {
+                $lg = @$item->user->id;
+                if (empty($lg)){
+                    return '';
+                }
+
+                return Biodata::where('data_id',$lg)->name;
             })
             ->filterColumn('agent', function ($query, $keyword) {
                 $query->whereHas('user', function ($query) use ($keyword) {
@@ -171,6 +190,8 @@ class PaymentDataTable extends DataTable
             // ['title' => 'Driver Name', 'data' => 'driver_name', 'footer' => 'driver_name', 'orderable' => false],
             // ['title' => 'Local Govt', 'data' => 'local_govt', 'footer' => 'local_govt', 'orderable' => false],
             ['title' => 'Agent', 'data' => 'agent', 'footer' => 'agent', 'orderable' => false],
+            ['title' => 'Agent ID', 'data' => 'agent_id', 'footer' => 'agent id', 'orderable' => false],
+            ['title' => 'LGA', 'data' => 'lga', 'footer' => 'LGA', 'orderable' => false],
             //['title' => 'Vehicle Type', 'data' => 'vehicle_type_id', 'footer' => 'vehicle_type_id'],
             // ['title' => 'Time', 'data' => 'time', 'footer' => 'time', 'searchable' => false],
             ['title' => 'Amount', 'data' => 'partial_amount', 'footer' => 'partial_amount'],
